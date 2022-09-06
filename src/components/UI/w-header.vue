@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <details>
+    <details ref="details" @click="toggle">
       <summary>
         <span></span>
         <span></span>
@@ -8,13 +8,49 @@
       </summary>
     </details>
   </header>
+  <WDrawer v-model:show="show">
+    <ul>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+    </ul>
+  </WDrawer>
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref, watch, onMounted, computed } from "vue"
+import WDrawer from "./w-drawer.vue"
+
+const show = ref(false)
+const details = ref(null)
+
+const toggle = () => {
+  show.value = !show.value
+  if (show.value == false) {
+    setTimeout(() => details.value.removeAttribute("open"), 0)
+  }
+}
+onMounted(() => {
+  watch(
+    () => show.value,
+    (newValue) => {
+      if (newValue == false) {
+        details.value.removeAttribute("open")
+      }
+    },
+    {
+      immediate: true,
+    }
+  )
+})
 </script>
 
 <style scoped lang="scss">
+ul {
+  background-color: red;
+}
 .header {
   height: 88px;
   background-color: rgb(54, 54, 54);
