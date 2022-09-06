@@ -1,27 +1,32 @@
 <template>
   <header class="header">
-    <details ref="details" @click="toggle">
-      <summary>
-        <span></span>
-        <span></span>
-        <span></span>
-      </summary>
-    </details>
+    <!-- 大于576px -->
+    <div class="container pc-item">
+      <img src="@/assets/logo.png" alt="" />
+      <HeaderItem class="pc-item-list"></HeaderItem>
+    </div>
+
+    <!-- 移动端 -->
+    <div class="container moble">
+      <img src="@/assets/logo.png" alt="" />
+      <details class="details" ref="details" @click="toggle">
+        <summary>
+          <span></span>
+          <span></span>
+          <span></span>
+        </summary>
+      </details>
+    </div>
   </header>
-  <WDrawer v-model:show="show">
-    <ul>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-    </ul>
+  <WDrawer class="drawer" v-model:show="show">
+    <HeaderItem class="drawer-item-list"></HeaderItem>
   </WDrawer>
 </template>
 
 <script setup>
 import { ref, watch, onMounted, computed } from "vue"
 import WDrawer from "./w-drawer.vue"
+import HeaderItem from "./header-item/index.vue"
 
 const show = ref(false)
 const details = ref(null)
@@ -48,13 +53,44 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-ul {
-  background-color: red;
+img {
+  width: 50px;
+  height: 50px;
 }
+.pc-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  :deep(.pc-item-list) {
+    display: flex;
+  }
+  // @media (min-width: 768px) {
+  // }
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+.moble {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
 .header {
   height: 88px;
   background-color: rgb(54, 54, 54);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   details {
+    width: 30px;
+    @media (min-width: 768px) {
+      display: none;
+    }
     user-select: none;
     &[open] {
       summary {

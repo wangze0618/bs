@@ -1,7 +1,7 @@
 <template>
   <div class="drawer" @click="Close($event)" v-show="show">
     <div class="content">
-      <slot></slot>
+      <slot class="header-item-list"></slot>
     </div>
   </div>
 </template>
@@ -25,18 +25,26 @@ const Close = (e) => {
 <style scoped lang="scss">
 .drawer {
   position: fixed;
+  top: 0;
   width: 100vw !important;
-  height: 100vw !important;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.679);
+  z-index: 999;
 }
 .content {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 300px;
   background-color: #fff;
   height: 100vh;
   z-index: 999;
   padding: 8px;
+  display: flex;
+  flex-direction: column !important;
+}
+.header-item-list {
+  display: flex;
+  flex-direction: column !important;
 }
 </style>
