@@ -4,15 +4,18 @@ const headerItem = [
     id: 0,
     title: "首页",
     to: "/",
+    show: false,
   },
   {
     id: 1,
     title: "走进五凤溪",
     to: "/a",
+    show: false,
     children: [
       {
         id: 11,
         title: "关于五凤溪",
+        to: "aas",
       },
       {
         id: 12,
@@ -20,7 +23,7 @@ const headerItem = [
       },
       {
         id: 13,
-        title: "自然与动物",
+        title: "自然与动物aa",
       },
       {
         id: 14,
@@ -32,6 +35,8 @@ const headerItem = [
     id: 2,
     title: "最新动态",
     to: "/b",
+    show: false,
+
     children: [
       {
         id: 21,
@@ -55,6 +60,8 @@ const headerItem = [
     id: 3,
     title: "旅游产品",
     to: "/c",
+    show: false,
+
     children: [
       {
         id: 31,
@@ -78,6 +85,8 @@ const headerItem = [
     id: 4,
     title: "智慧产品",
     to: "/d",
+    show: false,
+
     children: [
       {
         id: 41,
@@ -101,6 +110,8 @@ const headerItem = [
     id: 5,
     title: "智慧服务",
     to: "/5",
+    show: false,
+
     children: [
       {
         id: 51,

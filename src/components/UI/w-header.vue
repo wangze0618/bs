@@ -2,7 +2,7 @@
   <header class="header">
     <!-- 大于576px -->
     <div class="container pc-item">
-      <img src="@/assets/logo.png" alt="" />
+      <img src="@/assets/logo.jpg" alt="" />
       <HeaderItem class="pc-item-list"></HeaderItem>
     </div>
 
