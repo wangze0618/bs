@@ -8,7 +8,14 @@
         v-for="(item, index) in list.data.forecast"
       >
         <div class="date">{{ item.date }}</div>
-        <div class="type">{{ item.type }}</div>
+        <div class="type">
+          <LightRain size="36" v-if="item.type == '小雨'"></LightRain>
+          <LightRain size="36" v-else-if="item.type == '中雨'"></LightRain>
+          <HeavyRain size="36" v-else-if="item.type == '大雨'"></HeavyRain>
+          <Sun size="36" v-else-if="item.type == '晴天'"></Sun>
+          <Cloudy size="36" v-else-if="item.type == '多云'"></Cloudy>
+          <span>{{ item.type }}</span>
+        </div>
         <div class="fengli">{{ getNum(item.fengli) }}级</div>
         <div class="fengxiang">{{ item.fengxiang }}</div>
         <div class="low">{{ item.low }}</div>
@@ -21,15 +28,21 @@
 <script setup>
 import { onMounted, ref } from "vue"
 import axios from "axios"
+import { LightRain, HeavyRain, Sun, Cloudy } from "@icon-park/vue-next"
 
 const list = ref()
-const city = "金堂县"
+const props = defineProps({
+  city: {
+    type: String,
+    default: "会理",
+  },
+})
 
 // 获取天气数据
 const getWeather = async () => {
   const { data } = await axios({
     method: "get",
-    url: `http://wthrcdn.etouch.cn/weather_mini?city=${city}`,
+    url: `http://wthrcdn.etouch.cn/weather_mini?city=${props.city}`,
   })
   list.value = data
 }
@@ -59,5 +72,12 @@ const getNum = (str) => {
 }
 .day {
   flex: 1;
+  div {
+    margin: 5px 0;
+  }
+}
+.type {
+  display: flex;
+  flex-direction: column;
 }
 </style>

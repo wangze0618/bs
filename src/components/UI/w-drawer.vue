@@ -1,9 +1,11 @@
 <template>
-  <div class="drawer" @click="Close($event)" v-show="show">
-    <div class="content">
-      <slot class="header-item-list"></slot>
+  <transition name="fade">
+    <div class="drawer" @click="Close($event)" v-show="show">
+      <div class="content">
+        <slot></slot>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script setup>
@@ -23,6 +25,15 @@ const Close = (e) => {
 </script>
 
 <style scoped lang="scss">
+// .fade-enter-from {
+//   background-color: red !important;
+// }
+// .fade-enter-active {
+//   background-color: blue !important;
+// }
+// .fade-enter-leave {
+//   background-color: forestgreen !important;
+// }
 .drawer {
   position: fixed;
   top: 0;
@@ -38,11 +49,18 @@ const Close = (e) => {
   width: 300px;
   background-color: #fff;
   height: 100vh;
+  max-width: 300px;
   z-index: 999;
   padding: 8px;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column !important;
+  // 隐藏滚动条
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
 }
+
 .header-item-list {
   display: flex;
   flex-direction: column !important;

@@ -5,6 +5,7 @@
 
 <script setup>
 import { ref } from "vue"
+import Collapse from "./components/UI/collapse/index.vue"
 </script>
 
 <style scoped lang="scss"></style>

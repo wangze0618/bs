@@ -2,13 +2,13 @@
   <header class="header">
     <!-- 大于576px -->
     <div class="container pc-item">
-      <img src="@/assets/logo.jpg" alt="" />
+      <img @click="goHome" src="@/assets/logo.jpg" alt="" />
       <HeaderItem class="pc-item-list"></HeaderItem>
     </div>
 
     <!-- 移动端 -->
     <div class="container moble">
-      <img src="@/assets/logo.png" alt="" />
+      <img @click="goHome" src="@/assets/logo.jpg" alt="" />
       <details class="details" ref="details" @click="toggle">
         <summary>
           <span></span>
@@ -19,7 +19,7 @@
     </div>
   </header>
   <WDrawer class="drawer" v-model:show="show">
-    <HeaderItem class="drawer-item-list"></HeaderItem>
+    <Collapse :obj="item" v-for="(item, index) in headerItem"></Collapse>
   </WDrawer>
 </template>
 
@@ -27,9 +27,16 @@
 import { ref, watch, onMounted, computed } from "vue"
 import WDrawer from "./w-drawer.vue"
 import HeaderItem from "./header-item/index.vue"
+import headerItem from "@/api/header-item"
+import Collapse from "./collapse/index.vue"
+import { useRouter } from "vue-router"
 
 const show = ref(false)
 const details = ref(null)
+const router = useRouter()
+const goHome = () => {
+  router.push("/")
+}
 
 const toggle = () => {
   show.value = !show.value
@@ -81,11 +88,16 @@ img {
 }
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 88px;
   background-color: rgb(54, 54, 54);
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 999;
   details {
     width: 30px;
     @media (min-width: 768px) {

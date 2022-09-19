@@ -8,5 +8,9 @@ import "bootstrap/dist/js/bootstrap.min.js"
 // css样式
 import "@csstools/normalize.css"
 import "@/assets/style/common.scss"
+// nprogress
+import "nprogress/nprogress.js"
+import "nprogress/nprogress.css"
+
 const app = createApp(App)
 app.use(store).use(router).mount("#app")

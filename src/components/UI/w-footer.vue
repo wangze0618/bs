@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="container">
       <div class="weather">
-        <Weather></Weather>
+        <Weather city="会理"></Weather>
       </div>
       <div class="list d-none d-md-flex">
         <ul>
@@ -45,7 +45,7 @@
         <img src="@/assets/guiguan.png" alt="" srcset="" />
       </div>
       <div class="info">
-        <p>©2000-2022 五凤溪景区管理局 | 技术支持：wangze</p>
+        <p>©2000-2022 会理古城景区管理局 | 技术支持：wangze</p>
       </div>
     </div>
   </div>
@@ -70,6 +70,11 @@ import Weather from "./weather/index.vue"
     }
     .weather {
       border-bottom: 1px solid #434343;
+      @media (max-width: 576px) {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 14px;
+      }
     }
     .list {
       display: flex;
