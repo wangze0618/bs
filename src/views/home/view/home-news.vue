@@ -69,6 +69,7 @@ import {
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/style/mixin.scss";
 .content-box {
   color: #fff;
   margin-top: 5px;
@@ -82,10 +83,7 @@ import {
   }
 }
 .news-title {
-  text-align: center;
-  padding: 40px 0;
-  font-weight: bold;
-  color: #666;
+  @include home-title;
 }
 .news-1 {
   background: url("@/assets/home-news-1.jpg") no-repeat no-repeat center;

@@ -86,14 +86,17 @@ img {
     display: none;
   }
 }
-
+.active {
+  background-color: transparent;
+}
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 88px;
-  background-color: rgb(54, 54, 54);
+  background-color: rgba(54, 54, 54, 0.887);
+  backdrop-filter: blur(5px);
   display: flex;
   justify-content: space-around;
   align-items: center;

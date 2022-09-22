@@ -32,10 +32,10 @@ import "swiper/scss/scrollbar" // 轮播图的滚动条
 import "swiper/scss/autoplay" // 轮播图的自动播放
 
 const onSwiper = (swiper) => {
-  console.log(swiper)
+  // console.log(swiper)
 }
 const onSlideChange = () => {
-  console.log("slide change")
+  // console.log("slide change")
 }
 
 const props = defineProps({

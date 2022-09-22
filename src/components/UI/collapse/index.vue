@@ -23,7 +23,9 @@
     <div class="collapse" :id="`collapseExample${obj.id}`">
       <div class="card card-body" v-if="obj.children">
         <template v-for="(its, ids) in obj.children">
-          <a v-if="!its.to" href="javascript:;">{{ its.title }}</a>
+          <a class="collapse-link" v-if="!its.to" href="javascript:;">{{
+            its.title
+          }}</a>
           <router-link v-else :to="its.to" class="collapse-link">
             {{ obj.title }}
           </router-link>
@@ -45,7 +47,6 @@ const rotate = ref(false)
 const setClass = () => {
   rotate.value = !rotate.value
 }
-console.log(props.obj)
 </script>
 
 <style scoped lang="scss">
