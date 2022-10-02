@@ -11,11 +11,11 @@
     >
     </Carousel>
     <!-- 新闻政务 -->
-    <HomeNews></HomeNews>
+    <HomeNews class="wow fadeInUp" data-wow-duration="2s"></HomeNews>
     <!-- 旅游服务 -->
-    <HomeService></HomeService>
+    <HomeService class="wow fadeInUp" data-wow-duration="2s"></HomeService>
     <!-- 地图 -->
-    <Map></Map>
+    <Map class="wow fadeInUp" data-wow-duration="2s"></Map>
   </div>
 </template>
 
@@ -26,7 +26,15 @@ import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper"
 import HomeNews from "./view/home-news.vue"
 import HomeService from "./view/home-service.vue"
 import Map from "../../components/UI/map/map.vue"
+import { WOW } from "wowjs"
+
 const modules = [Navigation, Pagination, Autoplay, Scrollbar, A11y]
+onMounted(() => {
+  new WOW({
+    offset: 50,
+    live: false, // 当时为了解决警告问题 想查看所有属性可去官网了解  https://wowjs.uk/docs.html
+  }).init()
+})
 </script>
 
 <style scoped lang="scss">

@@ -15,16 +15,21 @@ const headerItem = [
         title: "关于会理",
         to: "/about/detail",
       },
+      // {
+      //   id: 12,
+      //   title: "关于会理id",
+      //   to: "/about/detail/:id",
+      // },
       {
-        id: 12,
+        id: 13,
         title: "标志景点",
       },
       {
-        id: 13,
+        id: 14,
         title: "自然与动物aa",
       },
       {
-        id: 14,
+        id: 15,
         title: "风俗文化",
       },
     ],

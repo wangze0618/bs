@@ -11,6 +11,26 @@ import "@/assets/style/common.scss"
 // nprogress
 import "nprogress/nprogress.js"
 import "nprogress/nprogress.css"
-
+// animate.css
+import "animate.css"
+import "wowjs/css/libs/animate.css" // 巨坑... 此地方要引入两个css
+// import wow from 'wowjs'
 const app = createApp(App)
+
+app.directive("lazyLoad", {
+  mounted(el, binding, vnode, prevVNode) {
+    const observer = new IntersectionObserver(
+      ([{ isIntersecting }]) => {
+        if (isIntersecting) {
+          el.src = binding.value
+          observer.unobserve(el)
+        }
+      },
+      {
+        threshold: 0,
+      }
+    )
+    observer.observe(el)
+  },
+})
 app.use(store).use(router).mount("#app")

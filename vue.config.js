@@ -5,7 +5,6 @@ module.exports = defineConfig({
   devServer: {
     open: true,
     port: 8080,
-    https: false,
   },
   // chainWebpack: (config) => {
   //   config.devServer.disableHostCheck(true)

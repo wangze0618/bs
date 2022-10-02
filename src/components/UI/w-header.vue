@@ -3,7 +3,7 @@
     <!-- 大于576px -->
     <div class="container pc-item">
       <img @click="goHome" src="@/assets/logo.jpg" alt="" />
-      <HeaderItem class="pc-item-list"></HeaderItem>
+      <HeaderItem class="pc-item-list"> </HeaderItem>
     </div>
 
     <!-- 移动端 -->
