@@ -1,6 +1,11 @@
 <template>
   <div class="buttons">
-    <button type="button" class="btn" :class="[`btn-${type}`, `btn-${size}`]">
+    <button
+      :disabled="disabled"
+      type="button"
+      class="btn"
+      :class="[`btn-${type}`, `btn-${size}`]"
+    >
       <slot>按钮</slot>
     </button>
   </div>
@@ -26,6 +31,10 @@ const props = defineProps({
         "light",
       ].includes(value)
     },
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
   },
   size: {
     type: String,

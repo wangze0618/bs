@@ -1,5 +1,6 @@
 import axios from "axios"
-const baseURL = `http://127.0.0.1:9900`
+import store from "@/store"
+const baseURL = `http://127.0.0.1:8900`
 const instance = axios.create({
   baseURL,
   timeout: 5000,
@@ -7,7 +8,11 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
+    const token = store.getters["user/userToken"]()
     // Do something before request is sent
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
+    }
     return config
   },
   (error) => {

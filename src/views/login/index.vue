@@ -23,7 +23,7 @@
       class="login-video"
       src="@/assets/login.mp4"
     ></video>
-    <div class="wrap1 wow bounceInDown">
+    <div class="wrap1">
       <div class="row">
         <div class="form-main col-sm-12">
           <div class="tabs">
@@ -60,24 +60,21 @@
 <script setup>
 import { ref, onMounted } from "vue"
 import { useRouter } from "vue-router"
+import { useStore } from "vuex"
 import { WOW } from "wowjs"
 import Form from "./components/form.vue"
 const router = useRouter()
 const activeName = ref("form-box")
 onMounted(() => {
-  setTimeout(() => {
-    new WOW({
-      live: false, // 当时为了解决警告问题 想查看所有属性可去官网了解  https://wowjs.uk/docs.html
-    }).init()
-  }, 0)
+  new WOW({
+    live: false, // 当时为了解决警告问题 想查看所有属性可去官网了解  https://wowjs.uk/docs.html
+  }).init()
 })
 </script>
 
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
-* {
-  transition: all 0.5s;
-}
+
 .active {
   color: rgb(218, 255, 179);
   border-bottom: 2px solid rgb(171, 255, 146);
@@ -106,6 +103,8 @@ onMounted(() => {
   position: relative;
   height: 100vh;
   .form-main {
+    transition: all 0.5s;
+    min-height: 410px;
     overflow: hidden;
     backdrop-filter: blur(8px);
     padding: 0;

@@ -16,6 +16,7 @@ import { articleList } from "@/api/article"
 import { useRouter } from "vue-router"
 import confirmBox from "@/components/UI/confirm/index.js"
 import Button from "@/components/UI/button/index.vue"
+import AlertBox from "@/components/UI/alert/index"
 const router = useRouter()
 const tt = async () => {
   try {
@@ -31,6 +32,10 @@ const getId = (id) => {
     },
   })
 }
+
+setTimeout(() => {
+  AlertBox("success", "成功！")
+}, 2000)
 </script>
 
 <style scoped lang="scss">
