@@ -7,25 +7,38 @@ export default {
       // 用户信息
       profile: {
         id: "",
-        avatar: "",
+        username: "",
         nickname: "",
-        account: "",
+        email: "",
+        user_pic: "", // 用户头像
         mobile: "",
-        token: "",
+        introduce: "",
       },
+      token: null,
     }
   },
 
   mutations: {
-    // 修改用户信息
+    // 修改用户登录token
     setUserToken(state, payload) {
-      state.profile.token = payload
+      state.token = payload
+    },
+
+    // 设置基本信息
+    setUserProfile(state, payload) {
+      state.profile.id = payload.id
+      state.profile.username = payload.username
+      state.profile.nickname = payload.nickname
+      state.profile.email = payload.email
+      state.profile.user_pic = payload.user_pic
+      state.profile.mobile = payload.mobile
+      state.profile.introduce = payload.introduce
     },
   },
 
   getters: {
     userToken: (state) => () => {
-      return state.profile.token
+      return state.token
     },
   },
 }

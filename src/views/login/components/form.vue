@@ -208,7 +208,9 @@ import validateSchema2 from "@/utils/validate-regist-schema"
 import { userLogin, userRegist } from "@/api/backend/user"
 import { useStore } from "vuex"
 import AlertBox from "@/components/UI/alert"
-
+import { useRouter, useRoute } from "vue-router"
+const router = useRouter()
+const route = useRoute()
 const store = useStore()
 const hasAccount = ref(true)
 const formLogin = ref(null)

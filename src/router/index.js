@@ -6,6 +6,9 @@ import About from "@/views/about/index.vue"
 import AboutDetail from "@/views/about/views/about-detail.vue"
 import AboutDetailInfo from "@/views/about/views/about-detail-info.vue"
 import Login from "@/views/login/index.vue"
+import User from "@/views/user/index.vue"
+import store from "@/store"
+import confirmBox from "@/components/UI/confirm"
 nprogress.start()
 const routes = [
   {
@@ -32,6 +35,11 @@ const routes = [
         name: "/about/detail/:id",
         component: AboutDetailInfo,
       },
+      {
+        path: "/user",
+        name: "/user",
+        component: User,
+      },
     ],
   },
   {
@@ -51,6 +59,14 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+})
+
+router.beforeEach(async (to, from, next) => {
+  if (to.path == "/user" && store.state.user.token == null) {
+    await confirmBox({ title: "提示", text: "请先登录" })
+    router.push(`/login?redirect=${to.path}`)
+  }
+  next()
 })
 nprogress.done()
 

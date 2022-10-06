@@ -62,6 +62,7 @@ const confirm = () => {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.432);
   backdrop-filter: blur(5px);
+  z-index: 999;
   .confirm-content {
     position: absolute;
     left: 50%;
