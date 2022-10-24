@@ -8,8 +8,9 @@
       @blur="backRows($event)"
       placeholder="善语结良缘，恶语伤人心~"
       class="form-control text1"
+      v-model="text"
     />
-    <Button class="button1" size="large">发布</Button>
+    <Button @click="logText()" class="button1" size="large">发布</Button>
   </div>
 </template>
 
@@ -17,10 +18,27 @@
 import { ref } from "vue"
 import { useStore } from "vuex"
 import Button from "@/components/UI/button/index.vue"
+import AlertBox from "../../alert"
 const store = useStore()
 const tar = ref(null)
+const text = ref("")
+const emit = defineEmits(["getText"])
+
+const logText = () => {
+  try {
+    if (text.value.trim().length == 0) {
+      return AlertBox("warning", "内容不能为空！")
+    } else {
+      emit("getText", text.value)
+      text.value = null
+    }
+  } catch (error) {}
+}
+
 const changeRows = (e) => {
-  e.target.rows = 3
+  setTimeout(() => {
+    e.target.rows = 3
+  }, 100)
 }
 const backRows = (e) => {
   setTimeout(() => {

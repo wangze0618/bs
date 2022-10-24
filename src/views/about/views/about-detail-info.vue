@@ -11,6 +11,7 @@
       </ul>
     </template>
   </div>
+
   <!-- 评论区 -->
   <Comment></Comment>
 </template>
@@ -21,6 +22,7 @@ import { useRoute } from "vue-router"
 import { detailData } from "@/api/article_detail"
 import { productsDetail } from "@/api/product_detail"
 import Comment from "@/components/UI/comment/index.vue"
+import V1Detail from "./components/v1-detail.vue"
 
 const route = useRoute()
 console.log(route.params)

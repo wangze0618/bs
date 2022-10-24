@@ -1,12 +1,8 @@
 <template>
   <div class="weather-box" v-if="list">
-    <div class="city">{{ list.data.city }}天气</div>
+    <div class="city">{{ city }}天气</div>
     <div class="forecast">
-      <div
-        style="text-align: center"
-        class="day"
-        v-for="(item, index) in list.data.forecast"
-      >
+      <div style="text-align: center" class="day" v-for="(item, index) in list">
         <div class="date">{{ item.date }}</div>
         <div class="type">
           <LightRain size="36" v-if="item.type == '小雨'"></LightRain>
@@ -16,7 +12,7 @@
           <Cloudy size="36" v-else-if="item.type == '多云'"></Cloudy>
           <span>{{ item.type }}</span>
         </div>
-        <div class="fengli">{{ getNum(item.fengli) }}级</div>
+        <div class="fengli">{{ item.fengli }}级</div>
         <div class="fengxiang">{{ item.fengxiang }}</div>
         <div class="low">{{ item.low }}</div>
         <div class="high">{{ item.high }}</div>
@@ -34,16 +30,63 @@ const list = ref()
 const props = defineProps({
   city: {
     type: String,
-    default: "会理",
+    default: "尧坝",
   },
 })
 
 // 获取天气数据
-const getWeather = async () => {
-  const { data } = await axios({
-    method: "get",
-    url: `http://wthrcdn.etouch.cn/weather_mini?city=${props.city}`,
-  })
+const getWeather = () => {
+  // const { data } = await axios({
+  //   method: "get",
+  //   url: `http://wthrcdn.etouch.cn/weather_mini?city=${props.city}`,
+  // })
+  const data = [
+    {
+      id: 0,
+      date: "3号",
+      type: "小雨",
+      fengli: "1",
+      fengxiang: "南风",
+      low: "8",
+      high: "12",
+    },
+    {
+      id: 1,
+      date: "4号",
+      type: "小雨",
+      fengli: "1",
+      fengxiang: "南风",
+      low: "8",
+      high: "12",
+    },
+    {
+      id: 2,
+      date: "4号",
+      type: "小雨",
+      fengli: "1",
+      fengxiang: "南风",
+      low: "8",
+      high: "12",
+    },
+    {
+      id: 3,
+      date: "4号",
+      type: "小雨",
+      fengli: "1",
+      fengxiang: "南风",
+      low: "8",
+      high: "12",
+    },
+    {
+      id: 4,
+      date: "4号",
+      type: "小雨",
+      fengli: "1",
+      fengxiang: "南风",
+      low: "8",
+      high: "12",
+    },
+  ]
   list.value = data
 }
 getWeather()

@@ -12,6 +12,14 @@
       <p>{{ item.title }}</p>
     </div>
   </template>
+  <V1
+    @click="
+      router.push({
+        name: '/about/detail/:id',
+        params: { id: 1 },
+      })
+    "
+  ></V1>
   <!-- <Comment></Comment> -->
 </template>
 
@@ -26,6 +34,7 @@ import { productsDetail } from "@/api/product_detail"
 import Button from "@/components/UI/button/index.vue"
 import { getProduct, getProductById } from "@/api/backend/product"
 import Comment from "@/components/UI/comment/index.vue"
+import V1 from "./components/v1.vue"
 const router = useRouter()
 const goDetail = (id) => {
   router.push({

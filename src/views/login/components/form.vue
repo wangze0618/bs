@@ -235,12 +235,20 @@ const loginSubmit = async () => {
       username: loginForm.username,
       password: loginForm.password,
     }
-    const data = await userLogin(loginData)
-    if (data.data.token) {
-      store.commit("user/setUserToken", data.data.token)
-      AlertBox("success", data.data.message)
+    // const data = await userLogin(loginData)
+    // if (data.data.token) {
+    //   store.commit("user/setUserToken", data.data.token)
+    //   AlertBox("success", data.data.message)
+    // } else {
+    //   AlertBox("warning", data.data.message)
+    // }
+    let token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJhZG1pbjEiLCJwYXNzd29yZCI6IiIsIm5pY2tuYW1lIjoi5bCP5rO98J-YhCIsImVtYWlsIjoiMjg2NzI3MzgyOEBxcS5jb20iLCJ1c2VyX3BpYyI6IiIsImludHJvZHVjZSI6IuaIkeaYr-Wwj-azvX4iLCJtb2JpbGUiOiIiLCJpYXQiOjE2NjY2MTM5MjUsImV4cCI6MTY2NjcwMDMyNX0.es9tit4oRdc3uMMP51Rglzx0WLPYrnJ3TjljpyBdKko"
+    if (loginForm.username == "admin1" && loginForm.password == "000000") {
+      store.commit("user/setUserToken", token)
+      AlertBox("success", "登录成功！")
     } else {
-      AlertBox("warning", data.data.message)
+      AlertBox("warning", "登录失败！")
     }
   }
 }

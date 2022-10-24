@@ -35,8 +35,17 @@ const modules = [Navigation, Pagination, Autoplay, Scrollbar, A11y]
 
 // 上来就加载用户信息并保存在VueX里，很快啊~
 const getInfo = async () => {
-  const { data } = await getUserInfo()
-  store.commit("user/setUserProfile", data.data)
+  // const { data } = await getUserInfo()
+  const data = {
+    id: 0,
+    username: "admin1",
+    nickname: "小泽君",
+    email: "2867273828@qq.com",
+    user_pic: require("@/assets/avatar.jpg"),
+    mobile: "15994195797",
+    introduce: "",
+  }
+  store.commit("user/setUserProfile", data)
 }
 onMounted(() => {
   getInfo()

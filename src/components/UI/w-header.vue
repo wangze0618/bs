@@ -20,6 +20,23 @@
   </header>
   <WDrawer class="drawer" v-model:show="show">
     <Collapse :obj="item" v-for="(item, index) in headerItem"></Collapse>
+    <!-- 单个 -->
+    <CollapseSlot>
+      <span>123</span>
+      <template #menu>
+        <CollapseItem>12</CollapseItem>
+        <CollapseItem>34</CollapseItem>
+        <CollapseItem>56</CollapseItem>
+      </template>
+    </CollapseSlot>
+    <CollapseSlot :show-icon="false">
+      <span>123</span>
+      <template #menu>
+        <CollapseItem>12</CollapseItem>
+        <CollapseItem>12</CollapseItem>
+        <CollapseItem>12</CollapseItem>
+      </template>
+    </CollapseSlot>
   </WDrawer>
 </template>
 
@@ -30,6 +47,8 @@ import HeaderItem from "./header-item/index.vue"
 import headerItem from "@/api/header-item"
 import Collapse from "./collapse/index.vue"
 import { useRouter } from "vue-router"
+import CollapseSlot from "./collapse-slot/index.vue"
+import CollapseItem from "./collapse-slot/components/collapse-item.vue"
 
 const show = ref(false)
 const details = ref(null)

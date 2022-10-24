@@ -1,11 +1,9 @@
 <template>
-  <transition name="fade">
-    <div class="drawer" @click="Close($event)" v-show="show">
-      <div class="content">
-        <slot></slot>
-      </div>
+  <div class="drawer" @click="Close($event)" v-if="show">
+    <div class="content">
+      <slot></slot>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script setup>
@@ -25,15 +23,6 @@ const Close = (e) => {
 </script>
 
 <style scoped lang="scss">
-// .fade-enter-from {
-//   background-color: red !important;
-// }
-// .fade-enter-active {
-//   background-color: blue !important;
-// }
-// .fade-enter-leave {
-//   background-color: forestgreen !important;
-// }
 .drawer {
   position: fixed;
   top: 0;

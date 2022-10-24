@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 样式 */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        position: relative;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 盒子 -->
+    <div class="box"></div>
+    <script>
+      /* 
+            【1】当鼠标在 box盒子中按下的时候，并且在浏览器中移动的时候，盒子跟随鼠标进行移动
+            【2】不管鼠标在任何位置抬起的时候，那么盒子就停止移动
+        */
+      // 盒子跟随光标在浏览器可视区域的水平、竖直位置移动
+      //获取元素
+      var box = document.querySelector(".box")
+      //鼠标按下事件
+      box.onmousedown = function () {
+        // 鼠标移动事件
+        window.onmousemove = function (e) {
+          /*
+                clientX  光标在浏览器可视区域的水平位置   
+                clientY 光标在浏览器可视区域的垂直位置 
+                offsetX 光标在元素上的水平位置  
+                offsetY 光标在元素上的垂直位置
+                box.offsetWidth  盒子宽度
+                box.offsetHeight  盒子高度
+                innerWidth   浏览器可视区域宽度
+                innerHeight   浏览器可视区域高度
+                */
+          // 保持光标在盒子元素中的居中位置
+          // var x = e.clientX - box.offsetWidth/2
+          // var y = e.clientY - box.offsetHeight/2
+          var x = e.clientX - box.offsetLeft
+          var y = e.clientY - box.offsetTop
+          // 盒子水平方向的最小值，即不给它超出innerWidth
+          if (x <= 0) {
+            x = 0
+          }
+          // 盒子垂直方向的最小值，即不给它超出innerHeight
+          if (y <= 0) {
+            y = 0
+          }
+          // 盒子水平方向的最大值，即不给它超出innerWidth
+          if (x >= innerWidth - box.offsetWidth) {
+            x = innerWidth - box.offsetWidth
+          }
+          // 盒子垂直方向的最大值，即不给它超出innerHeight
+          if (y >= innerHeight - box.offsetHeight) {
+            y = innerHeight - box.offsetHeight
+          }
+          // 盒子的位置
+          box.style.left = x + "px"
+          box.style.top = y + "px"
+        }
+        // 鼠标抬起事件
+        window.onmouseup = function () {
+          //让盒子不在跟随移动，  清除移动事件  直接赋值为空
+          window.onmousemove = null
+        }
+      }
+    </script>
+  </body>
+</html>

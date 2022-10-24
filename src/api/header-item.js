@@ -7,7 +7,7 @@ const headerItem = [
   },
   {
     id: 1,
-    title: "走进会理",
+    title: "走进尧坝",
     to: "/about",
     children: [
       {
@@ -36,7 +36,7 @@ const headerItem = [
   },
   {
     id: 2,
-    title: "最新动态",
+    title: "特色产品",
     to: "",
     children: [
       {
@@ -57,7 +57,7 @@ const headerItem = [
   },
   {
     id: 3,
-    title: "旅游产品",
+    title: "旅游服务",
     to: "/c",
     children: [
       {
@@ -80,7 +80,7 @@ const headerItem = [
   },
   {
     id: 4,
-    title: "智慧产品",
+    title: "新闻资讯",
     to: "/d",
     children: [
       {
@@ -103,26 +103,23 @@ const headerItem = [
   },
   {
     id: 5,
-    title: "智慧服务",
+    title: "登录注册",
     to: "/5",
-    children: [
-      {
-        id: 51,
-        title: "5关于五凤溪",
-      },
-      {
-        id: 52,
-        title: "5标志景点",
-      },
-      {
-        id: 53,
-        title: "5自然与动物",
-      },
-      {
-        id: 54,
-        title: "5风俗文化",
-      },
-    ],
+  },
+  {
+    id: 6,
+    title: "个人中心",
+    to: "/my",
+  },
+  {
+    id: 7,
+    title: "用户留言",
+    to: "/my",
+  },
+  {
+    id: 8,
+    title: "关于我们",
+    to: "/about-us",
   },
 ]
 

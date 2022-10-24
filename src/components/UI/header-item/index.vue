@@ -12,11 +12,17 @@
     <a v-if="store.state.user.token" @click="logout()" href="javascript:;"
       >退出登录</a
     >
-    <a href="javascript:;">
-      <template v-for="(item, index) in item1" :key="index">
-        <Dropdown :data="item"></Dropdown>
+    <DropdownSlot>
+      <span>dropdown</span>
+      <template #dropdown>
+        <DropdownItem @click="router.push('/')">
+          <a style="color: #000">11</a>
+        </DropdownItem>
+        <DropdownItem>
+          <span>213123</span>
+        </DropdownItem>
       </template>
-    </a>
+    </DropdownSlot>
   </div>
 </template>
 
@@ -28,20 +34,10 @@ import { useRouter } from "vue-router"
 import { useStore } from "vuex"
 import AlertBox from "../alert"
 import confirmBox from "../confirm"
+import DropdownSlot from "./dropdown-slot/index.vue"
+import DropdownItem from "./dropdown-slot/components/dropdown-item.vue"
 const router = useRouter()
 const store = useStore()
-const item1 = [
-  {
-    title: "个人中心",
-    to: "/user",
-    children: [
-      {
-        title: "登录",
-        to: "/user",
-      },
-    ],
-  },
-]
 
 const logout = async () => {
   try {
@@ -56,9 +52,6 @@ const logout = async () => {
 .header-item {
   width: 100%;
   justify-content: space-around;
-  a {
-    color: #fff;
-  }
 }
 .dropdown {
 }
