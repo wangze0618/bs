@@ -13,10 +13,10 @@
         <div class="row card1-row">
           <div class="left1 col-sm-12 col-md-4">
             <div class="content1">
-              <h3 class="left-title1">数读会理</h3>
+              <h3 class="left-title1">数读尧坝</h3>
               <div class="left2">
                 <div class="left2-content">
-                  <span class="left2-span">4500</span>
+                  <span class="left2-span">64</span>
                   <Home
                     class="home-icon"
                     size="52"
@@ -24,14 +24,76 @@
                     theme="filled"
                   ></Home>
                 </div>
-                <p class="area">总面积(平方公里)</p>
+                <p class="area">占地面积(平方千米)</p>
               </div>
-              <div class="left3">1</div>
+              <div class="left2">
+                <div class="left2-content">
+                  <span class="left2-span">60000</span>
+                  <Home
+                    class="home-icon"
+                    size="52"
+                    fill="gray"
+                    theme="filled"
+                  ></Home>
+                </div>
+                <p class="area">古街居民群总面积(平方千米)</p>
+              </div>
+              <div class="left2">
+                <div class="left2-content">
+                  <span class="left2-span">2000+</span>
+                  <Home
+                    class="home-icon"
+                    size="52"
+                    fill="gray"
+                    theme="filled"
+                  ></Home>
+                </div>
+                <p class="area">距今已经</p>
+              </div>
+              <div class="left2">
+                <div class="left2-content">
+                  <span class="left2-span">4.27</span>
+                  <Home
+                    class="home-icon"
+                    size="52"
+                    fill="gray"
+                    theme="filled"
+                  ></Home>
+                </div>
+                <p class="area">核心保护区(公顷)</p>
+              </div>
             </div>
           </div>
-          <div class="right1 col-sm-12 col-md-8">ad</div>
+          <div class="right1 col-sm-12 col-md-8">
+            <h3 class="right-title">关于尧坝</h3>
+            <div class="right-main" style="border: 1px solid red">
+              <div class="main-item">
+                <div class="item-left">
+                  <img
+                    style="width: 100px; height: 100px"
+                    src="@/assets/avatar.jpg"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+                <div class="item-right">
+                  <h4 class="right-title1">地理位置</h4>
+                  <div class="right-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Perspiciatis error vero nihil dolores dolorem consequatur,
+                    blanditiis ut esse, quibusdam, magnam officia minus
+                    assumenda? Accusantium minima omnis ratione fuga nulla
+                    recusandae.
+                  </div>
+                </div>
+              </div>
+              <div class="main-item">123</div>
+              <div class="main-item">123</div>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- <Card title="hah"> asd </Card>
       <div class="wow animated fadeInUp card">
         <div class="card-body">12131</div>
         <img src="@/assets/fj1.jpg" alt="" />
@@ -39,7 +101,7 @@
       <div class="wow animated fadeInUp card">
         <div class="card-body">12131</div>
         <img src="@/assets/fj1.jpg" alt="" />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -52,6 +114,7 @@ import { articleList } from "@/api/article.js"
 import { useRouter } from "vue-router"
 import { WOW } from "wowjs"
 import { Home } from "@icon-park/vue-next"
+import Card from "@/components/UI/card/index.vue"
 
 let dataList = ref(null)
 const router = useRouter()
@@ -76,12 +139,32 @@ onMounted(() => {
   @include card-shadow;
 }
 .card1 {
-  padding: 30px 60px;
+  padding: 30px 40px;
   .card1-row {
     .left1,
     .right1 {
+      padding: 0;
       border: 1px solid #000;
-      height: 400px;
+      // height: 400px;
+      .right-title {
+        text-align: center;
+        margin: 20px;
+        font-size: 16px;
+        color: #808080;
+      }
+      .right-main {
+        width: 100% !important;
+        height: auto;
+        .main-item {
+          border: 1px solid #000;
+          display: flex;
+          align-items: center;
+          .item-left {
+            margin-top: 14px;
+            margin-right: 16px;
+          }
+        }
+      }
     }
     .left1 {
       .content1 {

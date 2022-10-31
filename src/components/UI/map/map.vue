@@ -5,19 +5,16 @@
 </template>
 
 <script setup>
-import {
-  ref,
-  onMounted,
-  onBeforeMount,
-  shallowRef,
-  reactive,
-  toRefs,
-} from "vue"
+import { ref, onMounted, onBeforeMount, shallowRef } from "vue"
 import AMapLoader from "@amap/amap-jsapi-loader"
-// import { getLocation } from "@/tools/tools"
 
+const props = defineProps({
+  location: {
+    type: Array,
+    default: () => [105.644993, 28.739941],
+  },
+})
 let map = shallowRef(null)
-// const winOpen = ref(true)
 const initMap = async () => {
   const AMap = await AMapLoader.load({
     key: "65773a6a1bca2ce36d1332ba8a11fa8f",
@@ -30,7 +27,7 @@ const initMap = async () => {
       pinch: 45,
       viewMode: "3D", //是否为3D地图模式
       zoom: 16, //初始化地图级别
-      center: [102.245124, 26.658609], //初始化地图中心点位置
+      center: props.location, //初始化地图中心点位置
     })
     AMap.plugin(
       [
@@ -55,8 +52,10 @@ const initMap = async () => {
         map.addControl(new AMap.ControlBar())
         map.add(
           new AMap.Marker({
-            position: new AMap.LngLat(102.245124, 26.658609), // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
-            title: "会理古城",
+            // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+            // position: new AMap.LngLat(102.245124, 26.658609) 或者 [102.245124, 26.658609],
+            position: props.location,
+            title: "尧坝古镇",
           })
         )
       }

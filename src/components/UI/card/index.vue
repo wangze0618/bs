@@ -1,14 +1,25 @@
 <template>
   <div class="card">
-    <slot></slot>
+    <div class="card-body">
+      <h5 class="card-title" v-if="title">{{ props.title }}</h5>
+      <p class="card-text">
+        <slot></slot>
+      </p>
+      <img src="@/assets/fj1.jpg" class="card-img" alt="..." />
+    </div>
   </div>
 </template>
-
+<script setup>
+const props = defineProps({
+  title: {
+    type: String,
+    default: "",
+  },
+})
+</script>
 <style scoped lang="scss">
 .card {
   margin: 0 auto;
-  border: 1px solid #000;
-  background-color: pink;
   @media (max-width: 768px) {
     width: 100%;
   }
