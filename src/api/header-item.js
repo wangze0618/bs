@@ -101,16 +101,7 @@ const headerItem = [
       },
     ],
   },
-  {
-    id: 5,
-    title: "登录注册",
-    to: "/5",
-  },
-  {
-    id: 6,
-    title: "个人中心",
-    to: "/my",
-  },
+
   {
     id: 7,
     title: "用户留言",
