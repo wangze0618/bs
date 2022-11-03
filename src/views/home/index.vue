@@ -51,7 +51,7 @@ onMounted(() => {
   getInfo()
   new WOW({
     offset: 50,
-    live: false, // 当时为了解决警告问题 想查看所有属性可去官网了解  https://wowjs.uk/docs.html
+    live: false,
   }).init()
 })
 </script>

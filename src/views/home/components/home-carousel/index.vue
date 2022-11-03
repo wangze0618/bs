@@ -10,13 +10,15 @@
     :speed="speed"
     :loop="loop"
   >
-    <swiper-slide class="swiper-item" v-for="(item, index) in homeCarouselList">
-      <div class="swiper-content">
-        <h1 class="swiper-item-title">{{ item.title }}</h1>
-        <h3 class="swiper-item-desc">{{ item.desc }}</h3>
-      </div>
-      <img class="swiper-item-img" :src="item.url" alt="" />
-    </swiper-slide>
+    <template v-for="(item, index) in homeCarouselList">
+      <swiper-slide class="swiper-item">
+        <div class="swiper-content">
+          <h1 class="swiper-item-title">{{ item.title }}</h1>
+          <h3 class="swiper-item-desc">{{ item.desc }}</h3>
+        </div>
+        <img class="swiper-item-img" :src="item.url" alt="" />
+      </swiper-slide>
+    </template>
   </swiper>
 </template>
 
@@ -31,11 +33,12 @@ import "swiper/scss/navigation" // 轮播图两边的左右箭头
 import "swiper/scss/scrollbar" // 轮播图的滚动条
 import "swiper/scss/autoplay" // 轮播图的自动播放
 
+// let currIndex = ref(1)
 const onSwiper = (swiper) => {
   // console.log(swiper)
 }
-const onSlideChange = () => {
-  // console.log("slide change")
+const onSlideChange = (e) => {
+  // currIndex.value = e.activeIndex
 }
 
 const props = defineProps({

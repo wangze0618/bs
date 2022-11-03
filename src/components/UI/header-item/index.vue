@@ -1,6 +1,6 @@
 <template>
   <div class="header-item">
-    <template v-for="(item, index) in headerItem" :key="index">
+    <!-- <template v-for="(item, index) in headerItem" :key="index">
       <Dropdown class="dropdown" :data="item"></Dropdown>
     </template>
     <a
@@ -11,18 +11,58 @@
     >
     <a v-if="store.state.user.token" @click="logout()" href="javascript:;"
       >退出登录</a
-    >
+    > -->
+    <RouterLink to="/">首页</RouterLink>
+
+    <!-- 走进尧坝 -->
     <DropdownSlot>
-      <span>dropdown</span>
+      <span @click="router.push('/about')">走进尧坝</span>
       <template #dropdown>
-        <DropdownItem @click="router.push('/')">
-          <a style="color: #000">11</a>
+        <DropdownItem @click="router.push('/about/detail')">
+          详细介绍
         </DropdownItem>
-        <DropdownItem>
-          <span>213123</span>
-        </DropdownItem>
+        <DropdownItem> 主要景点 </DropdownItem>
       </template>
     </DropdownSlot>
+
+    <!-- 特色产品 -->
+    <DropdownSlot>
+      <span>特色产品</span>
+      <template #dropdown>
+        <DropdownItem @click="router.push('/')"> 特色美食 </DropdownItem>
+        <DropdownItem> 特色手工 </DropdownItem>
+      </template>
+    </DropdownSlot>
+
+    <!-- 旅游服务 -->
+    <DropdownSlot>
+      <span>旅游服务</span>
+      <template #dropdown>
+        <DropdownItem @click="router.push('/')"> 酒店住宿 </DropdownItem>
+        <DropdownItem> 路线规划 </DropdownItem>
+        <DropdownItem> 门票预订 </DropdownItem>
+      </template>
+    </DropdownSlot>
+
+    <!-- 新闻资讯 -->
+    <RouterLink to="/">新闻资讯</RouterLink>
+
+    <!-- 登录注册 -->
+    <RouterLink
+      v-if="store.state.user.token == null"
+      @click="router.push('/login')"
+      to="/"
+      >登录注册</RouterLink
+    >
+    <a v-if="store.state.user.token" @click="logout()" href="javascript:;"
+      >退出登录</a
+    >
+
+    <!-- 用户留言 -->
+    <RouterLink to="/">用户留言</RouterLink>
+
+    <!-- 关于我们 -->
+    <RouterLink to="/">关于我们</RouterLink>
   </div>
 </template>
 
@@ -49,6 +89,15 @@ const logout = async () => {
 </script>
 
 <style scoped lang="scss">
+a {
+  color: #fff;
+  &:hover {
+    color: #fff;
+  }
+}
+span {
+  cursor: pointer;
+}
 .header-item {
   width: 100%;
   justify-content: space-around;

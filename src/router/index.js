@@ -17,34 +17,29 @@ const routes = [
     children: [
       {
         path: "/",
-        name: "/",
+        name: "Home",
         component: Home,
       },
       {
         path: "/about",
-        name: "/about",
-        component: About,
+        name: "About",
+        component: () => import("@/views/about/index.vue"),
       },
       {
         path: "/about/detail/",
-        name: "/about/detail/",
-        component: AboutDetail,
+        name: "AboutDetail",
+        component: () => import("@/views/about/views/about-detail.vue"),
       },
       {
         path: "/about/detail/:id",
-        name: "/about/detail/:id",
-        component: AboutDetailInfo,
-      },
-      {
-        path: "/user",
-        name: "/user",
-        component: User,
+        name: "AboutDetailInfo",
+        component: () => import("@/views/about/views/about-detail-info.vue"),
       },
     ],
   },
   {
     path: "/login",
-    component: Login,
+    component: () => import("@/views/login/index.vue"),
   },
   // {
   //   path: '/about',

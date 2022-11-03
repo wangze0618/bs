@@ -6,62 +6,50 @@ const headerItem = [
     to: "/",
   },
   {
-    id: 1,
+    id: 100,
     title: "走进尧坝",
     to: "/about",
     children: [
       {
-        id: 11,
-        title: "关于会理",
+        id: 101,
+        title: "详细介绍",
         to: "/about/detail",
       },
-      // {
-      //   id: 12,
-      //   title: "关于会理id",
-      //   to: "/about/detail/:id",
-      // },
       {
-        id: 13,
-        title: "标志景点",
-      },
-      {
-        id: 14,
-        title: "自然与动物aa",
-      },
-      {
-        id: 15,
-        title: "风俗文化",
+        id: 102,
+        title: "景区景点",
+        to: "/about/spot",
       },
     ],
   },
   {
-    id: 2,
+    id: 200,
     title: "特色产品",
     to: "",
     children: [
       {
-        id: 21,
+        id: 201,
         title: "景区新闻",
         to: "/news/scenic-news",
       },
       {
-        id: 22,
+        id: 202,
         title: "旅游公告",
         to: "notice",
       },
       {
-        id: 23,
+        id: 203,
         title: "每日进沟人数",
       },
     ],
   },
   {
-    id: 3,
+    id: 300,
     title: "旅游服务",
     to: "/c",
     children: [
       {
-        id: 31,
+        id: 301,
         title: "3关于五凤溪",
       },
       {
@@ -103,14 +91,19 @@ const headerItem = [
   },
 
   {
-    id: 7,
-    title: "用户留言",
-    to: "/my",
+    id: 5,
+    title: "登录注册",
+    to: "/login",
   },
   {
-    id: 8,
+    id: 6,
+    title: "用户留言",
+    to: "/comment",
+  },
+  {
+    id: 7,
     title: "关于我们",
-    to: "/about-us",
+    to: "/aboutus",
   },
 ]
 

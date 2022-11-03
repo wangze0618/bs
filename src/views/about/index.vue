@@ -2,7 +2,7 @@
   <div class="about">
     <div class="container">
       <!-- 面包屑组件 -->
-      <WBread sp=">">
+      <WBread class="wt" sp=">">
         <WBreadItem class="wit" to="/">首页</WBreadItem>
         <WBreadItem class="wit">走进会理</WBreadItem>
       </WBread>
@@ -41,24 +41,24 @@
               <div class="left2">
                 <div class="left2-content">
                   <span class="left2-span">2000+</span>
-                  <Home
+                  <Time
                     class="home-icon"
                     size="52"
                     fill="gray"
                     theme="filled"
-                  ></Home>
+                  ></Time>
                 </div>
                 <p class="area">距今已经</p>
               </div>
               <div class="left2">
                 <div class="left2-content">
                   <span class="left2-span">4.27</span>
-                  <Home
+                  <Time
                     class="home-icon"
                     size="52"
                     fill="gray"
                     theme="filled"
-                  ></Home>
+                  ></Time>
                 </div>
                 <p class="area">核心保护区(公顷)</p>
               </div>
@@ -66,42 +66,60 @@
           </div>
           <div class="right1 col-sm-12 col-md-8">
             <h3 class="right-title">关于尧坝</h3>
-            <div class="right-main" style="border: 1px solid red">
+            <div class="right-main">
               <div class="main-item">
                 <div class="item-left">
                   <img
-                    style="width: 100px; height: 100px"
+                    style="width: 80px; height: 80px"
+                    src="@/assets/avatar.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="item-right">
+                  <h4 class="right-title1">位置地貌</h4>
+                  <div class="right-content">
+                    尧坝古镇位于川南黔北结合部，地处东经105°42′，北纬28°45′，处于泸赤路（泸州——赤水）中段，距合江37公里、泸州22公里、赤水27公里、重庆市区94公里，成自泸赤高速公路穿境而过。尧坝古镇属浅丘地貌，四面环山，中间为平坝，最高点鼓楼山顶海拔720米，最低点尧坝场海拔310米。
+                  </div>
+                </div>
+              </div>
+
+              <div class="main-item">
+                <div class="item-left">
+                  <img
+                    style="width: 80px; height: 80px"
                     src="@/assets/avatar.jpg"
                     alt=""
                     srcset=""
                   />
                 </div>
                 <div class="item-right">
-                  <h4 class="right-title1">地理位置</h4>
+                  <h4 class="right-title1">名称由来</h4>
                   <div class="right-content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Perspiciatis error vero nihil dolores dolorem consequatur,
-                    blanditiis ut esse, quibusdam, magnam officia minus
-                    assumenda? Accusantium minima omnis ratione fuga nulla
-                    recusandae.
+                    尧坝古镇历史悠久，文化积淀深厚。根据考证，早在唐宋时期，尧坝所居人口主要是少数民族瑶族，当时的尧坝为瑶家坝子，古名“瑶坝”，后随着汉人从北方南进，入居尧坝人口的增多，少数民族逐渐向云贵高原山区迁徙；又因汉人祟拜尧舜黄帝，便将“瑶坝”的“瑶”改为“尧”，尧坝故而得名。
                   </div>
                 </div>
               </div>
-              <div class="main-item">123</div>
-              <div class="main-item">123</div>
+
+              <div class="main-item">
+                <div class="item-left">
+                  <img
+                    style="width: 80px; height: 80px"
+                    src="@/assets/avatar.jpg"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+                <div class="item-right">
+                  <h4 class="right-title1">综合概述</h4>
+                  <div class="right-content">
+                    尧坝古镇依山傍水，高低错落。现存建筑保存极为完整，古镇大多是典型的川南民居四合院的风格，绝大多数为清代、民国时期建筑。古民居群位于古街道两旁，全长1000多米，有小青瓦房2000余间。上街房依山而建，高低起伏、错落有致，下街房宁静平和，瓦脊连成一线，形成有节奏、有韵律的民居群落。
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- <Card title="hah"> asd </Card>
-      <div class="wow animated fadeInUp card">
-        <div class="card-body">12131</div>
-        <img src="@/assets/fj1.jpg" alt="" />
-      </div>
-      <div class="wow animated fadeInUp card">
-        <div class="card-body">12131</div>
-        <img src="@/assets/fj1.jpg" alt="" />
-      </div> -->
     </div>
   </div>
 </template>
@@ -113,7 +131,7 @@ import WBreadItem from "@/components/UI/bread/w-bread-item.vue"
 import { articleList } from "@/api/article.js"
 import { useRouter } from "vue-router"
 import { WOW } from "wowjs"
-import { Home } from "@icon-park/vue-next"
+import { Home, Time } from "@icon-park/vue-next"
 import Card from "@/components/UI/card/index.vue"
 
 let dataList = ref(null)
@@ -136,6 +154,7 @@ onMounted(() => {
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
 .card {
+  height: 100%;
   @include card-shadow;
 }
 .card1 {
@@ -143,9 +162,8 @@ onMounted(() => {
   .card1-row {
     .left1,
     .right1 {
-      padding: 0;
-      border: 1px solid #000;
-      // height: 400px;
+      // padding: 0;
+
       .right-title {
         text-align: center;
         margin: 20px;
@@ -154,14 +172,27 @@ onMounted(() => {
       }
       .right-main {
         width: 100% !important;
-        height: auto;
+        display: flex;
+        flex-direction: column;
         .main-item {
-          border: 1px solid #000;
+          // border: 1px solid #000;
           display: flex;
-          align-items: center;
+          margin-top: 30px;
+          // align-items: center;
+          // &:nth-child(n + 2) {
+
+          //   background-color: #808080;
+          // }
           .item-left {
-            margin-top: 14px;
+            margin-top: 30px;
             margin-right: 16px;
+          }
+          .item-right {
+            .right-title {
+            }
+            .right-content {
+              text-indent: 2em;
+            }
           }
         }
       }
@@ -202,8 +233,12 @@ onMounted(() => {
   margin-top: 88px;
   user-select: none;
   .container {
+    :deep(.wt) {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
     :deep(.wit) {
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 }

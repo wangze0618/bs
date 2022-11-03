@@ -33,4 +33,11 @@ app.directive("lazyLoad", {
     observer.observe(el)
   },
 })
+
+// 添加 bounceInDown 动画效果
+app.directive("bounceInDown", {
+  mounted(el) {
+    el.classList.add("wow", "bounceInDown")
+  },
+})
 app.use(store).use(router).mount("#app")
