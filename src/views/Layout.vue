@@ -1,6 +1,8 @@
 <template>
   <WHeader></WHeader>
-  <router-view></router-view>
+  <div class="main-body">
+    <router-view></router-view>
+  </div>
   <WFooter></WFooter>
 </template>
 
@@ -10,4 +12,8 @@ import WHeader from "../components/UI/w-header.vue"
 import WFooter from "@/components/UI/w-footer.vue"
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.main-body {
+  margin-top: 88px;
+}
+</style>

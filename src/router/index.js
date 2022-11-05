@@ -35,6 +35,18 @@ const routes = [
         name: "AboutDetailInfo",
         component: () => import("@/views/about/views/about-detail-info.vue"),
       },
+      // 用户留言
+      {
+        path: "/comment",
+        name: "Comment",
+        component: () => import("@/views/comment/index.vue"),
+      },
+      // 关于我们
+      {
+        path: "/aboutus",
+        name: "Aboutus",
+        component: () => import("@/views/aboutus/index.vue"),
+      },
     ],
   },
   {

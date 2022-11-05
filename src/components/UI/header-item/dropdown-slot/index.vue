@@ -19,16 +19,17 @@ import { ref } from "vue"
   transition: all 0.5s;
   .menu {
     transition: all 0.5s;
-    width: 160px;
-    border-radius: 5px;
-    padding: 10px;
+    width: 150px;
+    border-radius: 6px;
+    padding: 12px;
     position: absolute;
     background-color: #fff;
     // opacity: 0;
     display: none;
     // height: 0;
     z-index: 222;
-    left: -10px;
+    top: 60px;
+    left: -36px;
     overflow: hidden;
     box-shadow: 0px 2px 20px rgba(51, 51, 51, 0.495);
     a {
