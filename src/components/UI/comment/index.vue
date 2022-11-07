@@ -1,7 +1,8 @@
 <template>
-  <div class="comment">
+  <div v-if="commentList == false">加载中！</div>
+  <div v-else class="comment">
     <div class="container">
-      <h4 style="text-align: center">发表评论</h4>
+      <h4 class="title" style="text-align: center">发表评论</h4>
       <!-- 发表评论 -->
       <AddComment @getText="getContent($event)"></AddComment>
 
@@ -31,7 +32,18 @@
                 <ThumbsDown size="18" class="dislike-icon"></ThumbsDown>
                 <span class="dislike-number">{{ item.dislike }}</span>
               </div>
+              <!-- 回复 -->
+              <AddReplay
+                :obj="item"
+                @getReplay="getReplayText($event)"
+              ></AddReplay>
             </div>
+            <!-- 评论回复 -->
+            <template v-if="item.replay">
+              <div v-for="(r, i) in item.replay" class="replay">
+                <p>{{ r.user_name }}：{{ r.text }}</p>
+              </div>
+            </template>
           </div>
         </div>
       </div>
@@ -40,14 +52,18 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue"
+import { onMounted, reactive, ref, toRef } from "vue"
 import AddComment from "./components/add-comment.vue"
 import { ThumbsUp, ThumbsDown } from "@icon-park/vue-next"
 import { useStore } from "vuex"
 import AlertBox from "../alert"
+import { commentListData } from "../../../api/comment"
+import AddReplay from "./components/add-replay.vue"
 const store = useStore()
+
 const getContent = (t) => {
   let PersonObj = reactive({
+    id: commentList.value.length,
     user_id: store.state.user.profile.id,
     user_name: store.state.user.profile.username,
     user_pic: store.state.user.profile.user_pic,
@@ -55,80 +71,45 @@ const getContent = (t) => {
     pub_date: new Date().toLocaleString(),
     like: 99,
     dislike: 0,
+    replay: [],
   })
   setTimeout(() => {
     commentList.value.unshift(PersonObj)
     AlertBox("success", "发布成功！")
   }, 500)
 }
-const commentList = ref([
-  {
-    user_id: 9,
-    user_name: "东北大喵",
-    user_pic: require("@/assets/avatar.jpg"),
-    text: "很好哈哈哈",
-    pub_date: "2022/10/6 18:29:59",
-    like: 518,
-    dislike: 0,
-  },
-  {
-    user_id: 9,
-    user_name: "东北大喵",
-    user_pic: require("@/assets/avatar.jpg"),
-    text: "值得一去",
-    pub_date: "2022/10/6 18:29:59",
-    like: 509,
-    dislike: 0,
-  },
-  {
-    user_id: 9,
-    user_name: "东北大喵",
-    user_pic: require("@/assets/avatar.jpg"),
-    text: "想去看看",
-    pub_date: "2022/10/6 18:29:59",
-    like: 7509,
-    dislike: 0,
-  },
-  {
-    user_id: 9,
-    user_name: "东北大喵",
-    user_pic: require("@/assets/avatar.jpg"),
-    text: "想去看看",
-    pub_date: "2022/10/6 18:29:59",
-    like: 34,
-    dislike: 0,
-  },
-  {
-    user_id: 9,
-    user_name: "东北大喵",
-    user_pic: require("@/assets/avatar.jpg"),
-    text: "1111111111",
-    pub_date: "2022/10/6 18:29:59",
-    like: 12,
-    dislike: 0,
-  },
-  {
-    user_id: 9,
-    user_name: "东北大喵",
-    user_pic: require("@/assets/avatar.jpg"),
-    text: "什么时候能出去",
-    pub_date: "2022/10/6 18:29:59",
-    like: 667,
-    dislike: 0,
-  },
-  {
-    user_id: 9,
-    user_name: "东北大喵",
-    user_pic: require("@/assets/avatar.jpg"),
-    text: "沙发",
-    pub_date: "2022/10/6 18:29:59",
-    like: 3,
-    dislike: 0,
-  },
-])
+
+let commentList = ref("")
+
+const getData = () => {
+  commentList.value = commentListData
+  console.log(commentList.value.length)
+}
+const getReplayText = (data) => {
+  console.log(data)
+  let it = commentList.value.filter((item) => item.id == data[1].id)
+  it[0].replay.push({
+    user_id: 0,
+    user_name: "dong",
+    text: data[0],
+    pub_date: "2022/10/7 12:45:32",
+  })
+}
+onMounted(() => {
+  getData()
+})
 </script>
 
 <style scoped lang="scss">
+.replay {
+  background-color: rgb(167, 167, 167);
+  border-radius: 6px;
+  p {
+    margin-bottom: 2px;
+    padding: 6px;
+    color: rgb(255, 255, 255);
+  }
+}
 .list {
   margin-top: 30px;
   .list-item {
@@ -142,6 +123,7 @@ const commentList = ref([
       height: 50px;
     }
     .main-content {
+      width: 100%;
       .name {
         color: #777;
       }
@@ -159,7 +141,7 @@ const commentList = ref([
         .like {
           display: flex;
           align-items: center;
-          margin: 0 14px;
+          margin: 0 8px;
         }
 
         .like,

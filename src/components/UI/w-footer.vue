@@ -1,6 +1,9 @@
 <template>
   <div class="footer">
     <div class="container">
+      <!-- 搜索框 -->
+      <Search></Search>
+      <!-- 天气 -->
       <div class="weather">
         <Weather city="会理"></Weather>
       </div>
@@ -54,6 +57,7 @@
 <script setup>
 import { ref } from "vue"
 import Weather from "./weather/index.vue"
+import Search from "./search/index.vue"
 </script>
 
 <style scoped lang="scss">
