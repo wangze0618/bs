@@ -1,5 +1,5 @@
 <template>
-  <div v-if="commentList == false">加载中！</div>
+  <div v-if="commentList == null">加载中！</div>
   <div v-else class="comment">
     <div class="container">
       <h4 class="title" style="text-align: center">发表评论</h4>
@@ -9,7 +9,7 @@
       <!-- 评论区域 -->
       <div class="list">
         <div
-          v-for="(item, index) in commentList"
+          v-for="(item, index) in getData().arr[currentPage - 1]"
           :key="index"
           class="list-item"
         >
@@ -48,22 +48,68 @@
         </div>
       </div>
     </div>
+    <div class="pagenation-box m-5">
+      <Pagenation
+        :total="getData().Totallength"
+        :pageSize="10"
+        :currentPage="currentPage"
+        class="pagenation1"
+        @get-current-page="getPage($event)"
+      ></Pagenation>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted, reactive, ref, toRef } from "vue"
+import { onMounted, reactive, ref, watch } from "vue"
 import AddComment from "./components/add-comment.vue"
 import { ThumbsUp, ThumbsDown } from "@icon-park/vue-next"
 import { useStore } from "vuex"
 import AlertBox from "../alert"
 import { commentListData } from "../../../api/comment"
 import AddReplay from "./components/add-replay.vue"
+import Pagenation from "../pagenation/index.vue"
 const store = useStore()
+const getData = () => {
+  let listLength = ref(0)
+  commentList.value = commentListData
+  listLength.value = commentList.value.length
+  // 模拟分页
+  function page1(arr, num) {
+    // 新建数组，用于储存新数组
+    var arrNew = []
+    // 如果单页的数组长度大于传入数组长度，则证明一个页面就可以展示
+    if (arr.length <= num) {
+      arrNew.push(arr)
+    } else {
+      // 下面这部分的操作是将 [1,2],[3.4]存入arrNew里面
+      for (var i = 0; i < Math.floor(arr.length / num); i++) {
+        arrNew.push(arr.slice(i * num, (i + 1) * num))
+        // 将剩余部分存入arrNew里面 （利用长度来判断后面有没有数字）
+        if (
+          i + 1 == Math.floor(arr.length / num) &&
+          arr.slice((i + 1) * num).length != 0
+        ) {
+          arrNew.push(arr.slice((i + 1) * num))
+        }
+      }
+    }
+    return { arrNew, listLength }
+  }
+
+  return {
+    arr: page1(commentList.value, 10).arrNew,
+    Totallength: listLength.value,
+  }
+  // 测试用例
+}
+onMounted(() => {
+  getData()
+})
 
 const getContent = (t) => {
   let PersonObj = reactive({
-    id: commentList.value.length,
+    id: 1,
     user_id: store.state.user.profile.id,
     user_name: store.state.user.profile.username,
     user_pic: store.state.user.profile.user_pic,
@@ -81,26 +127,41 @@ const getContent = (t) => {
 
 let commentList = ref("")
 
-const getData = () => {
-  commentList.value = commentListData
-  console.log(commentList.value.length)
-}
 const getReplayText = (data) => {
-  console.log(data)
+  console.log(data[1].user_name)
   let it = commentList.value.filter((item) => item.id == data[1].id)
   it[0].replay.push({
     user_id: 0,
-    user_name: "dong",
+    user_name: store.state.user.profile.username,
     text: data[0],
     pub_date: "2022/10/7 12:45:32",
   })
 }
-onMounted(() => {
-  getData()
-})
+const currentPage = ref(1)
+// watch(
+//   () => currentPage.value,
+//   () => {
+//     // console.log(commentList.value)
+//     // console.log(currentPage.value)
+//   },
+//   {
+//     immediate: true,
+//   }
+// )
+
+const getPage = (page) => {
+  currentPage.value = page
+}
+
+console.log(commentList.value.length)
 </script>
 
 <style scoped lang="scss">
+.pagenation-box {
+  :deep(.pagenation1) {
+    justify-content: center;
+  }
+}
 .replay {
   background-color: rgb(167, 167, 167);
   border-radius: 6px;

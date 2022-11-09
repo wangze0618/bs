@@ -14,23 +14,14 @@
       </div>
     </div>
   </div>
-  <div class="pagenation-box m-5">
-    <Pagenation :total="12" :pageSize="8" class="pagenation1"></Pagenation>
-  </div>
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref, watch } from "vue"
 import Comment from "@/components/UI/comment/index.vue"
-import Pagenation from "@/components/UI/pagenation/index.vue"
 </script>
 
 <style scoped lang="scss">
-.pagenation-box {
-  :deep(.pagenation1) {
-    justify-content: center;
-  }
-}
 :deep(.comment-main) {
   .title {
     display: none;

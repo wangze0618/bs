@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="container">
       <!-- 搜索框 -->
-      <Search></Search>
+      <Search class="search"></Search>
       <!-- 天气 -->
       <div class="weather">
         <Weather city="会理"></Weather>
@@ -61,6 +61,11 @@ import Search from "./search/index.vue"
 </script>
 
 <style scoped lang="scss">
+.search {
+  text-align: center;
+  padding: 26px;
+  border-bottom: 1px solid #434343;
+}
 .footer {
   color: #fff;
   background-color: #222222;
