@@ -1,5 +1,5 @@
 <template>
-  <div class="nwes">新闻资讯页</div>
+  <div class="service">旅行服务</div>
 </template>
 
 <script setup>

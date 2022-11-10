@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <!-- 大于576px -->
-    <div class="container pc-item">
+    <div class="container-lg pc-item">
       <img @click="goHome" src="@/assets/logo.jpg" alt="" />
       <HeaderItem class="pc-item-list"> </HeaderItem>
     </div>
@@ -19,24 +19,64 @@
     </div>
   </header>
   <WDrawer class="drawer" v-model:show="show">
-    <Collapse :obj="item" v-for="(item, index) in headerItem"></Collapse>
-    <!-- 单个 -->
-    <CollapseSlot>
-      <span>123</span>
-      <template #menu>
-        <CollapseItem>12</CollapseItem>
-        <CollapseItem>34</CollapseItem>
-        <CollapseItem>56</CollapseItem>
-      </template>
-    </CollapseSlot>
-    <CollapseSlot :show-icon="false">
-      <span>123</span>
-      <template #menu>
-        <CollapseItem>12</CollapseItem>
-        <CollapseItem>12</CollapseItem>
-        <CollapseItem>12</CollapseItem>
-      </template>
-    </CollapseSlot>
+    <div class="wrap">
+      <router-link class="home" to="/">首页</router-link>
+      <CollapseSlot>
+        <router-link to="/about">走进尧坝</router-link>
+        <template #menu>
+          <CollapseItem @click="router.push('/about/detail/')"
+            >详细介绍</CollapseItem
+          >
+          <CollapseItem @click="router.push('/about/main-spot')"
+            >主要景点</CollapseItem
+          >
+        </template>
+      </CollapseSlot>
+      <CollapseSlot>
+        <router-link to="/special">特色产品</router-link>
+        <template #menu>
+          <CollapseItem @click="router.push('/special/food')"
+            >特色美食</CollapseItem
+          >
+          <CollapseItem @click="router.push('/special/handmade')"
+            >特色手工</CollapseItem
+          >
+        </template>
+      </CollapseSlot>
+      <CollapseSlot>
+        <router-link to="/service">旅游服务</router-link>
+        <template #menu>
+          <CollapseItem @click="router.push('/service/hotel')"
+            >酒店住宿</CollapseItem
+          >
+          <CollapseItem @click="router.push('/service/route')"
+            >路线规划</CollapseItem
+          >
+          <CollapseItem @click="router.push('/service/ticket')"
+            >门票预订</CollapseItem
+          >
+        </template>
+      </CollapseSlot>
+      <!-- 新闻资讯 -->
+      <router-link class="news" to="/news">新闻资讯</router-link>
+      <!-- 登录注册 -->
+      <a
+        class="login-out"
+        v-if="store.state.user.token == null"
+        @click="router.push('/login')"
+        >登录注册</a
+      >
+      <a
+        class="login-out"
+        v-if="store.state.user.token"
+        @click="logout()"
+        href="javascript:;"
+        >退出登录</a
+      >
+
+      <RouterLink class="comment" to="/comment">用户留言</RouterLink>
+      <RouterLink class="aboutus" to="/aboutus">关于我们</RouterLink>
+    </div>
   </WDrawer>
 </template>
 
@@ -47,8 +87,12 @@ import HeaderItem from "./header-item/index.vue"
 import headerItem from "@/api/header-item"
 import Collapse from "./collapse/index.vue"
 import { useRouter } from "vue-router"
+import { useStore } from "vuex"
 import CollapseSlot from "./collapse-slot/index.vue"
 import CollapseItem from "./collapse-slot/components/collapse-item.vue"
+import AlertBox from "./alert"
+import ConfirmBox from "./confirm"
+const store = useStore()
 
 const show = ref(false)
 const details = ref(null)
@@ -63,6 +107,15 @@ const toggle = () => {
     setTimeout(() => details.value.removeAttribute("open"), 0)
   }
 }
+
+const logout = async () => {
+  try {
+    await ConfirmBox({ title: "退出登录", text: "确定退出登录?" })
+    store.commit("user/setUserToken", null)
+    AlertBox("success", "退出成功!")
+  } catch (error) {}
+}
+
 onMounted(() => {
   watch(
     () => show.value,
@@ -79,6 +132,34 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
+.wrap {
+  padding: 16px;
+  .comment,
+  .aboutus {
+    color: #000;
+    // width: 100%;
+    line-height: 38px;
+    display: block;
+    width: fit-content;
+    height: 38px;
+  }
+  .home,
+  .login-out,
+  .news {
+    color: #000;
+    width: fit-content;
+    line-height: 38px;
+    display: block;
+    height: 38px;
+  }
+  .collapse-box {
+    a {
+      color: #000;
+    }
+    color: #000;
+    padding: 0;
+  }
+}
 img {
   width: 50px;
   height: 50px;

@@ -34,14 +34,12 @@ const Close = (e) => {
 
 <style scoped lang="scss">
 .showcontainer {
-  opacity: 1;
+  // opacity: 1;
   visibility: visible;
-  // display: block;
 }
 .hide {
-  opacity: 0;
+  // opacity: 0;
   visibility: hidden;
-  // display: none;
 }
 .show {
   transform: translateX(0%) !important;

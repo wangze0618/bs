@@ -69,6 +69,7 @@ import AlertBox from "../alert"
 import { commentListData } from "../../../api/comment"
 import AddReplay from "./components/add-replay.vue"
 import Pagenation from "../pagenation/index.vue"
+import { getTime } from "@/tools/tools"
 const store = useStore()
 const getData = () => {
   let listLength = ref(0)
@@ -114,7 +115,7 @@ const getContent = (t) => {
     user_name: store.state.user.profile.username,
     user_pic: store.state.user.profile.user_pic,
     text: t,
-    pub_date: new Date().toLocaleString(),
+    pub_date: getTime(),
     like: 99,
     dislike: 0,
     replay: [],
@@ -152,8 +153,6 @@ const currentPage = ref(1)
 const getPage = (page) => {
   currentPage.value = page
 }
-
-console.log(commentList.value.length)
 </script>
 
 <style scoped lang="scss">

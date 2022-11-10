@@ -3,24 +3,26 @@
     <RouterLink class="routerLink1" to="/">首页</RouterLink>
 
     <!-- 走进尧坝 -->
-    <DropdownSlot @click="addClass($event)">
+    <DropdownSlot>
       <RouterLink class="routerLink1" to="/about">走进尧坝</RouterLink>
       <template #dropdown>
         <DropdownItem @click="router.push('/about/detail')">
           详细介绍
         </DropdownItem>
-        <DropdownItem> 主要景点 </DropdownItem>
+        <DropdownItem @click="router.push('/about/main-spot')">
+          主要景点
+        </DropdownItem>
       </template>
     </DropdownSlot>
 
     <!-- 特色产品 -->
     <DropdownSlot>
-      <RouterLink class="routerLink1" to="/specical">特色产品</RouterLink>
+      <RouterLink class="routerLink1" to="/special">特色产品</RouterLink>
       <template #dropdown>
-        <DropdownItem @click="router.push('/specical/food')">
+        <DropdownItem @click="router.push('/special/food')">
           特色美食
         </DropdownItem>
-        <DropdownItem @click="router.push('/specical/handmade')">
+        <DropdownItem @click="router.push('/special/handmade')">
           特色手工
         </DropdownItem>
       </template>
@@ -28,11 +30,17 @@
 
     <!-- 旅游服务 -->
     <DropdownSlot>
-      <RouterLink class="routerLink1" to="/serve">旅游服务</RouterLink>
+      <RouterLink class="routerLink1" to="/service">旅游服务</RouterLink>
       <template #dropdown>
-        <DropdownItem @click="router.push('/')"> 酒店住宿 </DropdownItem>
-        <DropdownItem> 路线规划 </DropdownItem>
-        <DropdownItem> 门票预订 </DropdownItem>
+        <DropdownItem @click="router.push('/service/hotel')">
+          酒店住宿
+        </DropdownItem>
+        <DropdownItem @click="router.push('/service/route')">
+          路线规划
+        </DropdownItem>
+        <DropdownItem @click="router.push('/service/ticket')">
+          门票预订
+        </DropdownItem>
       </template>
     </DropdownSlot>
 

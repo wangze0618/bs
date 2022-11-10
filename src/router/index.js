@@ -1,39 +1,106 @@
 import { createRouter, createWebHashHistory } from "vue-router"
 import nprogress from "nprogress"
-import Layout from "@/views/Layout.vue"
-import Home from "@/views/home/index.vue"
-import About from "@/views/about/index.vue"
-import AboutDetail from "@/views/about/views/about-detail.vue"
-import AboutDetailInfo from "@/views/about/views/about-detail-info.vue"
-import Login from "@/views/login/index.vue"
-import User from "@/views/user/index.vue"
+// import Layout from "@/views/Layout.vue"
+// import Home from "@/views/home/index.vue"
+// import About from "@/views/about/index.vue"
+// import AboutDetail from "@/views/about/views/about-detail.vue"
+// import AboutDetailInfo from "@/views/about/views/about-detail-info.vue"
+// import Login from "@/views/login/index.vue"
+// import User from "@/views/user/index.vue"
 import store from "@/store"
 import confirmBox from "@/components/UI/confirm"
 nprogress.start()
+console.log(1)
 const routes = [
   {
     path: "/",
-    component: Layout,
+    component: () => import("@/views/Layout.vue"),
     children: [
+      // 首页
       {
-        path: "/",
+        path: "",
         name: "Home",
-        component: Home,
+        component: () => import("@/views/home/index.vue"),
       },
+      // 走进尧坝
       {
         path: "/about",
         name: "About",
         component: () => import("@/views/about/index.vue"),
       },
+      // 走进尧坝--详细介绍
       {
         path: "/about/detail/",
         name: "AboutDetail",
         component: () => import("@/views/about/views/about-detail.vue"),
       },
+      // // 走进尧坝--详细介绍详情页
+      // {
+      //   path: "/about/detail/:id",
+      //   name: "AboutDetailInfo",
+      //   component: () => import("@/views/about/views/about-detail-info.vue"),
+      // },
+
+      // 走进尧坝--主要景点页
       {
-        path: "/about/detail/:id",
-        name: "AboutDetailInfo",
-        component: () => import("@/views/about/views/about-detail-info.vue"),
+        path: "/about/main-spot",
+        name: "MainSpot",
+        component: () => import("@/views/about/views/main-spot/index.vue"),
+      },
+      // 走进尧坝--主要景点详情页
+      {
+        path: "/about/main-spot/:id",
+        name: "MainSpotDetail",
+        component: () =>
+          import("@/views/about/views/main-spot-detail/index.vue"),
+      },
+      // 特色产品
+      {
+        path: "/special",
+        name: "Special",
+        component: () => import("@/views/news/index.vue"),
+      },
+      // 特色产品--特色美食
+      {
+        path: "/special/food",
+        name: "SpecialFood",
+        component: () => import("@/views/news/index.vue"),
+      },
+      // 特色产品--特色手工
+      {
+        path: "/special/handmade",
+        name: "SpecialHandmade",
+        component: () => import("@/views/news/index.vue"),
+      },
+      // 旅游服务
+      {
+        path: "/service",
+        name: "Service",
+        component: () => import("@/views/news/index.vue"),
+      },
+      // 旅游服务--酒店住宿
+      {
+        path: "/service/hotel",
+        name: "ServiceHotel",
+        component: () => import("@/views/news/index.vue"),
+      },
+      // 旅游服务--路线规划
+      {
+        path: "/service/route",
+        name: "ServiceRoute",
+        component: () => import("@/views/news/index.vue"),
+      },
+      // 旅游服务--门票预订
+      {
+        path: "/service/ticket",
+        name: "ServiceTicket",
+        component: () => import("@/views/news/index.vue"),
+      },
+      // 新闻资讯
+      {
+        path: "/news",
+        name: "News",
+        component: () => import("@/views/news/index.vue"),
       },
       // 用户留言
       {
