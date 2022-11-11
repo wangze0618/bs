@@ -18,10 +18,12 @@
 
 <script setup>
 import { ref, watch } from "vue"
+
 import Comment from "@/components/UI/comment/index.vue"
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/style/mixin.scss";
 :deep(.comment-main) {
   .title {
     display: none;
@@ -31,19 +33,20 @@ import Comment from "@/components/UI/comment/index.vue"
   // margin-top: 2em;
 }
 .img {
-  background: url("@/assets/image/usercomment.jpeg") center center no-repeat;
-  width: 100%;
-  height: 300px;
-  background-size: cover;
-  // object-fit: cover;
-  @media (max-width: 992px) {
-    height: 260px;
-  }
-  @media (max-width: 768px) {
-    height: 240px;
-  }
-  @media (max-width: 576px) {
-    height: 200px;
-  }
+  @include img("@/assets/image/usercomment.jpeg");
+  // background: url() center center no-repeat;
+  // width: 100%;
+  // height: 300px;
+  // background-size: cover;
+  // // object-fit: cover;
+  // @media (max-width: 992px) {
+  //   height: 260px;
+  // }
+  // @media (max-width: 768px) {
+  //   height: 240px;
+  // }
+  // @media (max-width: 576px) {
+  //   height: 200px;
+  // }
 }
 </style>

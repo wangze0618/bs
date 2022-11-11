@@ -14,7 +14,9 @@ import "nprogress/nprogress.css"
 // animate.css
 import "animate.css"
 import "wowjs/css/libs/animate.css" // 巨坑... 此地方要引入两个css
-// import wow from 'wowjs'
+// v-viewer
+import "viewerjs/dist/viewer.css"
+import VueViewer from "v-viewer"
 const app = createApp(App)
 
 app.directive("lazyLoad", {
@@ -40,4 +42,5 @@ app.directive("bounceInDown", {
     el.classList.add("wow", "bounceInDown")
   },
 })
+app.use(VueViewer)
 app.use(store).use(router).mount("#app")

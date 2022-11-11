@@ -23,9 +23,11 @@ const props = defineProps({
 const showCard = computed(() => {
   return setTimeout(() => {
     return props.show
-  }, 10)
+  }, 20)
 })
 const Close = (e) => {
+  console.log(e.currentTarget)
+  console.log(e.target)
   if (e.currentTarget === e.target) {
     emit("update:show", false)
   }
@@ -48,7 +50,7 @@ const Close = (e) => {
   transform: translateX(-100%) !important;
 }
 .drawer {
-  transition: all 0.4s;
+  transition: all 0.5s;
   position: fixed;
   top: 0;
   width: 100vw !important;

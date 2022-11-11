@@ -70,7 +70,7 @@ const routes = [
       {
         path: "/special/handmade",
         name: "SpecialHandmade",
-        component: () => import("@/views/news/index.vue"),
+        component: () => import("@/views/special/handmade/index.vue"),
       },
       // 旅游服务
       {
@@ -133,6 +133,9 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  },
 })
 
 router.beforeEach(async (to, from, next) => {
