@@ -58,19 +58,30 @@ const routes = [
       {
         path: "/special",
         name: "Special",
-        component: () => import("@/views/news/index.vue"),
+        component: () => import("@/views/special/index.vue"),
       },
       // 特色产品--特色美食
       {
         path: "/special/food",
         name: "SpecialFood",
+        component: () => import("@/views/special/index.vue"),
+      },
+      {
+        path: "/special/food/:id",
+        name: "SpecialFoodDetail",
         component: () => import("@/views/news/index.vue"),
       },
       // 特色产品--特色手工
       {
         path: "/special/handmade",
         name: "SpecialHandmade",
-        component: () => import("@/views/special/handmade/index.vue"),
+        component: () => import("@/views/special/views/handmade/index.vue"),
+      },
+      // 特色产品--特色手工详情页
+      {
+        path: "/special/handmade/:id",
+        name: "SpecialHandmadeDetail",
+        component: () => import("@/views/special/views/detail/index.vue"),
       },
       // 旅游服务
       {
