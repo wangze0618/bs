@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <!-- 大于576px -->
+    <!-- 大于576px pc端 -->
     <div class="container-lg pc-item">
       <img @click="goHome" src="@/assets/logo.jpg" alt="" />
       <HeaderItem class="pc-item-list"> </HeaderItem>

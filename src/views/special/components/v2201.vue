@@ -1,5 +1,7 @@
 <template>
-  <div class="container">2201233121</div>
+  <div class="">
+    <img style="width: 100%" src="@/assets/upload/handmade1.webp" alt="" />
+  </div>
 </template>
 
 <script setup>

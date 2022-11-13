@@ -66,43 +66,27 @@ import AddComment from "./components/add-comment.vue"
 import { ThumbsUp, ThumbsDown } from "@icon-park/vue-next"
 import { useStore } from "vuex"
 import AlertBox from "../alert"
-import { commentListData } from "../../../api/comment"
+import { commentListData } from "../../../api/user-comment/comment"
 import AddReplay from "./components/add-replay.vue"
 import Pagenation from "../pagenation/index.vue"
-import { getTime } from "@/tools/tools"
+import { getTime, page1 } from "@/tools/tools"
+const props = defineProps({
+  list: {
+    type: Array,
+    required: true,
+  },
+})
 const store = useStore()
+
 const getData = () => {
   let listLength = ref(0)
-  commentList.value = commentListData
+  commentList.value = props.list
   listLength.value = commentList.value.length
-  // 模拟分页
-  function page1(arr, num) {
-    // 新建数组，用于储存新数组
-    var arrNew = []
-    // 如果单页的数组长度大于传入数组长度，则证明一个页面就可以展示
-    if (arr.length <= num) {
-      arrNew.push(arr)
-    } else {
-      // 下面这部分的操作是将 [1,2],[3.4]存入arrNew里面
-      for (var i = 0; i < Math.floor(arr.length / num); i++) {
-        arrNew.push(arr.slice(i * num, (i + 1) * num))
-        // 将剩余部分存入arrNew里面 （利用长度来判断后面有没有数字）
-        if (
-          i + 1 == Math.floor(arr.length / num) &&
-          arr.slice((i + 1) * num).length != 0
-        ) {
-          arrNew.push(arr.slice((i + 1) * num))
-        }
-      }
-    }
-    return { arrNew, listLength }
-  }
 
   return {
-    arr: page1(commentList.value, 10).arrNew,
+    arr: page1(commentList.value, 10),
     Totallength: listLength.value,
   }
-  // 测试用例
 }
 onMounted(() => {
   getData()
@@ -123,7 +107,7 @@ const getContent = (t) => {
   setTimeout(() => {
     commentList.value.unshift(PersonObj)
     AlertBox("success", "发布成功！")
-  }, 500)
+  }, 0)
 }
 
 let commentList = ref("")

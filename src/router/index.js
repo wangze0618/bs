@@ -117,7 +117,7 @@ const routes = [
       {
         path: "/comment",
         name: "Comment",
-        component: () => import("@/views/comment/index.vue"),
+        component: () => import("@/views/user-comment/index.vue"),
       },
       // 关于我们
       {
@@ -130,6 +130,10 @@ const routes = [
   {
     path: "/login",
     component: () => import("@/views/login/index.vue"),
+  },
+  {
+    path: "/search",
+    component: () => import("@/views/search/index.vue"),
   },
   // {
   //   path: '/about',

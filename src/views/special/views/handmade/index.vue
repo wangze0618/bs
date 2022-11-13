@@ -131,9 +131,11 @@ onMounted(() => {
       overflow: hidden;
       img {
         width: 100%;
-        // min-height: 55% !important;
         min-height: 320px;
         transition: all 0.4s;
+        @media (max-width: 576px) {
+          min-height: 200px;
+        }
         &:hover {
           transform: scale(1.04);
         }

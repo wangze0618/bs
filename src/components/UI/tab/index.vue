@@ -1,63 +1,81 @@
 <template>
   <nav>
-    <div class="nav nav-pills flex-column flex-sm-row">
-      <button class="nav-link active" type="button" role="tab">Home</button>
+    <div class="nav nav-tabs flex-column flex-sm-row">
       <button
+        v-for="(item, index) in propsList"
+        :class="{ active: item.name == activeName }"
         class="nav-link"
-        id="nav-profile-tab"
-        data-bs-toggle="tab"
-        data-bs-target="#nav-profile"
         type="button"
         role="tab"
-        aria-controls="nav-profile"
-        aria-selected="false"
+        @click="changeActive(item.name)"
       >
-        Profile
-      </button>
-      <button
-        class="nav-link"
-        id="nav-contact-tab"
-        data-bs-toggle="tab"
-        data-bs-target="#nav-contact"
-        type="button"
-        role="tab"
-        aria-controls="nav-contact"
-        aria-selected="false"
-      >
-        Contact
+        {{ item.label }}
       </button>
     </div>
   </nav>
-  <div class="tab-content" id="nav-tabContent">
-    <div
-      class="tab-pane fade show active"
-      id="nav-home"
-      role="tabpanel"
-      aria-labelledby="nav-home-tab"
-    >
-      1
-    </div>
-    <div
-      class="tab-pane fade"
-      id="nav-profile"
-      role="tabpanel"
-      aria-labelledby="nav-profile-tab"
-    >
-      ...
-    </div>
-    <div
-      class="tab-pane fade"
-      id="nav-contact"
-      role="tabpanel"
-      aria-labelledby="nav-contact-tab"
-    >
-      ...
-    </div>
+  <div class="tab-content">
+    <slot></slot>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { provide, ref, useSlots, watch } from "vue"
+const props = defineProps({
+  activeName: {
+    type: String,
+  },
+})
+const emit = defineEmits(["update:activeName", "getActive"])
+const slot = useSlots().default()
+let propsList = []
+let activeName = ref("")
+
+slot.forEach((item, index) => {
+  propsList.push(item.props)
+})
+
+watch(
+  () => props.activeName,
+  (newVal) => {
+    activeName.value = newVal
+  },
+  {
+    immediate: true,
+  }
+)
+
+const changeActive = (name) => {
+  activeName.value = name
+  emit("update:activeName", activeName.value)
+  emit("getActive", activeName.value)
+}
+provide("currActiveName", activeName)
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.nav-link {
+  color: #000;
+  border: 1px solid #e4e7ed;
+  &.active {
+    border: 1px solid #931e1e !important;
+    color: #931e1e;
+  }
+  @media (max-width: 576px) {
+    border-radius: 0;
+    &:first-child {
+      border-radius: 6px 6px 0 0;
+      border: 1px solid #931e1e !important;
+    }
+    &:last-child {
+      border-radius: 0 0 6px 6px;
+    }
+  }
+}
+.tab-content {
+  border: 1px solid #e4e7ed;
+  border-top: transparent;
+  border-radius: 0 0 6px 6px;
+}
+.active {
+}
+</style>

@@ -15,7 +15,21 @@
     </WBread>
 
     <!-- 详情 -->
-    <Tab></Tab>
+    <div class="row">
+      <div class="col-lg-8 left">
+        <Tab v-model:activeName="activeName" @getActive="upName">
+          <TabPane label="详情" name="first">
+            <V2201 v-if="currComp == 2201"></V2201>
+            <V2202 v-if="currComp == 2202"></V2202>
+          </TabPane>
+          <TabPane label="评价" name="second">
+            <Comment class="comment" :list="commentListData"></Comment>
+          </TabPane>
+          <TabPane label="细则" name="third">Role</TabPane>
+        </Tab>
+      </div>
+      <div class="col-lg-4 right"></div>
+    </div>
   </div>
 </template>
 
@@ -24,8 +38,16 @@ import { ref, watch } from "vue"
 import { useRoute } from "vue-router"
 import WBread from "@/components/UI/bread/w-bread.vue"
 import WBreadItem from "@/components/UI/bread/w-bread-item.vue"
-import Tab from "@/components/UI/tab/index.vue"
-
+import Tab from "../../../../components/UI/tab/index.vue"
+import TabPane from "../../../../components/UI/tab/components/tab-pane/index.vue"
+import Comment from "@/components/UI/comment/index.vue"
+import { commentListData } from "@/api/special/handmade/comment"
+import V2201 from "../../components/v2201.vue"
+import V2202 from "../../components/v2202.vue"
+const activeName = ref("first")
+const upName = (d) => {
+  console.log(d)
+}
 const route = useRoute()
 const currComp = ref(null)
 watch(
@@ -41,8 +63,22 @@ watch(
 
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
+.left {
+  // padding: 0;
+}
+.right {
+  display: inline-flex;
+  height: 200px;
+  padding: 0;
+  background-color: aquamarine;
+}
 .img {
   @include img("@/assets/image/usercomment.jpeg");
+}
+:deep(.comment) {
+  .title {
+    padding: 30px 0;
+  }
 }
 .detail {
   padding-top: 10px;
