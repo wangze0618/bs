@@ -10,7 +10,6 @@ import nprogress from "nprogress"
 import store from "@/store"
 import confirmBox from "@/components/UI/confirm"
 nprogress.start()
-console.log(1)
 const routes = [
   {
     path: "/",

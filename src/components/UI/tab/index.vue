@@ -62,9 +62,10 @@ provide("currActiveName", activeName)
   }
   @media (max-width: 576px) {
     border-radius: 0;
+    &:hover {
+    }
     &:first-child {
       border-radius: 6px 6px 0 0;
-      border: 1px solid #931e1e !important;
     }
     &:last-child {
       border-radius: 0 0 6px 6px;
