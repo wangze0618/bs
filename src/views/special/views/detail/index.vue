@@ -22,6 +22,8 @@
       <div class="col-lg-8 left">
         <Tab v-model:activeName="activeName">
           <TabPane label="详情" name="first">
+            <Checkbox label="haha" v-model="check"></Checkbox>
+            <Checkbox label="haha2"></Checkbox>
             <V2201 v-if="currComp == 2201"></V2201>
             <V2202 v-if="currComp == 2202"></V2202>
           </TabPane>
@@ -57,10 +59,17 @@ import V2202 from "../../components/v2202.vue"
 import DetailsAttention from "../../components/details-attention/index.vue"
 import Recommend from "../../components/recommend/index.vue"
 import SpecialGoods from "../../components/special-goods/index.vue"
+import Checkbox from "@/components/UI/checkbox/index.vue"
 const activeName = ref("first")
 let goods = reactive({})
 const route = useRoute()
 const currComp = ref(null)
+let check = ref(true)
+const isCheck = (data) => {
+  check.value = data
+  console.log(check.value)
+  console.log(data)
+}
 
 // 从数据列表中获取 手工数据
 const getGoods = (id) => {
