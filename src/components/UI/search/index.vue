@@ -23,10 +23,11 @@ import Button from "@/components/UI/button/index.vue"
 let q = ref("")
 const router = useRouter()
 const goToSearch = () => {
+  let str = encodeURIComponent(q.value)
   router.push({
     path: "/search",
     query: {
-      q: q.value,
+      q: str,
     },
   })
 }

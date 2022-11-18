@@ -8,7 +8,7 @@
 
 <script setup>
 import { computed } from "@vue/reactivity"
-import { ref } from "vue"
+import { ref, watch } from "vue"
 const props = defineProps({
   count: {
     type: Number,
@@ -25,7 +25,15 @@ const props = defineProps({
 })
 let num = ref(props.count)
 const emit = defineEmits(["getCount"])
-
+watch(
+  () => props.count,
+  (newVal) => {
+    emit("getCount", num.value)
+  },
+  {
+    immediate: true,
+  }
+)
 const add = () => {
   if (num.value < props.max) {
     num.value++

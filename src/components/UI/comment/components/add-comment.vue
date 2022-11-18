@@ -18,7 +18,7 @@
 import { ref } from "vue"
 import { useStore } from "vuex"
 import Button from "@/components/UI/button/index.vue"
-import AlertBox from "../../alert"
+import AlertBox from "@/components/UI/alert/index.js"
 const store = useStore()
 const tar = ref(null)
 const text = ref("")
@@ -31,8 +31,11 @@ const logText = () => {
     } else {
       emit("getText", text.value)
       text.value = null
+      AlertBox("success", "发送成功！")
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 const changeRows = (e) => {

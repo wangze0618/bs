@@ -1,9 +1,6 @@
 <template>
   <div class="search">
-    <h1>
-      {{ route.query }}<br />
-      {{ route.query.q }}
-    </h1>
+    <h1>{{ query }}<br /></h1>
   </div>
 </template>
 
@@ -11,6 +8,8 @@
 import { ref } from "vue"
 import { useRoute } from "vue-router"
 const route = useRoute()
+
+let query = ref(decodeURIComponent(route.query.q))
 </script>
 
 <style scoped lang="scss"></style>

@@ -134,14 +134,6 @@ const routes = [
     path: "/search",
     component: () => import("@/views/search/index.vue"),
   },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // }
 ]
 
 const router = createRouter({
@@ -153,8 +145,8 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  if (to.path == "/user" && store.state.user.token == null) {
-    await confirmBox({ title: "提示", text: "请先登录" })
+  if (to.path == "/comment" && store.state.user.token == null) {
+    await confirmBox({ title: "提示", text: "请先登录!" })
     router.push(`/login?redirect=${to.path}`)
   }
   next()

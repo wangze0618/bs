@@ -12,7 +12,6 @@ import { Star } from "@icon-park/vue-next"
 const props = defineProps({
   star: {
     type: Number,
-    required: true,
     default: 3,
     validator(value) {
       return [1, 2, 3, 4, 5].includes(value)

@@ -2,7 +2,9 @@
   <div v-if="commentList == null">加载中！</div>
   <div v-else class="comment">
     <div class="container">
-      <h4 class="title" style="text-align: center">发表评论</h4>
+      <h4 class="title" style="text-align: center">
+        <slot name="title">发表</slot>
+      </h4>
       <!-- 发表评论 -->
       <AddComment @getText="getContent($event)"></AddComment>
 

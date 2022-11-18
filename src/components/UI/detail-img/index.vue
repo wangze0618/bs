@@ -1,11 +1,11 @@
 <template>
   <div class="detail-img">
-    <div class="showImg">
-      <img class="big" :src="imgList[currImgIndex].url" alt="" />
+    <div class="showImg" ref="viewDiv" v-viewer="{ navbar: false }">
+      <img class="big" :src="imgList[currImgIndex]" alt="" />
     </div>
     <div class="small-list">
       <template v-for="(item, index) in imgList">
-        <img @click="changeImg(index)" :src="item.url" alt="" />
+        <img @click="changeImg(index)" :src="item" alt="" />
       </template>
     </div>
   </div>
@@ -14,32 +14,14 @@
 <script setup>
 import { onMounted, watch, reactive, ref } from "vue"
 let currImgIndex = ref(0)
-
+const props = defineProps({
+  imgList: {
+    type: Array,
+  },
+})
 const changeImg = (i) => {
   currImgIndex.value = i
 }
-let imgList = [
-  {
-    id: 0,
-    url: require("@/assets/upload/handmade1.webp"),
-  },
-  {
-    id: 1,
-    url: require("@/assets/upload/handmade2.jpeg"),
-  },
-  {
-    id: 2,
-    url: require("@/assets/upload/handmade1.webp"),
-  },
-  {
-    id: 3,
-    url: require("@/assets/upload/handmade2.jpeg"),
-  },
-  {
-    id: 4,
-    url: require("@/assets/upload/handmade1.webp"),
-  },
-]
 </script>
 
 <style scoped lang="scss">
@@ -50,6 +32,7 @@ let imgList = [
 
   .showImg {
     position: relative;
+    cursor: grab;
     // width: 370px;
     // height: 370px;
   }

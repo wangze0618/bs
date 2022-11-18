@@ -3,7 +3,6 @@ const path = require("path")
 module.exports = defineConfig({
   transpileDependencies: true,
   devServer: {
-    open: true,
     port: 8080,
   },
   // chainWebpack: (config) => {
