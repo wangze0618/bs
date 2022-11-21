@@ -27,14 +27,20 @@ const setSize = (data, index) => {
 </script>
 
 <style scoped lang="scss">
+.size-select {
+  display: flex;
+  flex-wrap: wrap;
+}
 .active {
   border: 1px solid #903e49;
   color: #903e49;
   background-color: #b47f8738;
 }
 span {
+  margin-top: 4px;
   padding: 6px;
   height: 30px;
+  line-height: 15px;
   border: 1px solid #ced4da;
   background-color: #fff;
   margin-right: 6px;

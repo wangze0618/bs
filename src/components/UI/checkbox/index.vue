@@ -37,7 +37,6 @@ watch(
   () => isCheck.value,
   (newVal) => {
     isCheck.value = newVal
-    console.log(newVal)
     emit("update:modelValue", newVal)
   },
   {

@@ -45,7 +45,7 @@
               ></Color>
             </div>
             <div v-if="goods.category.size" class="size mb-3">
-              <span>尺寸：</span>
+              <span class="size-span">尺寸：</span>
               <Size
                 :size="goods.category.size"
                 @getSize="setSize($event)"
@@ -87,7 +87,7 @@ const setColor = (data) => {
   console.log(data)
 }
 const setCount = (data) => {
-  console.log(data)
+  // console.log(data)
 }
 const setSize = (data) => {
   console.log(data)
@@ -217,6 +217,14 @@ const setSize = (data) => {
           }
           .size {
             display: flex;
+            .size-span {
+              @media (max-width: 420px) {
+                width: 60px !important;
+              }
+              @media (max-width: 400px) {
+                width: 66px !important;
+              }
+            }
           }
           .count {
             display: flex;
