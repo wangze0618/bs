@@ -17,6 +17,8 @@ import "wowjs/css/libs/animate.css" // 巨坑... 此地方要引入两个css
 // v-viewer
 import "viewerjs/dist/viewer.css"
 import VueViewer from "v-viewer"
+// import "@/assets/style/variables.scss"
+
 const app = createApp(App)
 
 app.directive("lazyLoad", {

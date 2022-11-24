@@ -58,7 +58,11 @@
           </div>
           <div class="btns">
             <button type="button" class="btn btn-primary mt-4">立即购买</button>
-            <button type="button" class="btn btn-primary mt-4 ms-4">
+            <button
+              @click="router.push('/cart')"
+              type="button"
+              class="btn btn-primary mt-4 ms-4"
+            >
               加入购物车
             </button>
           </div>
@@ -70,12 +74,14 @@
 
 <script setup>
 import { reactive, ref } from "vue"
+import { useRouter } from "vue-router"
 import DetailImg from "@/components/UI/detail-img/index.vue"
 import Count from "@/components/UI/count/index.vue"
 import Color from "@/components/UI/color/index.vue"
 import Star from "@/components/UI/star/index.vue"
 import Size from "@/components/UI/size/index.vue"
 const emit = defineEmits(["getGoods"])
+const router = useRouter()
 const props = defineProps({
   goods: {
     type: Object,

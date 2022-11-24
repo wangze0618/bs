@@ -26,8 +26,6 @@ const showCard = computed(() => {
   }, 20)
 })
 const Close = (e) => {
-  console.log(e.currentTarget)
-  console.log(e.target)
   if (e.currentTarget === e.target) {
     emit("update:show", false)
   }
@@ -36,11 +34,11 @@ const Close = (e) => {
 
 <style scoped lang="scss">
 .showcontainer {
-  // opacity: 1;
+  opacity: 1;
   visibility: visible;
 }
 .hide {
-  // opacity: 0;
+  opacity: 0;
   visibility: hidden;
 }
 .show {
@@ -63,7 +61,7 @@ const Close = (e) => {
   transition: all 0.4s;
   top: 0;
   left: 0;
-  width: 300px;
+  width: 280px;
   background-color: #fff;
   height: 100vh;
   max-width: 300px;

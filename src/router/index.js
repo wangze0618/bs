@@ -124,6 +124,18 @@ const routes = [
         name: "Aboutus",
         component: () => import("@/views/aboutus/index.vue"),
       },
+      // 购物车
+      {
+        path: "/cart",
+        name: "Cart",
+        component: () => import("@/views/cart/index.vue"),
+      },
+      // 结算界面
+      {
+        path: "/checkout",
+        name: "Checkout",
+        component: () => import("@/views/checkout/index.vue"),
+      },
     ],
   },
   {

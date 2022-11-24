@@ -23,7 +23,7 @@
         <Tab v-model:activeName="activeName">
           <TabPane label="详情" name="first">
             <!-- 进度条测试 -->
-            <Steps :active="aa" style="justify-content: center">
+            <Steps class="mt-3" :active="aa" style="justify-content: center">
               <StepItem title="Step1" desc="ss1"> </StepItem>
               <StepItem title="Step2" desc="ss2"> </StepItem>
               <StepItem title="Step3" desc="ss3"> </StepItem>

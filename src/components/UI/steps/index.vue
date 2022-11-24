@@ -102,6 +102,7 @@ slots.forEach((item, index) => {
   transition: all 0.1s ease-in-out !important;
 }
 .steps {
+  user-select: none;
   display: flex;
 
   .step-item {

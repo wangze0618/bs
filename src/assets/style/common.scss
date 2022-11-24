@@ -1,3 +1,22 @@
+@import "./variables.scss";
+
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     --color-background: var(--vt-c-white);
+//     --color-background-soft: var(--vt-c-white-soft);
+//     --color-background-mute: var(--vt-c-white-mute);
+
+//     --color-border: var(--vt-c-divider-light-2);
+//     --color-border-hover: var(--vt-c-divider-light-1);
+
+//     --color-heading: var(--vt-c-text-light-1);
+//     // --color-text: var(--vt-c-text-light-1);
+//     --color-text: var(--text-dark-1);
+
+//     --section-gap: 160px;
+//   }
+// }
+
 * {
   padding: 0;
   margin: 0;
@@ -12,10 +31,29 @@ ul {
 }
 a {
   text-decoration: none;
+  color: #000;
 }
 
 body {
+  transition: all 0.4s;
+  // color: var(--color-text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   &::-webkit-scrollbar {
     width: 0 !important;
   }
 }
+
+// @media (prefers-color-scheme: light) {
+//   body {
+//     background: var(--bg-light-1);
+//     color: var(--text-dark-1);
+//   }
+// }
+// @media (prefers-color-scheme: dark) {
+//   body {
+//     background: var(--bg-dark-1);
+//     color: var(--text-light-1);
+//   }
+// }
