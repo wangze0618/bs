@@ -98,7 +98,6 @@ const goToDetail = (id) => {
       id,
     },
   })
-  console.log(id)
 }
 
 onMounted(() => {

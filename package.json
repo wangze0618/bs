@@ -15,6 +15,7 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "core-js": "^3.8.3",
+    "dayjs": "^1.11.6",
     "nprogress": "^0.2.0",
     "swiper": "^8.3.2",
     "v-viewer": "^3.0.11",

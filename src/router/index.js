@@ -136,6 +136,12 @@ const routes = [
         name: "Checkout",
         component: () => import("@/views/checkout/index.vue"),
       },
+      // 支付结果界面
+      {
+        path: "/pay/",
+        name: "Pay",
+        component: () => import("@/views/pay/index.vue"),
+      },
     ],
   },
   {

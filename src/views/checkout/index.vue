@@ -2,8 +2,8 @@
   <div class="container">
     <div class="checkout">
       <!-- 流程概览 -->
-      <div class="steps mt-3 mb-3">
-        <h4 class="mb-3">流程概览</h4>
+      <div class="steps pt-3">
+        <h4 class="">流程概览</h4>
         <Steps class="steps-con" :active="active">
           <StepItem title="拍下商品">123</StepItem>
           <StepItem title="提交订单">123</StepItem>
@@ -12,9 +12,12 @@
       </div>
 
       <!-- 收货地址组件 -->
-      <Address style="display: inline-block" class="mt-3"></Address>
+      <Address style="display: inline-block" class="pt-4"></Address>
       <!-- 确认订单 -->
     </div>
+    <button @click="goPay()" type="button" class="btn btn-outline-primary">
+      Primary
+    </button>
   </div>
 </template>
 
@@ -23,7 +26,18 @@ import { ref } from "vue"
 import Address from "./components/address/index.vue"
 import Steps from "@/components/UI/steps/index.vue"
 import StepItem from "@/components/UI/steps/components/step-item.vue"
-
+import { useRouter } from "vue-router"
+const router = useRouter()
+let query = {
+  id: new Date().getTime(),
+  price: 200,
+}
+const goPay = () => {
+  router.push({
+    path: "/pay",
+    query,
+  })
+}
 let active = ref(1)
 </script>
 

@@ -1,19 +1,16 @@
 <template>
   <div class="card">
+    <div class="card-header">{{ header }}</div>
     <div class="card-body">
-      <h5 class="card-title" v-if="title">{{ props.title }}</h5>
-      <p class="card-text">
-        <slot></slot>
-      </p>
-      <img src="@/assets/fj1.jpg" class="card-img" alt="..." />
+      <slot></slot>
     </div>
   </div>
 </template>
 <script setup>
 const props = defineProps({
-  title: {
+  header: {
     type: String,
-    default: "",
+    default: "header",
   },
 })
 </script>

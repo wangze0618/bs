@@ -4,10 +4,13 @@
 
     <!-- 地址主要区域 -->
     <div class="address-body row">
-      <div class="no-goods" v-if="!addrLsit">no</div>
+      <div class="no-goods" v-if="addrLsit == 0">
+        <img src="@/assets/svg/nodata.svg" alt="" />
+        <h2>您还没有添加地址，快去添加吧~</h2>
+      </div>
       <div
         v-else
-        class="address-item mt-4 col-12 col-sm-6 col-md-4 col-lg-4"
+        class="address-item mb-4 col-12 col-sm-6 col-md-4 col-lg-4"
         v-for="(item, index) in addrLsit"
         :key="index"
       >
@@ -156,6 +159,21 @@ const deleteOne = (item) => {
   }
   .address-body {
     // display: flex;
+    .no-goods {
+      text-align: center;
+      img {
+        position: relative;
+        width: 100%;
+        height: 60%;
+      }
+      h2 {
+        position: absolute;
+        font-size: calc(1vw + 16px);
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
     .address-item {
       // overflow: hidden;
       .box {
@@ -167,8 +185,8 @@ const deleteOne = (item) => {
         position: relative;
         .close-icon {
           position: absolute;
-          right: 0;
-          top: -3px;
+          right: 2px;
+          top: 0;
         }
         &.active {
           border: 1px solid #ffad72;
