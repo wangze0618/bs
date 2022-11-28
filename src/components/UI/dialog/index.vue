@@ -1,7 +1,10 @@
 <template>
   <!-- Modal -->
-  <div class="dialog fade1" v-if="show">
-    <div class="wrapper col-12 col-sm-8 col-md-7 col-lg-6">
+  <div class="dialog" :class="show2 ? 'show' : 'hide'">
+    <div
+      :class="show2 ? 'show' : 'hide'"
+      class="wrapper col-12 col-sm-8 col-md-7 col-lg-6"
+    >
       <div class="header">
         <h5>{{ title }}</h5>
         <a @click="cancel()" href="javascript:;">
@@ -13,10 +16,10 @@
       </div>
       <div class="footer">
         <button @click="cancel()" type="button" class="btn btn-secondary">
-          取消
+          <slot name="cancelBtn">取消</slot>
         </button>
         <button @click="confirm()" type="button" class="btn btn-primary">
-          确认
+          <slot name="confirmBtn">确定</slot>
         </button>
       </div>
     </div>
@@ -25,9 +28,11 @@
 
 <script setup>
 import { Close } from "@icon-park/vue-next"
-import { ref } from "vue"
+import { show } from "dom7"
+import { onMounted, onUnmounted, ref, watch } from "vue"
 import Button from "../button/index.vue"
 const emit = defineEmits(["cancel", "confirm"])
+let show2 = ref(false)
 const props = defineProps({
   show: {
     type: Boolean,
@@ -44,6 +49,17 @@ const confirm = () => {
 const cancel = () => {
   emit("cancel", false)
 }
+watch(
+  () => props.show,
+  (newVal) => {
+    setTimeout(() => {
+      show2.value = newVal
+    }, 0)
+  },
+  {
+    immediate: true,
+  }
+)
 </script>
 
 <style scoped lang="scss">
@@ -55,21 +71,44 @@ const cancel = () => {
   right: 0;
   width: 100vw;
   height: 100vh;
-}
-.fade1 {
+  opacity: 0;
+  visibility: hidden;
   transition: all 0.4s;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0);
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.4s;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  &.hide {
+    transition: all 0.4s;
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 .wrapper {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
   background-color: #fff;
   border-radius: 6px;
   max-width: 500px;
-
+  transform: translate(-50%, -60%);
+  opacity: 0;
+  transition: all 0.4s;
+  visibility: hidden;
+  &.show {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    visibility: visible;
+  }
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -70%);
+  }
   .header {
     padding: 10px 12px;
     display: flex;

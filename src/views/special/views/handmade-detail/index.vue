@@ -10,7 +10,7 @@
       <WBreadItem to="/special/handmade" class="bread-item"
         >特色手工</WBreadItem
       >
-      <WBreadItem class="bread-item">尧坝草鞋</WBreadItem>
+      <WBreadItem class="bread-item">{{ goods.name }}</WBreadItem>
     </WBread>
     <!-- 商品详情 -->
     <div class="row info shadow">
@@ -22,15 +22,6 @@
       <div class="col-lg-8 left">
         <Tab v-model:activeName="activeName">
           <TabPane label="详情" name="first">
-            <!-- 进度条测试 -->
-            <Steps class="mt-3" :active="aa" style="justify-content: center">
-              <StepItem title="Step1" desc="ss1"> </StepItem>
-              <StepItem title="Step2" desc="ss2"> </StepItem>
-              <StepItem title="Step3" desc="ss3"> </StepItem>
-            </Steps>
-
-            <Checkbox label="haha" v-model="check"></Checkbox>
-            <Checkbox label="haha2"></Checkbox>
             <V2201 v-if="currComp == 2201"></V2201>
             <V2202 v-if="currComp == 2202"></V2202>
           </TabPane>
@@ -66,9 +57,7 @@ import V2202 from "../../components/v2202.vue"
 import DetailsAttention from "../../components/details-attention/index.vue"
 import Recommend from "../../components/recommend/index.vue"
 import SpecialGoods from "../../components/special-goods/index.vue"
-import Checkbox from "@/components/UI/checkbox/index.vue"
-import Steps from "@/components/UI/steps/index.vue"
-import StepItem from "@/components/UI/steps/components/step-item.vue"
+
 const activeName = ref("first")
 let goods = reactive({})
 let aa = ref(1)
@@ -80,7 +69,6 @@ const isCheck = (data) => {
   // console.log(check.value)
   // console.log(data)
 }
-
 // 从数据列表中获取 手工数据
 const getGoods = (id) => {
   return handmadeList.filter((item) => item.id == id)

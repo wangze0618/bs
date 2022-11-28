@@ -15,9 +15,9 @@
       <Address style="display: inline-block" class="pt-4"></Address>
       <!-- 确认订单 -->
     </div>
-    <button @click="goPay()" type="button" class="btn btn-outline-primary">
-      Primary
-    </button>
+
+    <!-- 结算列表组 -->
+    <CheckoutList></CheckoutList>
   </div>
 </template>
 
@@ -27,17 +27,9 @@ import Address from "./components/address/index.vue"
 import Steps from "@/components/UI/steps/index.vue"
 import StepItem from "@/components/UI/steps/components/step-item.vue"
 import { useRouter } from "vue-router"
+import CheckoutList from "./components/checkout-list/index.vue"
 const router = useRouter()
-let query = {
-  id: new Date().getTime(),
-  price: 200,
-}
-const goPay = () => {
-  router.push({
-    path: "/pay",
-    query,
-  })
-}
+// setps组件默认激活第一个
 let active = ref(1)
 </script>
 

@@ -80,7 +80,8 @@ const routes = [
       {
         path: "/special/handmade/:id",
         name: "SpecialHandmadeDetail",
-        component: () => import("@/views/special/views/detail/index.vue"),
+        component: () =>
+          import("@/views/special/views/handmade-detail/index.vue"),
       },
       // 旅游服务
       {

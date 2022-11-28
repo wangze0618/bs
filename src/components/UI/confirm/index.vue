@@ -1,17 +1,11 @@
 <template>
-  <div class="confirm-box">
+  <div class="confirm-box" v-if="show">
     <div class="confirm-content">
       <div class="title-content">
         <h2 class="title">{{ title }}</h2>
         <Close size="24" @click="cancel" class="close-icon"></Close>
       </div>
       <div class="main-content">
-        <Attention
-          theme="outline"
-          style="margin-right: 5px"
-          size="24"
-          fill="#333"
-        />
         <p>{{ text }}</p>
       </div>
       <div class="bottons-content">
@@ -26,7 +20,11 @@
 import { onMounted, ref } from "vue"
 import Button from "../button/index.vue"
 import { Close, Attention } from "@icon-park/vue-next"
+const emit = defineEmits(["update:show"])
 const props = defineProps({
+  show: {
+    type: Boolean,
+  },
   title: {
     type: String,
     default: "提示",

@@ -2,6 +2,7 @@ import { createStore } from "vuex"
 import user from "./modules/user"
 import handmade from "./modules/handmade"
 import address from "./modules/address"
+import checkout from "./modules/checkout"
 import createPersistedState from "vuex-persistedstate"
 
 export default createStore({
@@ -13,6 +14,7 @@ export default createStore({
     user,
     handmade,
     address,
+    checkout,
   },
   plugins: [
     // 默认存储在localstorage

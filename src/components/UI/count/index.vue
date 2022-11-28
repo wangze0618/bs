@@ -57,6 +57,7 @@ const dec = () => {
   display: flex;
   user-select: none !important;
   height: 30px;
+  justify-content: center;
   span {
     cursor: pointer;
     font-size: 24px;

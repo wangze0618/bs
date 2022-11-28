@@ -41,23 +41,34 @@
               <span>颜色：</span>
               <Color
                 :color="goods.category.color"
-                @getColor="setColor($event)"
+                @getColor="goodProps.color = $event"
               ></Color>
             </div>
             <div v-if="goods.category.size" class="size mb-3">
               <span class="size-span">尺寸：</span>
               <Size
                 :size="goods.category.size"
-                @getSize="setSize($event)"
+                @getSize="goodProps.size = $event"
               ></Size>
             </div>
             <div class="count mb-3">
               <span>数量：</span>
-              <Count :max="10" :min="1" @getCount="setCount($event)"></Count>
+              <Count
+                :max="10"
+                :count="goodProps.count"
+                :min="1"
+                @getCount="goodProps.count = $event"
+              ></Count>
             </div>
           </div>
           <div class="btns">
-            <button type="button" class="btn btn-primary mt-4">立即购买</button>
+            <button
+              @click="goToCheckout()"
+              type="button"
+              class="btn btn-primary mt-4"
+            >
+              立即购买
+            </button>
             <button
               @click="router.push('/cart')"
               type="button"
@@ -75,6 +86,7 @@
 <script setup>
 import { reactive, ref } from "vue"
 import { useRouter } from "vue-router"
+import store from "@/store"
 import DetailImg from "@/components/UI/detail-img/index.vue"
 import Count from "@/components/UI/count/index.vue"
 import Color from "@/components/UI/color/index.vue"
@@ -82,13 +94,36 @@ import Star from "@/components/UI/star/index.vue"
 import Size from "@/components/UI/size/index.vue"
 const emit = defineEmits(["getGoods"])
 const router = useRouter()
+const goodProps = reactive({
+  color: "",
+  size: "",
+  count: 1,
+})
+const goodsInfo = reactive({
+  id: props.goods.id,
+  name: props.goods.name,
+  img: props.goods.img_list[0],
+  prop: goodProps,
+  oldPrice: props.goods.oldPrice,
+  price: props.goods.price,
+  star: props.goods.star,
+  freight: 5,
+  insurance: 10,
+})
 const props = defineProps({
   goods: {
     type: Object,
     required: true,
   },
 })
+
 const goodsObj = ref(props.goods)
+const goToCheckout = () => {
+  store.commit("checkout/addList", goodsInfo)
+  router.push({
+    name: "Checkout",
+  })
+}
 const setColor = (data) => {
   console.log(data)
 }

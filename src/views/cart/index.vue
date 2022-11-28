@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="cart">
+  <div class="cart">
+    <div class="container">
       <!-- 面包屑组件 -->
       <WBread class="bread" sp=">">
         <WBreadItem class="bread-item" to="/">首页</WBreadItem>
@@ -133,6 +133,7 @@ let haveGoods = ref(true)
   .cart-body {
     margin: 0 auto;
     border: 1px solid #c0c0c0;
+    width: 100%;
     .thead {
       tr {
         border-bottom: 1px solid #c0c0c0;

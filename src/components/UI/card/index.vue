@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header">{{ header }}</div>
     <div class="card-body">
-      <slot></slot>
+      <slot name="body"></slot>
     </div>
   </div>
 </template>
@@ -17,8 +17,5 @@ const props = defineProps({
 <style scoped lang="scss">
 .card {
   margin: 0 auto;
-  @media (max-width: 768px) {
-    width: 100%;
-  }
 }
 </style>
