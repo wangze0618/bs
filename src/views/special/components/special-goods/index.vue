@@ -57,7 +57,7 @@
                 :max="10"
                 :count="goodProps.count"
                 :min="1"
-                @getCount="goodProps.count = $event"
+                @change="goodProps.count = $event"
               ></Count>
             </div>
           </div>
@@ -70,7 +70,7 @@
               立即购买
             </button>
             <button
-              @click="router.push('/cart')"
+              @click="goToCart()"
               type="button"
               class="btn btn-primary mt-4 ms-4"
             >
@@ -86,12 +86,14 @@
 <script setup>
 import { reactive, ref } from "vue"
 import { useRouter } from "vue-router"
-import store from "@/store"
 import DetailImg from "@/components/UI/detail-img/index.vue"
 import Count from "@/components/UI/count/index.vue"
 import Color from "@/components/UI/color/index.vue"
 import Star from "@/components/UI/star/index.vue"
 import Size from "@/components/UI/size/index.vue"
+import { useStore } from "vuex"
+const store = useStore()
+
 const emit = defineEmits(["getGoods"])
 const router = useRouter()
 const goodProps = reactive({
@@ -99,6 +101,7 @@ const goodProps = reactive({
   size: "",
   count: 1,
 })
+// 获取并生成 商品信息
 const goodsInfo = reactive({
   id: props.goods.id,
   name: props.goods.name,
@@ -118,20 +121,23 @@ const props = defineProps({
 })
 
 const goodsObj = ref(props.goods)
+
+// 跳转到结算界面
 const goToCheckout = () => {
   store.commit("checkout/addList", goodsInfo)
   router.push({
     name: "Checkout",
   })
 }
-const setColor = (data) => {
-  console.log(data)
-}
-const setCount = (data) => {
-  // console.log(data)
-}
-const setSize = (data) => {
-  console.log(data)
+
+// 跳转到购物车界面
+const goToCart = async () => {
+  // 默认不勾选
+  goodsInfo.selected = false
+  store.commit("cart/addCart", goodsInfo)
+  router.push({
+    name: "Cart",
+  })
 }
 </script>
 

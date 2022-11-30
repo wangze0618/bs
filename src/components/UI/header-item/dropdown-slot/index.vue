@@ -16,31 +16,39 @@ import { ref } from "vue"
   user-select: none;
   position: relative;
   color: #fff;
-  transition: all 0.5s;
   .menu {
-    transition: all 0.5s;
+    transition: all 0.4s;
     width: 150px;
     border-radius: 6px;
     padding: 12px;
     position: absolute;
     background-color: #fff;
-    // opacity: 0;
-    display: none;
-    // height: 0;
+    opacity: 0;
+    visibility: hidden;
+    margin-top: 14px;
     z-index: 222;
     top: 60px;
     left: -36px;
-    overflow: hidden;
     box-shadow: 0px 2px 20px rgba(51, 51, 51, 0.495);
     a {
       color: #000 !important;
     }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      transform: rotate(45deg) translateX(-50%);
+      background-color: #fff;
+    }
   }
   &:hover .menu {
-    // overflow: hidden;
-    // height: 120px;
-    // opacity: 1;
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 0;
   }
 }
 </style>

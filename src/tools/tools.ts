@@ -33,3 +33,8 @@ export const page1 = (arr: object[], num: number) => {
   }
   return arrNew
 }
+
+// 价格补两个0
+export const zero2 = (num: number): string => {
+  return num.toFixed(2)
+}

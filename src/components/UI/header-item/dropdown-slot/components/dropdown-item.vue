@@ -11,7 +11,7 @@ import { ref } from "vue"
 <style scoped lang="scss">
 .dropdown-slot-item {
   display: inline-block;
-  padding: 2px;
+  padding: 4px;
   cursor: pointer;
   user-select: none;
   transition: all 0.5s;

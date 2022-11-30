@@ -1,5 +1,5 @@
 <template>
-  <div class="confirm-box" v-if="show">
+  <div class="confirm-box">
     <div class="confirm-content">
       <div class="title-content">
         <h2 class="title">{{ title }}</h2>

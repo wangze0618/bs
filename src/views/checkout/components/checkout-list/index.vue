@@ -1,5 +1,5 @@
 <template>
-  <div class="checkout-list">
+  <div class="checkout-list container-fluid">
     <table class="table table-hover">
       <thead>
         <tr>
@@ -24,7 +24,9 @@
             </td>
             <td>￥{{ toNum2(item.price) }}</td>
             <td>{{ item.prop.count }}</td>
-            <td>{{ store.getters["checkout/getRealPrice"](item.id) }}</td>
+            <td>
+              ￥{{ zero2(store.getters["checkout/getRealPrice"](item.id)) }}
+            </td>
             <td>
               ￥{{ toNum2(store.getters["checkout/getRealPrice"](item.id)) }}
             </td>
@@ -39,20 +41,25 @@
       </dl>
       <dl>
         <dt>运费：</dt>
-        <dd>{{ store.getters["checkout/getFreight"]() }}</dd>
+        <dd>￥{{ zero2(store.getters["checkout/getFreight"]()) }}</dd>
       </dl>
       <dl>
         <dt>运费险：</dt>
-        <dd>{{ store.getters["checkout/getInsurance"]() }}</dd>
+        <dd>￥{{ zero2(store.getters["checkout/getInsurance"]()) }}</dd>
       </dl>
       <dl>
         <dt>合计：</dt>
-        <dd>￥{{ store.getters["checkout/getFinalPrice"]() }}</dd>
+        <dd>￥{{ zero2(store.getters["checkout/getFinalPrice"]()) }}</dd>
       </dl>
+      <button
+        @click="goPay()"
+        type="button"
+        style="display: block; margin-left: auto"
+        class="btn btn-primary me-5 mt-3"
+      >
+        提交订单
+      </button>
     </div>
-    <button @click="goPay()" type="button" class="btn btn-outline-primary">
-      Primary
-    </button>
   </div>
 </template>
 
@@ -60,6 +67,7 @@
 import { ref, watch } from "vue"
 import { useStore } from "vuex"
 import { useRouter } from "vue-router"
+import { zero2 } from "@/tools/tools"
 const router = useRouter()
 const store = useStore()
 
@@ -90,8 +98,11 @@ const goPay = () => {
 }
 .table {
   // 表格滚动
-  width: 940px;
+  width: 100%;
   text-align: center;
+  @media (max-width: 992px) {
+    width: 940px;
+  }
   thead {
     tr {
       th {
@@ -121,7 +132,11 @@ const goPay = () => {
   }
 }
 .info {
-  border-top: 1px solid #dee2e6;
+  width: 100%;
+  @media (max-width: 992px) {
+    width: 940px;
+  }
+  // border-top: 1px solid #dee2e6;
   dl {
     display: flex;
     justify-content: flex-end;

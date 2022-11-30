@@ -1,58 +1,55 @@
 <template>
-  <div class="check-box">
-    <label class="form-check-label" :for="`checkbox-${randomId}`" v-if="label"
-      >{{ label }}
-    </label>
+  <div @click="change()" class="check-box">
     <input
       :disabled="disabled"
       type="checkbox"
       v-model="isCheck"
-      class="form-check-input ms-1"
-      :id="`checkbox-${randomId}`"
+      class="form-check-input m-0"
     />
   </div>
 </template>
 
 <script setup>
 import { onMounted, ref, watch } from "vue"
-let randomId = ref()
-const getId = () => {
-  randomId.value = Number((Math.random() * 1000000).toFixed(0))
-}
-const emit = defineEmits(["update:modelValue"])
+const emit = defineEmits(["change"])
 const props = defineProps({
   disabled: {
     type: Boolean,
   },
-  modelValue: {
+  check: {
     type: Boolean,
-    default: false,
   },
   label: {
     type: String,
   },
 })
-let isCheck = ref(props.modelValue)
+let isCheck = ref(props.check)
+
 watch(
-  () => isCheck.value,
+  () => props.check,
   (newVal) => {
     isCheck.value = newVal
-    emit("update:modelValue", newVal)
   },
   {
     immediate: true,
+    deep: true,
   }
 )
-onMounted(() => {
-  getId()
-})
+
+const change = () => {
+  isCheck.value = !isCheck.value
+  emit("change", isCheck.value)
+}
 </script>
 
 <style scoped lang="scss">
 .check-box {
   user-select: none;
-  .form-check-label,
+  height: 100%;
+  max-height: 16px;
+  width: fit-content;
   .form-check-input {
+    display: inline-block;
     cursor: pointer;
   }
 }

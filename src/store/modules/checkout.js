@@ -6,6 +6,11 @@ export default {
     }
   },
   mutations: {
+    // 从购物车添加商品列表
+    setList(state, pd) {
+      state.goodsList = pd
+    },
+    // 从详情页添加（单个）商品
     addList(state, pd) {
       state.goodsList.push(pd)
     },
@@ -14,11 +19,11 @@ export default {
     getGoodsList: (state) => () => {
       return state.goodsList
     },
+    // 计算价格
     getRealPrice: (state) => (id) => {
       let item = state.goodsList.find((item) => item.id === id)
       return item.prop.count * item.price
     },
-    // 计算价格
 
     // 计算数量
     getCount: (state) => () => {

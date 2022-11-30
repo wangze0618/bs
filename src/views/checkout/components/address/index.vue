@@ -161,21 +161,23 @@ const deleteOne = (item) => {
     // display: flex;
     .no-goods {
       text-align: center;
+      height: 240px;
+      margin-bottom: 30px;
+      position: relative;
       img {
-        position: relative;
         width: 100%;
-        height: 60%;
+        height: 240px;
       }
       h2 {
         position: absolute;
-        font-size: calc(1vw + 16px);
+        font-size: calc(0.2vw + 16px);
         width: 100%;
         left: 50%;
+        bottom: -10px;
         transform: translateX(-50%);
       }
     }
     .address-item {
-      // overflow: hidden;
       .box {
         cursor: pointer;
         overflow: hidden;

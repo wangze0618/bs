@@ -24,11 +24,11 @@ const props = defineProps({
   },
 })
 let num = ref(props.count)
-const emit = defineEmits(["getCount"])
+const emit = defineEmits(["change"])
 watch(
   () => props.count,
   (newVal) => {
-    emit("getCount", num.value)
+    emit("change", num.value)
   },
   {
     immediate: true,
@@ -37,13 +37,13 @@ watch(
 const add = () => {
   if (num.value < props.max) {
     num.value++
-    emit("getCount", num.value)
+    emit("change", num.value)
   }
 }
 const dec = () => {
   if (num.value > props.min) {
     num.value--
-    emit("getCount", num.value)
+    emit("change", num.value)
   }
 }
 </script>
