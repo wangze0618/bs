@@ -1,5 +1,5 @@
 <template>
-  <div class="btns" :class="{ show: top > 400 }">
+  <div class="btns" :class="{ show: top > 300 }">
     <div class="cart">
       <Shopping size="1.8rem" theme="outline" fill="#555"></Shopping>
     </div>
@@ -30,16 +30,18 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .btns {
-  &.show {
-    opacity: 1;
-    visibility: visible;
-  }
   position: fixed;
   right: 2vw;
   bottom: 10rem;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
+  transform: translateY(70%);
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(50%);
+  }
   .up,
   .cart {
     cursor: pointer;
@@ -51,6 +53,10 @@ onMounted(() => {
     border: 1px solid #eeeeee85;
     background-color: #eeeeee;
     border-radius: 3rem;
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }
 </style>

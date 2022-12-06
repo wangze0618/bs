@@ -63,7 +63,7 @@ const routes = [
       {
         path: "/special/food",
         name: "SpecialFood",
-        component: () => import("@/views/special/index.vue"),
+        component: () => import("@/views/special/views/food/index.vue"),
       },
       {
         path: "/special/food/:id",
