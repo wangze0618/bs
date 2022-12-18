@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ scroll: top > 300 }">
     <!-- 大于576px pc端 -->
     <div class="container-lg pc-item">
       <img @click="goHome" src="@/assets/logo.jpg" alt="" />
@@ -93,7 +93,7 @@ import CollapseItem from "./collapse-slot/components/collapse-item.vue"
 import AlertBox from "./alert"
 import ConfirmBox from "./confirm"
 const store = useStore()
-
+let top = ref(0)
 const show = ref(false)
 const details = ref(null)
 const router = useRouter()
@@ -117,6 +117,9 @@ const logout = async () => {
 }
 
 onMounted(() => {
+  window.document.addEventListener("scroll", () => {
+    top.value = document.documentElement.scrollTop
+  })
   watch(
     () => show.value,
     (newValue) => {
@@ -201,6 +204,11 @@ img {
   justify-content: space-around;
   align-items: center;
   z-index: 999;
+  transition: all 0.4s;
+  &.scroll {
+    height: 70px;
+    background-color: #000000da;
+  }
   details {
     width: 30px;
     @media (min-width: 768px) {
@@ -215,7 +223,6 @@ img {
             transform: rotate(-45deg);
           }
           &:nth-child(2) {
-            // display: none;
             opacity: 0;
           }
           &:nth-child(3) {

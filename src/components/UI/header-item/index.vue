@@ -63,7 +63,9 @@
     >
 
     <!-- 用户留言 -->
-    <RouterLink class="routerLink1" to="/comment">用户留言</RouterLink>
+    <RouterLink class="routerLink1" to="/comment"
+      ><span>用户留言</span></RouterLink
+    >
 
     <!-- 关于我们 -->
     <RouterLink class="routerLink1" to="/aboutus">关于我们</RouterLink>
@@ -96,11 +98,12 @@ const logout = async () => {
 
 <style scoped lang="scss">
 .routerLink1 {
-  display: inline-block;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 80px;
   height: 100%;
-  line-height: 88px;
+  line-height: calc(20px);
   color: #fff;
   &:hover {
     color: #fff;
@@ -118,7 +121,9 @@ span {
   justify-content: flex-end;
 }
 .dropdown-slot {
+  display: flex;
   text-align: center;
+  align-items: center;
   width: 80px;
   // line-height: 88px;
   height: 100%;

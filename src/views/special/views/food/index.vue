@@ -6,7 +6,6 @@
       <!-- 面包屑组件 -->
       <WBread class="bread mt-4 mb-4" sp=">">
         <WBreadItem class="bread-item" to="/">首页</WBreadItem>
-        <WBreadItem class="bread-item" to="/special">特色手工</WBreadItem>
         <WBreadItem class="bread-item">特色美食</WBreadItem>
       </WBread>
 
@@ -14,12 +13,15 @@
       <div class="row">
         <div class="left col-xl-9">
           <div class="left-container">
-            <div class="food-item mb-3" v-for="i in 5">
+            <div
+              class="food-item mb-3"
+              v-for="(item, index) in list[currentPage - 1]"
+            >
               <div class="food-left">
-                <img src="@/assets/upload/handmade1.webp" alt="" />
+                <img v-lazyload="item.img" alt="" />
               </div>
               <div class="food-right">
-                <h5>特色美食1</h5>
+                <h5>特色美食{{ item.id }}</h5>
                 <p class="desc">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Laudantium quibusdam harum, cupiditate ab incidunt asperiores
@@ -41,9 +43,10 @@
       </div>
       <Pagenation
         class="justify-content-center m-4"
-        :total="12"
+        :total="foodList.length"
         :page-size="5"
-        :current-page="1"
+        :current-page="currentPage"
+        @getCurrentPage="changePage($event)"
       ></Pagenation>
     </div>
   </div>
@@ -57,6 +60,13 @@ import StoreRecommend from "../../components/store-recommend/index.vue"
 import FoodRecommend from "../../components/food-recommend/index.vue"
 import Pagenation from "@/components/UI/pagenation/index.vue"
 import { page1 } from "@/tools/tools"
+import { foodList } from "@/api/special/food/food.js"
+
+const currentPage = ref(1)
+let list = page1(foodList, 5)
+const changePage = (data) => {
+  currentPage.value = data
+}
 </script>
 
 <style scoped lang="scss">
@@ -78,6 +88,7 @@ import { page1 } from "@/tools/tools"
       padding-right: 16px;
       .left-container {
         background-color: #f5f5f5;
+        border-radius: 6px;
         padding: 16px;
         height: 100%;
         border: 1px solid #999;

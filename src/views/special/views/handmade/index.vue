@@ -1,6 +1,6 @@
 <template>
-  <div class="img"></div>
   <!-- 图片 -->
+  <div class="img"></div>
   <div class="handmade container">
     <!-- 面包屑组件 -->
     <WBread class="bread" sp=">">
@@ -87,7 +87,6 @@ list = page1(list, pageSize)
 
 // 获取当前分页
 const changePage = (data) => {
-  console.log(data)
   currentPage.value = data
 }
 
