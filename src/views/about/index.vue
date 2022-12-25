@@ -1,5 +1,8 @@
 <template>
   <div class="about">
+    <div class="img">
+      <h3 class="wow animated fadeInDown" style="color: #fff">走进尧坝</h3>
+    </div>
     <div class="container">
       <!-- 面包屑组件 -->
       <WBread class="wt" sp=">">
@@ -120,6 +123,21 @@
           </div>
         </div>
       </div>
+
+      <!-- 热门景点 -->
+      <SpotCarousel class="mt-5"></SpotCarousel>
+
+      <!-- 尧坝文化 -->
+      <Culture></Culture>
+
+      <!-- 历史沿革 -->
+      <History></History>
+
+      <!-- 全景图 -->
+      <div class="quanjing">
+        <h3 class="quanjingtu">景区全景图</h3>
+        <img v-viewer src="@/assets/upload/quanjingtu.png" alt="" />
+      </div>
     </div>
   </div>
 </template>
@@ -133,7 +151,9 @@ import { useRouter } from "vue-router"
 import { WOW } from "wowjs"
 import { Home, Time } from "@icon-park/vue-next"
 import Card from "@/components/UI/card/index.vue"
-
+import SpotCarousel from "./components/spot-carousel.vue"
+import Culture from "./components/culture.vue"
+import History from "./components/history.vue"
 let dataList = ref(null)
 const router = useRouter()
 const getId = (id) => {
@@ -153,6 +173,41 @@ onMounted(() => {
 
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
+.quanjing {
+  .quanjingtu {
+    text-align: center;
+    margin: 30px 0;
+  }
+  img {
+    width: 100%;
+    cursor: grab;
+  }
+}
+
+@keyframes imgInto {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.img {
+  @include img("@/assets/image/usercomment.jpeg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: imgInto 4s;
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 6px #808080;
+  }
+}
 .card {
   height: 100%;
   @include card-shadow;

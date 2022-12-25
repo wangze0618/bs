@@ -3,17 +3,15 @@
     <RouterLink class="routerLink1" to="/">首页</RouterLink>
 
     <!-- 走进尧坝 -->
-    <DropdownSlot>
-      <RouterLink class="routerLink1" to="/about">走进尧坝</RouterLink>
-      <template #dropdown>
-        <DropdownItem @click="router.push('/about/detail')">
+    <RouterLink class="routerLink1" to="/about">走进尧坝</RouterLink>
+    <!-- <template #dropdown> -->
+    <!-- <DropdownItem @click="router.push('/about/detail')">
           详细介绍
         </DropdownItem>
         <DropdownItem @click="router.push('/about/main-spot')">
           主要景点
-        </DropdownItem>
-      </template>
-    </DropdownSlot>
+        </DropdownItem> -->
+    <!-- </template> -->
 
     <!-- 特色产品 -->
     <DropdownSlot>
@@ -66,6 +64,9 @@
     <RouterLink class="routerLink1" to="/comment"
       ><span>用户留言</span></RouterLink
     >
+
+    <!-- 购物车 -->
+    <RouterLink class="routerLink1" to="/cart">购物车</RouterLink>
 
     <!-- 关于我们 -->
     <RouterLink class="routerLink1" to="/aboutus">关于我们</RouterLink>

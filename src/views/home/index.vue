@@ -10,9 +10,15 @@
       :loop="true"
     >
     </Carousel>
-    <!-- 新闻政务 -->
+    <!-- 美在尧坝 -->
+    <HomeBeauty></HomeBeauty>
+
+    <!-- 游客风采 -->
+    <HomeCustom></HomeCustom>
+
+    <!-- 新闻资讯 -->
     <HomeNews class="wow fadeInUp" data-wow-duration="2s"></HomeNews>
-    <!-- 旅游服务 -->
+    <!-- 快速链接 -->
     <HomeService class="wow fadeInUp" data-wow-duration="2s"></HomeService>
     <!-- 地图 -->
     <Map class="wow fadeInUp" data-wow-duration="2s"></Map>
@@ -29,6 +35,8 @@ import Map from "../../components/UI/map/map.vue"
 import { WOW } from "wowjs"
 import { getUserInfo } from "@/api/backend/user"
 import { useStore } from "vuex"
+import HomeBeauty from "./view/home-beauty.vue"
+import HomeCustom from "./view/home-custom.vue"
 const store = useStore()
 // 轮播图所需模块
 const modules = [Navigation, Pagination, Autoplay, Scrollbar, A11y]

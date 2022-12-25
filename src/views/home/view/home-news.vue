@@ -2,7 +2,7 @@
   <div class="home-news">
     <div class="container-xl">
       <div class="row">
-        <h2 class="news-title">新闻 · 政务</h2>
+        <h2 class="news-title">新闻资讯</h2>
         <div class="col-12 d-none d-md-block mb-3 news-1">
           <div class="content1">
             <p>

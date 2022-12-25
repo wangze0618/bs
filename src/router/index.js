@@ -1,12 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router"
 import nprogress from "nprogress"
-// import Layout from "@/views/Layout.vue"
-// import Home from "@/views/home/index.vue"
-// import About from "@/views/about/index.vue"
-// import AboutDetail from "@/views/about/views/about-detail.vue"
-// import AboutDetailInfo from "@/views/about/views/about-detail-info.vue"
-// import Login from "@/views/login/index.vue"
-// import User from "@/views/user/index.vue"
 import store from "@/store"
 import confirmBox from "@/components/UI/confirm"
 nprogress.start()
@@ -28,11 +21,11 @@ const routes = [
         component: () => import("@/views/about/index.vue"),
       },
       // 走进尧坝--详细介绍
-      {
-        path: "/about/detail/",
-        name: "AboutDetail",
-        component: () => import("@/views/about/views/about-detail.vue"),
-      },
+      // {
+      //   path: "/about/detail/",
+      //   name: "AboutDetail",
+      //   component: () => import("@/views/about/views/about-detail.vue"),
+      // },
       // // 走进尧坝--详细介绍详情页
       // {
       //   path: "/about/detail/:id",
@@ -40,19 +33,20 @@ const routes = [
       //   component: () => import("@/views/about/views/about-detail-info.vue"),
       // },
 
-      // 走进尧坝--主要景点页
-      {
-        path: "/about/main-spot",
-        name: "MainSpot",
-        component: () => import("@/views/about/views/main-spot/index.vue"),
-      },
-      // 走进尧坝--主要景点详情页
-      {
-        path: "/about/main-spot/:id",
-        name: "MainSpotDetail",
-        component: () =>
-          import("@/views/about/views/main-spot-detail/index.vue"),
-      },
+      // // 走进尧坝--主要景点页
+      // {
+      //   path: "/about/main-spot",
+      //   name: "MainSpot",
+      //   component: () => import("@/views/about/views/main-spot/index.vue"),
+      // },
+      // // 走进尧坝--主要景点详情页
+      // {
+      //   path: "/about/main-spot/:id",
+      //   name: "MainSpotDetail",
+      //   component: () =>
+      //     import("@/views/about/views/main-spot-detail/index.vue"),
+      // },
+
       // 特色产品
       {
         path: "/special",
@@ -102,11 +96,12 @@ const routes = [
         component: () => import("@/views/news/index.vue"),
       },
       // 旅游服务--门票预订
-      {
-        path: "/service/ticket",
-        name: "ServiceTicket",
-        component: () => import("@/views/news/index.vue"),
-      },
+      // {
+      //   path: "/service/ticket",
+      //   name: "ServiceTicket",
+      //   component: () => import("@/views/news/index.vue"),
+      // },
+
       // 新闻资讯
       {
         path: "/news",
@@ -166,7 +161,7 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   if (to.path == "/comment" && store.state.user.token == null) {
     await confirmBox({ title: "提示", text: "请先登录!" })
-    router.push(`/login?redirect=${to.path}`)
+    router.push(`/login?redirectUrl=${to.path}`)
   }
   next()
 })

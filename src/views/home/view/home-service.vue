@@ -2,7 +2,7 @@
   <div class="home-service">
     <div class="container-xl">
       <div class="row">
-        <h2 class="service-title">旅行 · 政务</h2>
+        <h2 class="service-title">快速链接</h2>
       </div>
       <div class="row">
         <div class="col-md-4 about1">
