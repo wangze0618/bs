@@ -3,8 +3,8 @@
     <div class="nav nav-tabs flex-column flex-sm-row">
       <button
         v-for="(item, index) in propsList"
-        :class="{ active: item.name == activeName }"
         class="nav-link"
+        :class="{ active: item.name == activeName }"
         type="button"
         role="tab"
         @click="changeActive(item.name)"
@@ -59,6 +59,7 @@ provide("currActiveName", activeName)
   &.active {
     border: 1px solid #931e1e !important;
     color: #931e1e;
+    z-index: 99;
   }
   @media (max-width: 576px) {
     border-radius: 0;
