@@ -87,7 +87,13 @@ const routes = [
       {
         path: "/service/hotel",
         name: "ServiceHotel",
-        component: () => import("@/views/news/index.vue"),
+        component: () => import("@/views/service/view/hotel/index.vue"),
+      },
+      // 旅游服务--酒店住宿-详情页
+      {
+        path: "/service/hotel/:id",
+        name: "ServiceHotelDetail",
+        component: () => import("@/views/service/view/hotel-detail/index.vue"),
       },
       // 旅游服务--路线规划
       {

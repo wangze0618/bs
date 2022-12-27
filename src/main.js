@@ -17,6 +17,8 @@ import "wowjs/css/libs/animate.css" // 巨坑... 此地方要引入两个css
 // v-viewer
 import "viewerjs/dist/viewer.css"
 import VueViewer from "v-viewer"
+import "@/mock/index.js"
+// mock.js
 
 const app = createApp(App)
 
@@ -37,11 +39,30 @@ app.directive("lazyload", {
   },
 })
 
-// 添加 bounceInDown 动画效果
-app.directive("bounceInDown", {
-  mounted(el) {
-    el.classList.add("wow", "bounceInDown")
+// 添加动画效果
+app.directive("animate", {
+  mounted(el, binding) {
+    const { name } = binding.value
+    // el.classList.add("wow", `${name}`)
+    // 解构出 动画参数
+    const observe = new IntersectionObserver(
+      ([{ isIntersecting }]) => {
+        // 判断是否可视
+        if (isIntersecting) {
+          el.classList.add("animated", `${name}`)
+        } else {
+          el.classList.remove("animated", `${name}`)
+          observe.unobserve(el)
+        }
+        console.log(isIntersecting)
+      },
+      {
+        threshold: 0,
+      }
+    )
+    observe.observe(el)
   },
 })
+
 app.use(VueViewer)
 app.use(store).use(router).mount("#app")

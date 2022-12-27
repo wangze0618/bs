@@ -3,7 +3,7 @@
     <div class="img"></div>
     <!-- 内容区 -->
     <div class="container">
-      <WBread class="wt m-3" sp=">">
+      <WBread class="wt mt-3 mb-3" sp=">">
         <WBreadItem class="wit">首页</WBreadItem>
         <WBreadItem class="wit">新闻资讯</WBreadItem>
       </WBread>
@@ -178,13 +178,14 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
 import WBread from "@/components/UI/bread/w-bread.vue"
 import WBreadItem from "@/components/UI/bread/w-bread-item.vue"
 import NewsCarousel from "./components/news-carousel.vue"
 import Tab from "@/components/UI/tab/index.vue"
 import { Announcement } from "@icon-park/vue-next"
 import TabPanel from "@/components/UI/tab/components/tab-pane/index.vue"
+
 let activeName = ref("p1")
 let news1Name = ref("news1Tab1")
 let news2Name = ref("news2Tab1")

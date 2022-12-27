@@ -1,3 +1,5 @@
+import dayjs from "dayjs"
+
 // 格式化时间
 export const getTime = (): string => {
   let date = new Date()
@@ -37,4 +39,8 @@ export const page1 = (arr: object[], num: number) => {
 // 价格补两个0
 export const zero2 = (num: number): string => {
   return num.toFixed(2)
+}
+
+export const diffTime = (time1: string, time2: string) => {
+  return dayjs(time1).diff(time2, "day")
 }

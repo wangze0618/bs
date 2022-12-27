@@ -1,24 +1,20 @@
-"use strict"
-exports.__esModule = true
-exports.zero2 = exports.page1 = exports.getTime = void 0
+import dayjs from "dayjs"
+
 // 格式化时间
-var getTime = function () {
-  var date = new Date()
+export const getTime = () => {
+  let date = new Date()
+
   // 补零
-  var zero = function (t) {
-    return t > 10 ? t : "0".concat(t)
+  let zero = (t) => {
+    return t > 10 ? t : `0${t}`
   }
-  return ""
-    .concat(date.getFullYear(), "/")
-    .concat(date.getMonth() + 1, "/")
-    .concat(date.getDate(), " ")
-    .concat(zero(date.getHours()), ":")
-    .concat(zero(date.getMinutes()))
+  return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${zero(
+    date.getHours()
+  )}:${zero(date.getMinutes())}`
 }
-exports.getTime = getTime
 
 // 模拟分页
-var page1 = function (arr, num) {
+export const page1 = (arr, num) => {
   // 新建数组，用于储存新数组
   var arrNew = []
   // 如果单页的数组长度大于传入数组长度，则证明一个页面就可以展示
@@ -39,9 +35,13 @@ var page1 = function (arr, num) {
   }
   return arrNew
 }
-exports.page1 = page1
+
 // 价格补两个0
-var zero2 = function (num) {
+export const zero2 = (num) => {
   return num.toFixed(2)
 }
-exports.zero2 = zero2
+
+export const diffTime = (start, end, mode = "day") => {
+  // @ts-ignore
+  return dayjs(end).diff(start, mode)
+}

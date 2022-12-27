@@ -14,7 +14,7 @@ const props = defineProps({
     default: () => [105.644993, 28.739941],
   },
 })
-let map = shallowRef(null)
+// let map = shallowRef(null)
 const initMap = async () => {
   const AMap = await AMapLoader.load({
     key: "65773a6a1bca2ce36d1332ba8a11fa8f",
@@ -28,6 +28,7 @@ const initMap = async () => {
       viewMode: "3D", //是否为3D地图模式
       zoom: 16, //初始化地图级别
       center: props.location, //初始化地图中心点位置
+      // mapStyle: "amap://styles/darkblue",
     })
     AMap.plugin(
       [
@@ -40,15 +41,15 @@ const initMap = async () => {
         "AMap.Driving",
       ],
       () => {
-        map.addControl(new AMap.Scale())
-        map.addControl(new AMap.HawkEye({ isOpen: true }))
-        map.addControl(new AMap.MapType())
         map.addControl(
           new AMap.ToolBar({
             position: "LT",
             offset: [50, 120],
           })
         )
+        map.addControl(new AMap.Scale())
+        map.addControl(new AMap.HawkEye({ isOpen: true }))
+        map.addControl(new AMap.MapType())
         map.addControl(new AMap.ControlBar())
         map.add(
           new AMap.Marker({

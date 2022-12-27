@@ -20,7 +20,6 @@
           <!-- 宣传视频 -->
           <div class="intro-video">
             <video
-              :autoplay="false"
               controls
               muted="true"
               src="

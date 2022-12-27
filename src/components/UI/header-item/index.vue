@@ -15,7 +15,8 @@
 
     <!-- 特色产品 -->
     <DropdownSlot>
-      <RouterLink class="routerLink1" to="/special">特色产品</RouterLink>
+      <!-- <RoutearLink class="routerLink1" to="/special">特色产品</RoutearLink> -->
+      <a class="routerLink1" href="javascript:;">特色产品</a>
       <template #dropdown>
         <DropdownItem @click="router.push('/special/food')">
           特色美食
@@ -28,7 +29,7 @@
 
     <!-- 旅游服务 -->
     <DropdownSlot>
-      <RouterLink class="routerLink1" to="/service">旅游服务</RouterLink>
+      <a class="routerLink1" href="javascript:;">旅游服务</a>
       <template #dropdown>
         <DropdownItem @click="router.push('/service/hotel')">
           酒店住宿

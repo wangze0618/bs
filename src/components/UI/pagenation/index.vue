@@ -43,6 +43,7 @@ const props = defineProps({
     type: Number,
   },
   currentPage: {
+    // 一定从1开始，不是0
     type: Number,
   },
 })

@@ -1,8 +1,8 @@
 import axios from "axios"
 import store from "@/store"
-const baseURL = `http://127.0.0.1:8900`
+// const baseURL = `http://127.0.0.1:8080`
 const instance = axios.create({
-  baseURL,
+  // baseURL,
   timeout: 5000,
 })
 

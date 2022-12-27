@@ -57,6 +57,7 @@ import V2202 from "../../components/v2202.vue"
 import DetailsAttention from "../../components/details-attention/index.vue"
 import Recommend from "../../components/recommend/index.vue"
 import SpecialGoods from "../../components/special-goods/index.vue"
+import axios from "axios"
 
 const activeName = ref("first")
 let goods = reactive({})
