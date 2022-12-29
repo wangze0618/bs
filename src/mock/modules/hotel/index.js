@@ -224,7 +224,18 @@ let data = [
   },
 ]
 
-let OtherHotelData = [{}]
+let OtherHotelData = []
+for (let index = 0; index < 4; index++) {
+  OtherHotelData.push({
+    id: index,
+    title: `尧坝古镇景区酒店${index}`,
+    // title: "@csentence(6,10)",
+    "price|120-400": 120,
+    location: "尧坝古镇旅游景区附近",
+    tel: "1" + "@zip(10)",
+    img: Random.image("600x300", "#ff6600", `酒店${index}`),
+  })
+}
 
 // 获取酒店列表数据
 export const getInfo = () => {

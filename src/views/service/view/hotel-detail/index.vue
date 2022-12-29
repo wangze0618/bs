@@ -2,7 +2,7 @@
   <div v-if="info" class="hotel-detail">
     <div class="img"></div>
 
-    <div class="container">
+    <div class="container" style="padding: 0">
       <WBread class="bread mt-3 mb-3" sp=">">
         <WBreadItem to="/" class="bread-item">首页</WBreadItem>
         <WBreadItem class="bread-item">旅游服务</WBreadItem>
@@ -101,7 +101,7 @@
         </HotelIntro>
 
         <!-- 其他酒店 -->
-        <OtherHotel></OtherHotel>
+        <OtherHotel class="mt-5 mb-4"></OtherHotel>
       </div>
     </div>
   </div>

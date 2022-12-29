@@ -37,9 +37,9 @@
         <DropdownItem @click="router.push('/service/route')">
           路线规划
         </DropdownItem>
-        <DropdownItem @click="router.push('/service/ticket')">
+        <!-- <DropdownItem @click="router.push('/service/ticket')">
           门票预订
-        </DropdownItem>
+        </DropdownItem> -->
       </template>
     </DropdownSlot>
 

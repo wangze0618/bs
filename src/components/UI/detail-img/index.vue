@@ -1,7 +1,20 @@
 <template>
   <div class="detail-img">
-    <div class="showImg" ref="viewDiv" v-viewer="{ navbar: false }">
-      <img class="big" :src="imgList[currImgIndex]" alt="" />
+    <div class="showImg" v-viewer="{ navbar: false }">
+      <template v-for="(img, index) in imgList">
+        <Transition
+          name="img"
+          class="img-transition"
+          :duration="{ enter: 400, leave: 400 }"
+          appear
+          appear-active-class="animated fadeIn"
+          enter-active-class="animated fadeIn"
+          leave-active-class="animated fadeOut"
+          mode="out-in"
+        >
+          <img v-if="currImgIndex == index" class="big" :src="img" alt="" />
+        </Transition>
+      </template>
     </div>
     <div class="small-list">
       <template v-for="(item, index) in imgList">
@@ -33,6 +46,8 @@ const changeImg = (i) => {
   .showImg {
     position: relative;
     cursor: grab;
+    height: 370px;
+    overflow: hidden;
     // width: 370px;
     // height: 370px;
   }

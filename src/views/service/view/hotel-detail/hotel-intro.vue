@@ -40,10 +40,10 @@
           class="intro-transition"
           name="intro"
           appear
-          :duration="{ enter: 900, leave: 800 }"
-          appear-active-class="animated bounceInDown"
-          enter-active-class="animated bounceInDown"
-          leave-active-class="animated bounceOutUp"
+          :duration="{ enter: 750, leave: 600 }"
+          appear-active-class="animated fadeInUp"
+          enter-active-class="animated fadeInUp"
+          leave-active-class="animated fadeOutDown"
           mode="out-in"
         >
           <slot v-if="name == 'introduce'" name="introduce"> </slot>
@@ -72,6 +72,7 @@ let name = ref("introduce")
       @media (max-width: 576px) {
         padding: 0 1em;
       }
+      border-right: 1px solid #8e7037;
       .link {
         font-size: 20px;
         padding-bottom: 0.4em;
