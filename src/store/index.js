@@ -4,6 +4,7 @@ import handmade from "./modules/handmade"
 import address from "./modules/address"
 import checkout from "./modules/checkout"
 import cart from "./modules/cart"
+import hotel from "./modules/hotel"
 import createPersistedState from "vuex-persistedstate"
 
 export default createStore({
@@ -17,6 +18,7 @@ export default createStore({
     address,
     checkout,
     cart,
+    hotel,
   },
   plugins: [
     // 默认存储在localstorage
@@ -24,7 +26,7 @@ export default createStore({
       // 本地存储的名字
       key: "bs",
       // 需要存储的模块
-      paths: ["user", "address", "handmade", "cart"],
+      paths: ["user", "address", "handmade", "cart", "hotel"],
     }),
   ],
 })

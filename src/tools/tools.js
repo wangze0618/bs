@@ -45,3 +45,7 @@ export const diffTime = (start, end, mode = "day") => {
   // @ts-ignore
   return dayjs(end).diff(start, mode)
 }
+
+export const randomDelay = (start, end) => {
+  return Math.floor(Math.random() * (end - start)) + start
+}

@@ -14,13 +14,13 @@ const props = defineProps({
     default: () => [105.644993, 28.739941],
   },
 })
-// let map = shallowRef(null)
+let map = shallowRef(null)
 const initMap = async () => {
-  const AMap = await AMapLoader.load({
-    key: "65773a6a1bca2ce36d1332ba8a11fa8f",
-    version: "2.0",
-  })
   try {
+    const AMap = await AMapLoader.load({
+      key: "65773a6a1bca2ce36d1332ba8a11fa8f",
+      version: "2.0",
+    })
     const map = new AMap.Map("container", {
       //设置地图容器id
       resizeEnable: true,
@@ -28,7 +28,6 @@ const initMap = async () => {
       viewMode: "3D", //是否为3D地图模式
       zoom: 16, //初始化地图级别
       center: props.location, //初始化地图中心点位置
-      // mapStyle: "amap://styles/darkblue",
     })
     AMap.plugin(
       [
@@ -36,21 +35,21 @@ const initMap = async () => {
         "AMap.Scale",
         "AMap.HawkEye",
         "AMap.MapType",
-        "AMap.Marker",
         "AMap.ControlBar",
-        "AMap.Driving",
+        "AMap.Marker",
       ],
       () => {
+        map.addControl(new AMap.HawkEye({ isOpen: true }))
+        map.addControl(new AMap.Scale())
+        map.addControl(new AMap.MapType())
+        map.addControl(new AMap.ControlBar())
         map.addControl(
           new AMap.ToolBar({
             position: "LT",
             offset: [50, 120],
           })
         )
-        map.addControl(new AMap.Scale())
-        map.addControl(new AMap.HawkEye({ isOpen: true }))
-        map.addControl(new AMap.MapType())
-        map.addControl(new AMap.ControlBar())
+
         map.add(
           new AMap.Marker({
             // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
@@ -66,7 +65,7 @@ const initMap = async () => {
   }
 }
 
-onMounted(function () {
+onMounted(async () => {
   try {
     initMap()
   } catch (error) {

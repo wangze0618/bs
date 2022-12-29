@@ -64,5 +64,9 @@ app.directive("animate", {
   },
 })
 
+const amapKeys = Object.keys(localStorage).filter((key) => key.match(/^_AMap_/))
+amapKeys.forEach((key) => {
+  localStorage.removeItem(key)
+})
 app.use(VueViewer)
 app.use(store).use(router).mount("#app")

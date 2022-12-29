@@ -1,3 +1,5 @@
+import { getItem } from "@/utils/storage"
+// const { hotel } = getItem("bs")
 export default {
   namespaced: true,
   state() {
@@ -12,5 +14,9 @@ export default {
     },
   },
   actions: {},
-  getters: {},
+  getters: {
+    getList: (state) => () => {
+      return state.list
+    },
+  },
 }

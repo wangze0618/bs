@@ -99,7 +99,7 @@ const routes = [
       {
         path: "/service/route",
         name: "ServiceRoute",
-        component: () => import("@/views/news/index.vue"),
+        component: () => import("@/views/service/view/route/index.vue"),
       },
       // 旅游服务--门票预订
       // {

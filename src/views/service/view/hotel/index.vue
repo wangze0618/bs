@@ -70,7 +70,9 @@
       </div>
     </div>
   </div>
-  <div v-else>loading。。。</div>
+  <div v-else>
+    <Loading></Loading>
+  </div>
 </template>
 
 <script setup>
@@ -83,7 +85,10 @@ import Star from "@/components/UI/star/index.vue"
 import { useRouter } from "vue-router"
 import { page1 } from "@/tools/tools"
 import Pagenation from "@/components/UI/pagenation/index.vue"
-import axios from "axios"
+import Loading from "@/components/UI/loading/index.vue"
+import { useStore } from "vuex"
+
+const store = useStore()
 const hotelList = ref([])
 const currentPage = ref(1)
 const Listlength = ref(0)
@@ -103,6 +108,8 @@ onMounted(async () => {
   let { data } = await getInfo()
   Listlength.value = data.data.length
   hotelList.value = page1(data.data, 5)
+  // 存储数据 并持久化
+  store.commit("hotel/setList", data.data)
 })
 </script>
 
