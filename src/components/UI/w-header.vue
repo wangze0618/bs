@@ -8,7 +8,7 @@
 
     <!-- 移动端 -->
     <div class="container moble">
-      <img @click="goHome" src="@/assets/logo.jpg" alt="" />
+      <img @click="goHome" src="@/assets/image/logo.jpg" alt="" />
       <details class="details" ref="details" @click="toggle">
         <summary>
           <span></span>
@@ -164,8 +164,9 @@ onMounted(() => {
   }
 }
 img {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
 }
 .pc-item {
   display: flex;

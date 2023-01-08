@@ -79,17 +79,13 @@
 
 <script setup>
 import { ref, watch } from "vue"
-import Dropdown from "./dropdown/index.vue"
-import headerItem from "@/api/header-item"
-import { useRoute, useRouter } from "vue-router"
+import { useRouter } from "vue-router"
 import { useStore } from "vuex"
 import AlertBox from "../alert"
 import confirmBox from "../confirm"
 import DropdownSlot from "./dropdown-slot/index.vue"
 import DropdownItem from "./dropdown-slot/components/dropdown-item.vue"
-import { computed } from "@vue/reactivity"
 const router = useRouter()
-const route = useRoute()
 const store = useStore()
 
 const logout = async () => {
@@ -121,16 +117,13 @@ span {
   width: 100%;
   height: 100%;
   align-items: center;
-  // margin-left: 200px;
-  // justify-content: space-around;
   justify-content: flex-end;
 }
 .dropdown-slot {
   display: flex;
   text-align: center;
   align-items: center;
-  width: 80px;
-  // line-height: 88px;
+  width: 70px;
   height: 100%;
 }
 .router-link-exact-active {

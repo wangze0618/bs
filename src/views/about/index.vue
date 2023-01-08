@@ -146,7 +146,6 @@
 import { onMounted, reactive, ref } from "vue"
 import WBread from "@/components/UI/bread/w-bread.vue"
 import WBreadItem from "@/components/UI/bread/w-bread-item.vue"
-import { articleList } from "@/api/article.js"
 import { useRouter } from "vue-router"
 import { WOW } from "wowjs"
 import { Home, Time } from "@icon-park/vue-next"

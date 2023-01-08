@@ -5,7 +5,7 @@
         <h1 style="display: flex">
           <img
             @click="router.push('/')"
-            src="@/assets/logo.jpg"
+            src="@/assets/image/logo.jpg"
             alt=""
             srcset=""
           />
