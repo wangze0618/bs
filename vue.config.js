@@ -5,6 +5,11 @@ module.exports = defineConfig({
   devServer: {
     port: 8080,
   },
+  configureWebpack: {
+    externals: {
+      AMap: "AMap", // 高德地图配置
+    },
+  },
   // css: {
   //   loaderOptions: {
   //     scss: {

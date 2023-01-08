@@ -14,8 +14,8 @@
       }"
     >
       <SwiperSlide>
-        <SpotCarouselItem>
-          <template #title> 尧坝古街道 </template>
+        <SpotCarouselItem @click="router.push('/')">
+          <template #title> 尧坝古街道1 </template>
           <template #img>
             <img class="pic" src="@/assets/upload/古街道.jpeg" alt="" />
           </template>
@@ -29,7 +29,7 @@
 
       <SwiperSlide>
         <SpotCarouselItem>
-          <template #title> 尧坝古街道 </template>
+          <template #title> 尧坝古街道2 </template>
           <template #img>
             <img class="pic" src="@/assets/upload/古街道.jpeg" alt="" />
           </template>
@@ -110,7 +110,9 @@ import "swiper/scss/navigation" // 轮播图两边的左右箭头
 import "swiper/scss/scrollbar" // 轮播图的滚动条
 import "swiper/scss/autoplay" // 轮播图的自动播放
 import "swiper/scss/grid"
+import { useRouter } from "vue-router"
 import SpotCarouselItem from "./spot-carousel-item.vue"
+const router = useRouter()
 const modules = [Navigation, Grid, A11y]
 
 onMounted(() => {})

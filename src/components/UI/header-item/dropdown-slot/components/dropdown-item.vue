@@ -14,12 +14,13 @@ import { ref } from "vue"
   padding: 4px;
   cursor: pointer;
   user-select: none;
-  transition: all 0.5s;
-  color: #000 !important;
+  transition: all ease-out 0.3s;
+  color: #000;
   width: 100%;
   &:hover {
-    background-color: rgb(203, 203, 203);
-    border-radius: 4px;
+    background-color: #4285f4;
+    color: #fff !important;
+    // border-radius: 4px;
   }
 }
 </style>

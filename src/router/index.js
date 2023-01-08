@@ -101,6 +101,11 @@ const routes = [
         name: "ServiceRoute",
         component: () => import("@/views/service/view/route/index.vue"),
       },
+      {
+        path: "/service/qa",
+        name: "ServiceQa",
+        component: () => import("@/views/service/view/qa/index.vue"),
+      },
       // 旅游服务--门票预订
       // {
       //   path: "/service/ticket",

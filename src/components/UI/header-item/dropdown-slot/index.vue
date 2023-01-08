@@ -17,15 +17,16 @@ import { ref } from "vue"
   position: relative;
   color: #fff;
   .menu {
-    transition: all 0.4s;
+    transition: all 0.5s;
     width: 150px;
     border-radius: 6px;
-    padding: 12px;
+    padding: 12px 0;
     position: absolute;
     background-color: #fff;
     opacity: 0;
     visibility: hidden;
-    margin-top: 14px;
+    // margin-top: 20px;
+    transform: translateY(20px);
     z-index: 222;
     top: 60px;
     left: -36px;
@@ -48,7 +49,8 @@ import { ref } from "vue"
   &:hover .menu {
     opacity: 1;
     visibility: visible;
-    margin-top: 0;
+    // margin-top: 0;
+    transform: translateY(0px);
   }
 }
 </style>

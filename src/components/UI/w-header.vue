@@ -2,7 +2,7 @@
   <header class="header" :class="{ scroll: top > 300 }">
     <!-- 大于576px pc端 -->
     <div class="container-lg pc-item">
-      <img @click="goHome" src="@/assets/logo.jpg" alt="" />
+      <img @click="goHome" src="@/assets/image/logo.jpg" alt="" />
       <HeaderItem class="pc-item-list"> </HeaderItem>
     </div>
 

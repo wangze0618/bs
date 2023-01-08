@@ -1,7 +1,8 @@
 import Mock from "mockjs"
 import { getInfo, getOtherHotel } from "./modules/hotel/index.js"
+import { getQa } from "./modules/qa/index.js"
 Mock.setup({
-  timeout: "300-600",
+  timeout: "300-800",
 })
 // hotel模块--获取酒店列表数据
 Mock.mock("/api/hotel", "get", getInfo)
@@ -9,3 +10,6 @@ Mock.mock("/api/hotel", "get", getInfo)
 // hotel模块--获取酒店列表数据
 // 路径最前面不要加 / , 否则会报错
 Mock.mock("api/hotel/other", "get", getOtherHotel)
+
+// 问答qa模块
+Mock.mock("/api/service/qa", "get", getQa)
