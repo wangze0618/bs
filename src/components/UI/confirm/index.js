@@ -15,9 +15,16 @@ const confirmBox = ({ title, text }) => {
     }
     // 点击取消
     const cancelCallback = (data) => {
-      render(null, div)
-      document.body.removeChild(div)
-      reject(false)
+      const content = document.querySelector(".confirm-content")
+      // content.setAttribute("class", "animated fadeOutUp")
+
+      content.classList.remove("animated", "fadeInDown")
+      content.classList.add("animated", "fadeOutUp")
+      setTimeout(() => {
+        render(null, div)
+        document.body.removeChild(div)
+        reject(false)
+      }, 500)
     }
     const vnode = createVNode(Confirm, {
       title,

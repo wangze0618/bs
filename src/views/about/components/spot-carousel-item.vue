@@ -1,5 +1,5 @@
 <template>
-  <div class="spot-carousel-item">
+  <div class="spot-carousel-item shadow">
     <div class="spot">
       <h3><slot name="title">title</slot></h3>
       <div class="context rows">
@@ -24,7 +24,7 @@ import { ref } from "vue"
 .spot {
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 4px 11px 1px #dbdbdb;
+  // box-shadow: 0 4px 11px 1px #dbdbdb;
   h3 {
     font-size: 20px;
   }

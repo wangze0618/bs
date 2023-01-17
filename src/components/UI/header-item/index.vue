@@ -16,7 +16,15 @@
     <!-- 特色产品 -->
     <DropdownSlot>
       <!-- <RoutearLink class="routerLink1" to="/special">特色产品</RoutearLink> -->
-      <a class="routerLink1" href="javascript:;">特色产品</a>
+      <a
+        class="routerLink1"
+        :class="{
+          'router-link-exact-active':
+            path == '/special/food' || path == '/special/handmade',
+        }"
+        href="javascript:;"
+        >特色产品</a
+      >
       <template #dropdown>
         <DropdownItem @click="router.push('/special/food')">
           特色美食
@@ -29,7 +37,17 @@
 
     <!-- 旅游服务 -->
     <DropdownSlot>
-      <a class="routerLink1" href="javascript:;">旅游服务</a>
+      <a
+        class="routerLink1"
+        :class="{
+          'router-link-exact-active':
+            path == '/service/hotel' ||
+            path == '/service/route' ||
+            path == '/service/qa',
+        }"
+        href="javascript:;"
+        >旅游服务</a
+      >
       <template #dropdown>
         <DropdownItem @click="router.push('/service/hotel')">
           酒店住宿
@@ -40,9 +58,9 @@
         <DropdownItem @click="router.push('/service/qa')">
           常见问答
         </DropdownItem>
-        <!-- <DropdownItem @click="router.push('/service/ticket')">
-          门票预订
-        </DropdownItem> -->
+        <DropdownItem @click="router.push('/service/play-guide')">
+          游玩攻略
+        </DropdownItem>
       </template>
     </DropdownSlot>
 
@@ -87,7 +105,16 @@ import DropdownSlot from "./dropdown-slot/index.vue"
 import DropdownItem from "./dropdown-slot/components/dropdown-item.vue"
 const router = useRouter()
 const store = useStore()
-
+let path = ref("")
+watch(
+  () => router.currentRoute.value.path,
+  (newVal) => {
+    path.value = newVal
+  },
+  {
+    immediate: true,
+  }
+)
 const logout = async () => {
   try {
     await confirmBox({ title: "退出登录", text: "确定退出登录?" })
@@ -127,6 +154,6 @@ span {
   height: 100%;
 }
 .router-link-exact-active {
-  background-color: aqua;
+  background-color: goldenrod;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="btns" :class="{ show: top > 300 }">
-    <div class="cart">
+    <div class="cart" v-if="showCart" @click="goCart()">
       <Shopping size="1.8rem" theme="outline" fill="#555"></Shopping>
     </div>
     <div class="up mt-2" @click="backTo">
@@ -12,9 +12,19 @@
 <script setup>
 import { onMounted, ref } from "vue"
 import { Shopping, DoubleUp } from "@icon-park/vue-next"
-
+import { useRouter, useRoute } from "vue-router"
 let top = ref(0)
-
+const router = useRouter()
+const route = useRoute()
+let showCart = ref(true)
+const goCart = () => {
+  if (route.path !== "/cart") {
+    router.push("/cart")
+  } else {
+    // showCart.value = true
+    showCart.value = false
+  }
+}
 let backTo = () => {
   document.documentElement.scrollTop = 0
 }

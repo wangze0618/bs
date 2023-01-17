@@ -20,6 +20,25 @@ const routes = [
         name: "About",
         component: () => import("@/views/about/index.vue"),
       },
+      {
+        path: "/about/spot",
+        name: "spot",
+        component: () => import("@/views/about/views/spot/index.vue"),
+        children: [
+          // 景点详细介绍
+          {
+            path: "gujie",
+            name: "gujie",
+            component: () => import("@/views/about/views/spot/gujie.vue"),
+          },
+          {
+            path: "buxingjie",
+            name: "buxingjie",
+            component: () => import("@/views/about/views/spot/buxingjie.vue"),
+          },
+        ],
+      },
+
       // 走进尧坝--详细介绍
       // {
       //   path: "/about/detail/",
@@ -101,10 +120,17 @@ const routes = [
         name: "ServiceRoute",
         component: () => import("@/views/service/view/route/index.vue"),
       },
+      // 旅游服务--常见问答
       {
         path: "/service/qa",
         name: "ServiceQa",
         component: () => import("@/views/service/view/qa/index.vue"),
+      },
+      // 旅游服务--行程推荐
+      {
+        path: "/service/play-guide",
+        name: "ServicePlayGuide",
+        component: () => import("@/views/service/view/play-guide/index.vue"),
       },
       // 旅游服务--门票预订
       // {

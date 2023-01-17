@@ -1,6 +1,7 @@
 import Mock from "mockjs"
 import { getInfo, getOtherHotel } from "./modules/hotel/index.js"
 import { getQa } from "./modules/qa/index.js"
+import { getPlayGuide, postPlayGuideLike } from "./modules/play-guide/index"
 Mock.setup({
   timeout: "300-800",
 })
@@ -13,3 +14,11 @@ Mock.mock("api/hotel/other", "get", getOtherHotel)
 
 // 问答qa模块
 Mock.mock("/api/service/qa", "get", getQa)
+
+// play-guide游玩攻略模块
+Mock.mock("/api/service/play-guide", "get", getPlayGuide)
+
+// play-guide游玩攻略模块
+Mock.mock(/\/api\/service\/play-guide\/like/, "post", (options) => {
+  return postPlayGuideLike(options)
+})

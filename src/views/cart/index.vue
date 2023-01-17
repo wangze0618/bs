@@ -89,7 +89,8 @@
               共￥
               <span style="color: red"
                 >{{ zero2(store.getters["cart/checkAllPrice"]()) }}元</span
-              >
+              ><br />
+              <span style="font-size: 13px">(包含运费险与运费)</span>
             </td>
             <td>
               <button

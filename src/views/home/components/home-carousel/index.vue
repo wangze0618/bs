@@ -10,10 +10,12 @@
     :speed="speed"
     :loop="loop"
   >
-    <template v-for="(item, index) in homeCarouselList">
+    <template v-for="(item, index) in homeCarouselList" :key="index">
       <swiper-slide class="swiper-item">
         <div class="swiper-content">
-          <h1 class="swiper-item-title">{{ item.title }}</h1>
+          <h1 class="swiper-item-title animated animate__bounceInDown">
+            {{ item.title }}
+          </h1>
           <h3 class="swiper-item-desc">{{ item.desc }}</h3>
         </div>
         <img class="swiper-item-img" :src="item.url" alt="" />

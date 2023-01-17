@@ -23,7 +23,7 @@ const props = defineProps({
 const showCard = computed(() => {
   return setTimeout(() => {
     return props.show
-  }, 20)
+  }, 0)
 })
 const Close = (e) => {
   if (e.currentTarget === e.target) {
@@ -34,13 +34,14 @@ const Close = (e) => {
 
 <style scoped lang="scss">
 .showcontainer {
-  opacity: 1;
+  // opacity: 1;
   visibility: visible;
 }
 .hide {
-  opacity: 0;
+  // opacity: 0;
   visibility: hidden;
 }
+
 .show {
   transform: translateX(0%) !important;
 }
@@ -51,7 +52,7 @@ const Close = (e) => {
   transition: all 0.5s;
   position: fixed;
   top: 0;
-  width: 100vw !important;
+  width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.679);
   z-index: 999;
@@ -70,7 +71,7 @@ const Close = (e) => {
   overflow-y: scroll;
   display: flex;
   flex-direction: column !important;
-  transform: translateX(-100%);
+  // transform: translateX(-100%);
   // 隐藏滚动条
   &::-webkit-scrollbar {
     width: 0 !important;

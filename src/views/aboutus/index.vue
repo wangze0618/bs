@@ -82,7 +82,6 @@
 
 <script setup>
 import { onMounted, ref } from "vue"
-import Typed from "typed.js"
 import WBread from "@/components/UI/bread/w-bread.vue"
 import WBreadItem from "@/components/UI/bread/w-bread-item.vue"
 import Map from "@/components/UI/map/map.vue"

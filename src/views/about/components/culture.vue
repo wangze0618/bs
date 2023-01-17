@@ -30,9 +30,7 @@
 
     <div class="context">
       <Transition name="fade" mode="out-in">
-        <KeepAlive>
-          <component class="comp" :is="name"></component>
-        </KeepAlive>
+        <component class="comp" :is="name"></component>
       </Transition>
     </div>
   </div>

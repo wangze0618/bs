@@ -1,6 +1,9 @@
 <template>
   <div class="confirm-box">
-    <div class="confirm-content">
+    <div
+      style="animation-duration: 400ms"
+      class="confirm-content animated fadeInDown"
+    >
       <div class="title-content">
         <h2 class="title">{{ title }}</h2>
         <Close size="24" @click="cancel" class="close-icon"></Close>
@@ -61,19 +64,17 @@ const confirm = () => {
   background-color: rgba(0, 0, 0, 0.432);
   backdrop-filter: blur(5px);
   z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .confirm-content {
-    position: absolute;
-    left: 50%;
     border-radius: 10px;
-    top: 50%;
-    transform: translate(-50%, -50%);
     background-color: #fff;
     @include card-shadow;
-    margin: 0 auto;
     height: 260px;
     width: 460px;
     @media (max-width: 576px) {
-      width: 100%;
+      width: 90%;
     }
     .title-content {
       display: flex;
