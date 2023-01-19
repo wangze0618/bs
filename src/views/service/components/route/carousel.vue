@@ -1,6 +1,12 @@
 <template>
   <div class="route-carusel">
-    <Swiper class="swiper" navigation :modules="modules">
+    <Swiper
+      class="swiper"
+      :autoplay="autoplay"
+      :navigation="navigation"
+      :modules="modules"
+      :speed="speed"
+    >
       <slot name="swiper">
         <SwiperSlide class="swiper-slide">1</SwiperSlide>
       </slot>
@@ -21,6 +27,12 @@ const props = defineProps({
   },
   modules: {
     type: Array,
+  },
+  autoplay: {
+    type: [Object, Boolean],
+  },
+  speed: {
+    type: [String, Number],
   },
 })
 </script>

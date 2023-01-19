@@ -7,7 +7,7 @@
       :modules="modules"
     >
       <SwiperSlide v-for="(item, index) in data" class="swiper-item">
-        <img :src="item" alt="" />
+        <img v-lazyload="item" alt="" />
       </SwiperSlide>
     </Swiper>
   </div>
@@ -66,7 +66,7 @@ const props = defineProps({
   }
   .swiper-item {
     width: 100%;
-    transition: all 0.5s;
+    // transition: all 0.5s;
     height: 100% !important;
     // @media (min-width: 576px) {
     //   height: 300px;

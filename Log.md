@@ -13,3 +13,5 @@
  3. structuredClone() **浏览器提供的API**
  4. 函数库 lodash，提供 cloneDeep 实现
  5. 通过jQuery的extend方法实现深拷贝
+
+2. [bug] 在main.js的图片懒加载指令中，要写成函数式的，不然会引起地址复用

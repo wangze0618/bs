@@ -9,7 +9,11 @@
       </WBread>
       <div class="context">
         <!-- 轮播 -->
-        <RouteCarousel class="mb-5 carousel" :modules="modules" navigation>
+        <RouteCarousel
+          class="mb-5 carousel"
+          :modules="modules"
+          :navigation="true"
+        >
           <template #swiper>
             <SwiperSlide class="swiper-slide">
               <img
@@ -114,6 +118,13 @@
               src="@/assets/image/route/dabache.png"
               alt=""
             />
+            <a
+              class="mt-2"
+              style="text-align: center; display: inherit; color: #56b2e7"
+              target="_blank"
+              href="https://bus.ctrip.com/list?param=%7B%22fromCity%22%3A%22%E6%88%90%E9%83%BD%22%2C%22toCity%22%3A%22%E6%B3%B8%E5%B7%9E%22%2C%22fromDate%22%3A%222023-01-19%22%7D"
+              >去携程买票</a
+            >
 
             <p class="mb-0 mt-4">高铁（成都方向）：</p>
             <p>示例车票购买截图（携程）| 查看更多请去官方网站</p>
@@ -126,13 +137,76 @@
               src="@/assets/image/route/gaotie.png"
               alt=""
             />
+            <a
+              class="mt-2"
+              style="text-align: center; display: inherit; color: #56b2e7"
+              target="_blank"
+              href="https://trains.ctrip.com/webapp/train/list?ticketType=0&dStation=%E6%88%90%E9%83%BD&aStation=%E6%B3%B8%E5%B7%9E&dDate=2023-01-18&rDate=&trainsType=&hubCityName=&highSpeedOnly=0"
+              >去携程买票</a
+            >
           </div>
         </div>
 
         <!-- 自驾抵达 -->
         <div class="main mb-4">
           <h3>自驾抵达</h3>
-          <div class="main-box"></div>
+          <div class="main-box">
+            <p style="font-weight: 700">成都方向：</p>
+
+            <ul>
+              <li>
+                <p style="margin-bottom: 0">方案一</p>
+
+                <p style="margin-bottom: 0; text-indent: 4em">
+                  <span>约3小时10分钟</span
+                  >&nbsp;|&nbsp;<span>284.3公里</span>&nbsp;|&nbsp;<span
+                    >红绿灯<span class="red">2</span>个
+                  </span>
+                </p>
+
+                <p style="text-indent: 4em">
+                  途经：
+                  G4202成都绕城高速&nbsp;>&nbsp;G4215蓉遵高速&nbsp;>&nbsp;兴尧路
+                </p>
+              </li>
+              <li>
+                <p style="margin-bottom: 0">方案二</p>
+                <p style="margin-bottom: 0; text-indent: 4em">
+                  <span>约3小时16分钟</span
+                  >&nbsp;|&nbsp;<span>290.4公里</span>&nbsp;|&nbsp;<span
+                    >红绿灯<span class="red">2</span>个
+                  </span>
+                </p>
+
+                <p style="text-indent: 4em">
+                  途经：
+                  S3成资渝高速&nbsp;>&nbsp;G76厦蓉高速&nbsp;>&nbsp;G4215蓉遵高速
+                </p>
+              </li>
+              <li>
+                <p style="margin-bottom: 0">方案三</p>
+                <p style="margin-bottom: 0; text-indent: 4em">
+                  <span>约3小时10分钟</span
+                  >&nbsp;|&nbsp;<span>295.7公里</span>&nbsp;|&nbsp;<span
+                    >红绿灯<span class="red">2</span>个
+                  </span>
+                </p>
+
+                <p style="text-indent: 4em">
+                  途经：
+                  新兴特大桥&nbsp;>&nbsp;S4成宜昭高速&nbsp;>&nbsp;G4215蓉遵高速
+                </p>
+              </li>
+            </ul>
+            <img
+              v-viewer="{
+                toolbar: false,
+              }"
+              src="@/assets/image/route/self-drive.png"
+              class="img-thumbnail"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -153,6 +227,9 @@ const modules = [Navigation]
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
 .route {
+  .red {
+    color: red;
+  }
   background-color: #ff7529;
   .container {
     @include setBread;

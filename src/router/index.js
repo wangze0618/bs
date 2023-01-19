@@ -81,7 +81,7 @@ const routes = [
       {
         path: "/special/food/:id",
         name: "SpecialFoodDetail",
-        component: () => import("@/views/news/index.vue"),
+        component: () => import("@/views/special/views/food-detail/index.vue"),
       },
       // 特色产品--特色手工
       {

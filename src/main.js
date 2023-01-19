@@ -18,10 +18,31 @@ import "wowjs/css/libs/animate.css" // 巨坑... 此地方要引入两个css
 import "viewerjs/dist/viewer.css"
 import VueViewer from "v-viewer"
 import "@/mock/index.js"
+const img = require("@/assets/image/loading.gif")
 // mock.js
 
 const app = createApp(App)
 
+app.directive("img-lazyload", (el, binding) => {
+  const observer = new IntersectionObserver(
+    ([{ isIntersecting }]) => {
+      if (isIntersecting) {
+        observer.unobserve(el)
+        el.src = binding.value
+      } else {
+        el.src = img
+      }
+    },
+    {
+      threshold: 0.6,
+    }
+  )
+  observer.observe(el)
+
+  el.onerror = () => {
+    el.src = img
+  }
+})
 app.directive("lazyload", {
   mounted(el, binding, vnode, prevVNode) {
     const observer = new IntersectionObserver(

@@ -84,7 +84,6 @@
 import { ref, watch, onMounted, computed } from "vue"
 import WDrawer from "./w-drawer.vue"
 import HeaderItem from "./header-item/index.vue"
-import headerItem from "@/api/header-item"
 import Collapse from "./collapse/index.vue"
 import { useRouter } from "vue-router"
 import { useStore } from "vuex"

@@ -1,5 +1,5 @@
 <template>
-  <div class="food">
+  <div class="food" v-if="list.length && listLength">
     <div class="img"></div>
     <!-- 图片 -->
     <div class="container">
@@ -16,17 +16,17 @@
             <div
               class="food-item mb-3"
               v-for="(item, index) in list[currentPage - 1]"
+              :key="index"
+              @click="goDetail(item.id)"
             >
               <div class="food-left">
-                <img v-lazyload="item.img" alt="" />
+                <img v-img-lazyload="item.img" alt="" />
+                <!-- <img :src="item.img" alt="" /> -->
               </div>
               <div class="food-right">
-                <h5>特色美食{{ item.id }}</h5>
+                <h5>{{ item.title }}</h5>
                 <p class="desc">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Laudantium quibusdam harum, cupiditate ab incidunt asperiores
-                  vitae sint veritatis magnam iure numquam ducimus nobis
-                  laborum, alias debitis odit delectus corporis ea!
+                  {{ item.desc }}
                 </p>
               </div>
             </div>
@@ -43,30 +43,52 @@
       </div>
       <Pagenation
         class="justify-content-center m-4"
-        :total="foodList.length"
+        :total="listLength"
         :page-size="5"
         :current-page="currentPage"
         @getCurrentPage="changePage($event)"
       ></Pagenation>
     </div>
   </div>
+  <Loading v-else></Loading>
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
 import WBread from "@/components/UI/bread/w-bread.vue"
 import WBreadItem from "@/components/UI/bread/w-bread-item.vue"
 import StoreRecommend from "../../components/store-recommend/index.vue"
 import FoodRecommend from "../../components/food-recommend/index.vue"
 import Pagenation from "@/components/UI/pagenation/index.vue"
 import { page1 } from "@/tools/tools"
-import { foodList } from "@/api/special/food/food.js"
+import { getFoodList } from "@/api/special/food/food.js"
+import Loading from "@/components/UI/loading/index.vue"
+import { useRouter } from "vue-router"
+const router = useRouter()
+const goDetail = (id) => {
+  router.push({
+    name: "SpecialFoodDetail",
+    params: {
+      id: id,
+    },
+  })
+}
+const isOk = (e) => {
+  console.log(e.target.complete)
+}
 
 const currentPage = ref(1)
-let list = page1(foodList, 5)
 const changePage = (data) => {
   currentPage.value = data
 }
+let list = ref([])
+let listLength = ref(0)
+onMounted(async () => {
+  let { data } = await getFoodList()
+  listLength.value = data.data.length
+  list.value = page1(data.data, 5)
+  console.log(list.value)
+})
 </script>
 
 <style scoped lang="scss">

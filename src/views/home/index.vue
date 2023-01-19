@@ -11,10 +11,10 @@
     >
     </Carousel>
     <!-- 美在尧坝 -->
-    <HomeBeauty></HomeBeauty>
+    <HomeBeauty class="wow fadeInUp" data-wow-duration="2s"></HomeBeauty>
 
     <!-- 游客风采 -->
-    <HomeCustom></HomeCustom>
+    <HomeCustom class="wow fadeInUp" data-wow-duration="2s"></HomeCustom>
 
     <!-- 新闻资讯 -->
     <HomeNews class="wow fadeInUp" data-wow-duration="2s"></HomeNews>
