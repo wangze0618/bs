@@ -12,10 +12,10 @@
           <Cloudy size="36" v-else-if="item.type == '多云'"></Cloudy>
           <span>{{ item.type }}</span>
         </div>
-        <div class="fengli">{{ item.fengli }}级</div>
-        <div class="fengxiang">{{ item.fengxiang }}</div>
-        <div class="low">{{ item.low }}</div>
-        <div class="high">{{ item.high }}</div>
+        <div class="fengli">{{ item.fengxiang }}{{ item.fengli }}级</div>
+        <!-- <div class="fengxiang">{{ item.fengxiang }}</div> -->
+        <div class="low">{{ item.low }}°C</div>
+        <div class="high">{{ item.high }}°C</div>
       </div>
     </div>
   </div>

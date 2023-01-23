@@ -4,14 +4,6 @@
 
     <!-- 走进尧坝 -->
     <RouterLink class="routerLink1" to="/about">走进尧坝</RouterLink>
-    <!-- <template #dropdown> -->
-    <!-- <DropdownItem @click="router.push('/about/detail')">
-          详细介绍
-        </DropdownItem>
-        <DropdownItem @click="router.push('/about/main-spot')">
-          主要景点
-        </DropdownItem> -->
-    <!-- </template> -->
 
     <!-- 特色产品 -->
     <DropdownSlot>

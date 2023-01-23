@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <!-- 大屏轮播 -->
     <Carousel
       class="home-carousel"
       :navigation="false"
@@ -10,6 +11,7 @@
       :loop="true"
     >
     </Carousel>
+
     <!-- 美在尧坝 -->
     <HomeBeauty class="wow fadeInUp" data-wow-duration="2s"></HomeBeauty>
 
@@ -18,20 +20,18 @@
 
     <!-- 新闻资讯 -->
     <HomeNews class="wow fadeInUp" data-wow-duration="2s"></HomeNews>
+
     <!-- 快速链接 -->
-    <HomeService class="wow fadeInUp" data-wow-duration="2s"></HomeService>
-    <!-- 地图 -->
-    <Map class="wow fadeInUp" data-wow-duration="2s"></Map>
+    <HomeService class="wow fadeInUp mb-5" data-wow-duration="2s"></HomeService>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, shallowRef, reactive } from "vue"
+import { ref, onMounted } from "vue"
 import Carousel from "@/views/home/components/home-carousel/index.vue"
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper"
 import HomeNews from "./view/home-news.vue"
 import HomeService from "./view/home-service.vue"
-import Map from "../../components/UI/map/map.vue"
 import { WOW } from "wowjs"
 import { useStore } from "vuex"
 import HomeBeauty from "./view/home-beauty.vue"
@@ -65,9 +65,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .home {
-  margin-top: 88px;
   .home-carousel {
-    // height: 120px !important;
     :deep(img) {
       object-fit: fill;
 

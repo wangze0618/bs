@@ -41,6 +41,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .btns {
   position: fixed;
+  z-index: 99;
   right: 2vw;
   bottom: 10rem;
   opacity: 0;
@@ -60,7 +61,7 @@ onMounted(() => {
     justify-content: center;
     width: 3rem;
     height: 3rem;
-    border: 1px solid #eeeeee85;
+    border: 1px solid #bcbcbc61;
     background-color: #eeeeee;
     border-radius: 3rem;
     &.show {

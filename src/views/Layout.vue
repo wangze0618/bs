@@ -14,8 +14,13 @@ import WFooter from "@/components/UI/w-footer.vue"
 import Btns from "@/components/UI/btns/index.vue"
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+::selection {
+  color: #fff;
+  background-color: #c59a4c !important;
+}
 .main-body {
   margin-top: 88px;
+  background-color: #f5f5f5 !important;
 }
 </style>

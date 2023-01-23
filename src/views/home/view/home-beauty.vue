@@ -19,12 +19,7 @@
 
           <!-- 宣传视频 -->
           <div class="intro-video">
-            <video
-              controls
-              muted="true"
-              src="
-              https://apd-d4c2e3c90b3ca3c6cff7680b83c69715878900bf3e3efecc.v.smtcdns.com/om.tc.qq.com/Aa2Bhr4YM2Aw0CZqgd8kxyOZyNlRzKgYA4oB9yFBeqdE/B_I_Rzkoqs3mS4tvqhfSdL4w/c0720ax2ry1.mp4?sdtfrom=v1010&guid=63bd0ad971b626c3&vkey=14C53EECB5716D0B34111C93A63C69CC2933F4ABCA9AC3DC6E85A07DA9A353D8FCF816DA05238999D2FA1ECBFEDB83789122EFB704D534ECC8DF68E13C6EBF0B6BFDBF2D67AC97548AF42887E3376DD433B03446E939EE4098273E75A1355A6D2B27D67E14F943B2E216BB15D580A4E8207FBABA068D06BFAA25DCC012EAE45F"
-            ></video>
+            <video class="rounded-3" controls muted="true" src=""></video>
           </div>
         </div>
       </div>

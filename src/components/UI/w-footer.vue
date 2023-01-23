@@ -5,7 +5,7 @@
       <Search class="search"></Search>
       <!-- 天气 -->
       <div class="weather">
-        <Weather city="会理"></Weather>
+        <Weather></Weather>
       </div>
       <div class="list d-none d-md-flex">
         <ul>
@@ -13,27 +13,17 @@
           <li>景区概况</li>
           <li>门票预订</li>
           <li>紧急电话</li>
-          <li>医疗信息</li>
         </ul>
         <ul>
           <li>生态之旅</li>
           <li>发现之旅</li>
           <li>生态之旅</li>
           <li>发现之旅</li>
-          <li>发现之旅</li>
         </ul>
         <ul>
           <li>如何到达</li>
           <li>住在哪里</li>
           <li>游玩信息</li>
-          <li>机票预订</li>
-          <li>机票预订</li>
-        </ul>
-        <ul>
-          <li>如何到达</li>
-          <li>住在哪里</li>
-          <li>游玩信息</li>
-          <li>机票预订</li>
           <li>机票预订</li>
         </ul>
         <ul>
@@ -41,6 +31,11 @@
           <li>住在哪里</li>
           <li>游玩信息</li>
           <li>机票预订</li>
+        </ul>
+        <ul>
+          <li>如何到达</li>
+          <li>住在哪里</li>
+          <li>游玩信息</li>
           <li>机票预订</li>
         </ul>
       </div>
@@ -48,7 +43,7 @@
         <img src="@/assets/guiguan.png" alt="" srcset="" />
       </div>
       <div class="info">
-        <p>©2000-2022 会理古城景区管理局 | 技术支持：wangze</p>
+        <p>©2000-2023 尧坝古镇景区管理局 | 技术支持：wangze</p>
       </div>
     </div>
   </div>
@@ -61,15 +56,15 @@ import Search from "./search/index.vue"
 </script>
 
 <style scoped lang="scss">
-.search {
-  text-align: center;
-  padding: 26px;
-  border-bottom: 1px solid #434343;
-}
 .footer {
   color: #fff;
   background-color: #222222;
   .container {
+    .search {
+      text-align: center;
+      padding: 26px;
+      border-bottom: 1px solid #434343;
+    }
     .weather,
     .list,
     .logo,
@@ -89,9 +84,7 @@ import Search from "./search/index.vue"
       display: flex;
       justify-content: space-around;
       align-items: center;
-
       ul {
-        // width: 20%;
         text-align: center;
       }
     }

@@ -185,7 +185,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media (min-width: 768px) {
+  @media (width>768px) {
     display: none;
   }
 }
@@ -211,7 +211,7 @@ img {
   }
   details {
     width: 30px;
-    @media (min-width: 768px) {
+    @media (width>769px) {
       display: none;
     }
     user-select: none;

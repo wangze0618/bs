@@ -5,9 +5,9 @@
     </div>
     <div class="container">
       <!-- 面包屑组件 -->
-      <WBread class="wt" sp=">">
+      <WBread class="wt mb-3 mt-3" sp=">">
         <WBreadItem class="wit" to="/">首页</WBreadItem>
-        <WBreadItem class="wit">走进会理</WBreadItem>
+        <WBreadItem class="wit">走进尧坝</WBreadItem>
       </WBread>
       <!-- 简概列表 -->
     </div>
@@ -258,24 +258,12 @@ onMounted(() => {
   }
 }
 
-@keyframes imgInto {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.06);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 .img {
   @include img("@/assets/image/usercomment.jpeg");
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  animation: imgInto 4s;
   h3 {
     font-size: 2rem;
     margin-bottom: 0;
