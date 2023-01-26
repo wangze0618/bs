@@ -1,18 +1,21 @@
 <template>
-  <div class="qa" v-if="viewList.length && categoryList.length">
+  <div
+    class="qa"
+    style="overflow: hidden"
+    v-if="viewList.length && categoryList.length"
+  >
     <div class="img"></div>
 
     <div class="container">
-      <div class="cuts">
-        <WBread class="bread m-3" sp=">">
-          <WBreadItem class="bread-item" to="/">首页</WBreadItem>
-          <WBreadItem class="bread-item">首页</WBreadItem>
-        </WBread>
-      </div>
+      <WBread class="bread mt-3 mb-3" sp=">">
+        <WBreadItem class="bread-item" to="/">首页</WBreadItem>
+        <WBreadItem class="bread-item">首页</WBreadItem>
+      </WBread>
 
       <div class="row">
-        <div class="left col-12 col-lg-4 mt-3">
+        <div class="left col-12 col-lg-4">
           <div class="btns">
+            <!-- 分类标签 -->
             <Collapse class="btns-collapse">
               <template #title>问题分类标签</template>
               <template #content>
@@ -21,7 +24,7 @@
                   v-for="(item, index) in categoryList"
                   class="btn btn-primary"
                   :class="{
-                    'btn-success': defaultCategory == item,
+                    success: defaultCategory == item,
                   }"
                   @click="getCate(item)"
                 >
@@ -41,7 +44,8 @@
             </Collapse>
           </div>
         </div>
-        <div class="box right col-12 col-lg-8 mt-3">
+        <div class="box right col-12 col-lg-8">
+          <!-- 问题列表 -->
           <template v-for="(item, index) in viewList" :key="item.id">
             <Collapse class="mb-3">
               <template #title>Q{{ index + 1 }}、{{ item.title }}</template>
@@ -111,9 +115,7 @@ onMounted(async () => {
 @import "@/assets/style/mixin.scss";
 .qa {
   .container {
-    .cuts {
-      @include setBread;
-    }
+    @include setBread;
   }
   .img {
     @include img("@/assets/image/usercomment.jpeg");
@@ -127,9 +129,6 @@ onMounted(async () => {
         flex-wrap: wrap;
         justify-content: space-between;
         button {
-          // flex-basis: 32%;
-          // flex: 1;
-
           width: 30%;
           margin-right: 0.2em;
           margin-bottom: 0.4em;
@@ -137,16 +136,14 @@ onMounted(async () => {
       }
     }
   }
-}
-.qa {
-  // transition: all 0.5s;
-
   .box {
     transition: all 0.5s;
     height: 100%;
   }
 }
-.btn-success {
+.success {
   box-shadow: none;
+  background-color: var(--c-goldenrot);
+  border: 1px solid var(--c-goldenrot);
 }
 </style>

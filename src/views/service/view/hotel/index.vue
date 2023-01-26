@@ -3,6 +3,7 @@
     <div class="img"></div>
     <div class="container">
       <div class="context">
+        <!-- 面包屑组件 -->
         <WBread class="bread mt-3 mb-3" sp=">">
           <WBreadItem class="bread-item" to="/"><Home></Home>首页</WBreadItem>
           <WBreadItem class="bread-item">旅游服务</WBreadItem>
@@ -11,6 +12,8 @@
 
         <!-- 标题 -->
         <h3 class="title mt-3 mb-3">酒店预订</h3>
+
+        <!-- 展示列表 -->
         <div class="hotel-list">
           <div
             v-for="(item, index) in hotelList[currentPage - 1]"

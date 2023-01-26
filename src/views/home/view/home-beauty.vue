@@ -19,7 +19,12 @@
 
           <!-- 宣传视频 -->
           <div class="intro-video">
-            <video class="rounded-3" controls muted="true" src=""></video>
+            <video
+              class="rounded-3"
+              autoplay
+              controls
+              src="@/assets/login.mp4"
+            ></video>
           </div>
         </div>
       </div>

@@ -29,24 +29,8 @@ import Comment from "@/components/UI/comment/index.vue"
     display: none;
   }
 }
-.title {
-  // margin-top: 2em;
-}
+
 .img {
   @include img("@/assets/image/usercomment.jpeg");
-  // background: url() center center no-repeat;
-  // width: 100%;
-  // height: 300px;
-  // background-size: cover;
-  // // object-fit: cover;
-  // @media (max-width: 992px) {
-  //   height: 260px;
-  // }
-  // @media (max-width: 768px) {
-  //   height: 240px;
-  // }
-  // @media (max-width: 576px) {
-  //   height: 200px;
-  // }
 }
 </style>

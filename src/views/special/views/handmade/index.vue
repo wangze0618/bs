@@ -14,7 +14,7 @@
     <div class="row">
       <div
         v-for="(item, index) in list[currentPage - 1]"
-        class="handmade-card col-lg-4 col-sm-6"
+        class="handmade-card pe-3 ps-3 mb-3 col-sm-6 col-lg-4"
       >
         <div class="ct1">
           <!-- 手工略缩图 -->
@@ -80,7 +80,7 @@ const store = useStore()
 let list = store.getters["handmade/handmadeList"]()
 let length = list.length
 const currentPage = ref(1)
-const pageSize = 4
+const pageSize = 6
 
 // 对数组进行分页处理
 list = page1(list, pageSize)

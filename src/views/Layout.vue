@@ -21,6 +21,7 @@ import Btns from "@/components/UI/btns/index.vue"
 }
 .main-body {
   margin-top: 88px;
-  background-color: #f5f5f5 !important;
+  transition: all 0.4s;
+  background-color: var(--color-background) !important;
 }
 </style>

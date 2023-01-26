@@ -4,8 +4,9 @@
     <!-- 图片 -->
     <div class="container">
       <!-- 面包屑组件 -->
-      <WBread class="bread mt-4 mb-4" sp=">">
+      <WBread class="bread mt-3 mb-3" sp=">">
         <WBreadItem class="bread-item" to="/">首页</WBreadItem>
+        <WBreadItem class="bread-item" to="/special">特色产品</WBreadItem>
         <WBreadItem class="bread-item">特色美食</WBreadItem>
       </WBread>
 
@@ -41,6 +42,8 @@
           </div>
         </div>
       </div>
+
+      <!-- 分页组件 -->
       <Pagenation
         class="justify-content-center m-4"
         :total="listLength"

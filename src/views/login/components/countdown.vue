@@ -21,7 +21,6 @@ const count = () => {
   countdown.value = 60
   let timer = setInterval(() => {
     countdown.value--
-    console.log(countdown.value)
     if (countdown.value <= 57) {
       showToast.value = false
     }

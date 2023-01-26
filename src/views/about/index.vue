@@ -5,15 +5,16 @@
     </div>
     <div class="container">
       <!-- 面包屑组件 -->
-      <WBread class="wt mb-3 mt-3" sp=">">
-        <WBreadItem class="wit" to="/">首页</WBreadItem>
-        <WBreadItem class="wit">走进尧坝</WBreadItem>
+      <WBread class="bread mb-3 mt-3" sp=">">
+        <WBreadItem class="bread-item" to="/">首页</WBreadItem>
+        <WBreadItem class="bread-item">走进尧坝</WBreadItem>
       </WBread>
-      <!-- 简概列表 -->
     </div>
     <div class="container-xl">
+      <!-- 简概列表 -->
       <div class="wow animated fadeInUp card card1">
         <div class="row card1-row">
+          <!-- 熟读尧坝 -->
           <div class="left1 col-sm-12 col-md-4">
             <div class="content1">
               <h3 class="left-title1">数读尧坝</h3>
@@ -67,6 +68,7 @@
               </div>
             </div>
           </div>
+          <!-- 关于尧坝 -->
           <div class="right1 col-sm-12 col-md-8">
             <h3 class="right-title">关于尧坝</h3>
             <div class="right-main">
@@ -128,6 +130,7 @@
       <SpotCarousel class="mt-5">
         <template #SwiperSlide>
           <SwiperSlide
+            class="slide"
             @click="
               router.push({
                 name: 'gujie',
@@ -147,6 +150,7 @@
             </SpotCarouselItem>
           </SwiperSlide>
           <SwiperSlide
+            class="slide"
             @click="
               router.push({
                 name: 'buxingjie',
@@ -165,7 +169,7 @@
               </template>
             </SpotCarouselItem>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide class="slide">
             <SpotCarouselItem>
               <template #title> 尧坝古街道3 </template>
               <template #img>
@@ -178,7 +182,7 @@
               </template>
             </SpotCarouselItem>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide class="slide">
             <SpotCarouselItem>
               <template #title> 尧坝古街道1 </template>
               <template #img>
@@ -191,7 +195,7 @@
               </template>
             </SpotCarouselItem>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide class="slide">
             <SpotCarouselItem>
               <template #title> 尧坝古街道1 </template>
               <template #img>
@@ -247,115 +251,101 @@ onMounted(() => {
 
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
-.quanjing {
-  .quanjingtu {
-    text-align: center;
-    margin: 30px 0;
-  }
-  img {
-    width: 100%;
-    cursor: grab;
-  }
-}
-
-.img {
-  @include img("@/assets/image/usercomment.jpeg");
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  h3 {
-    font-size: 2rem;
-    margin-bottom: 0;
-    text-shadow: 1px 1px 6px #808080;
-  }
-}
-.card {
-  height: 100%;
-  @include card-shadow;
-}
-.card1 {
-  padding: 30px 40px;
-  .card1-row {
-    .left1,
-    .right1 {
-      // padding: 0;
-
-      .right-title {
-        text-align: center;
-        margin: 20px;
-        font-size: 16px;
-        color: #808080;
-      }
-      .right-main {
-        width: 100% !important;
-        display: flex;
-        flex-direction: column;
-        .main-item {
-          // border: 1px solid #000;
-          display: flex;
-          margin-top: 30px;
-          // align-items: center;
-          // &:nth-child(n + 2) {
-
-          //   background-color: #808080;
-          // }
-          .item-left {
-            margin-top: 30px;
-            margin-right: 16px;
-          }
-          .item-right {
-            .right-title {
-            }
-            .right-content {
-              text-indent: 2em;
-            }
-          }
-        }
-      }
-    }
-    .left1 {
-      .content1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        color: #808080;
-        .left-title1 {
-          margin: 20px;
-          font-size: 16px;
-        }
-        .left2 {
-          text-align: center;
-          .left2-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            .home-icon {
-              display: flex;
-              align-items: center;
-              margin-left: 10px;
-            }
-            .left2-span {
-              // margin-right: 10px;
-              font-size: 60px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
 .about {
   margin-top: 88px;
   user-select: none;
-  .container {
-    :deep(.wt) {
-      padding-top: 5px;
-      padding-bottom: 5px;
+  .img {
+    @include img("@/assets/image/usercomment.jpeg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 0;
+      text-shadow: 1px 1px 6px #808080;
     }
-    :deep(.wit) {
-      font-size: 16px;
+  }
+  .container {
+    @include setBread;
+  }
+  .slide {
+    background-color: var(--c-gray);
+    border-radius: 8px;
+  }
+  .card {
+    height: 100%;
+    @include card-shadow;
+  }
+  .card1 {
+    padding: 30px 40px;
+    .card1-row {
+      .left1,
+      .right1 {
+        .right-title {
+          text-align: center;
+          margin: 20px;
+          font-size: 16px;
+          color: #808080;
+        }
+        .right-main {
+          width: 100% !important;
+          display: flex;
+          flex-direction: column;
+          .main-item {
+            display: flex;
+            margin-top: 30px;
+            .item-left {
+              margin-top: 30px;
+              margin-right: 16px;
+            }
+            .item-right {
+              .right-content {
+                text-indent: 2em;
+              }
+            }
+          }
+        }
+      }
+      .left1 {
+        .content1 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          color: #808080;
+          .left-title1 {
+            margin: 20px;
+            font-size: 16px;
+          }
+          .left2 {
+            text-align: center;
+            .left2-content {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              .home-icon {
+                display: flex;
+                align-items: center;
+                margin-left: 10px;
+              }
+              .left2-span {
+                font-size: 60px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .quanjing {
+    .quanjingtu {
+      text-align: center;
+      margin: 30px 0;
+    }
+    img {
+      width: 100%;
+      cursor: grab;
     }
   }
 }

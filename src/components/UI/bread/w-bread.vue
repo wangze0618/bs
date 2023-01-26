@@ -49,5 +49,6 @@ export default {
 }
 .sp {
   font-size: 22px;
+  color: var(--color-text);
 }
 </style>

@@ -90,6 +90,7 @@ import Map from "@/components/UI/map/map.vue"
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
 .aboutus {
+  color: var(--color-text);
   h4,
   p {
     margin-bottom: 0;
@@ -155,17 +156,12 @@ import Map from "@/components/UI/map/map.vue"
         text-align: center;
       }
       .follow-context {
-        // display: flex;
-        // justify-content: center;
         text-align: center;
         .item {
           display: inline-block;
           text-align: center;
           margin: 20px 40px;
-          // display: flex;
-          // flex-direction: column;
-          // justify-content: center;
-          // align-items: center;
+
           img {
             display: block;
             width: 140px;

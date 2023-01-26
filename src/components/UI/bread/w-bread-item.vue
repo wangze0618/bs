@@ -21,7 +21,7 @@ const props = defineProps({
   font-size: 22px;
   a {
     text-decoration: none;
-    color: black;
+    color: var(--color-text);
   }
   span {
     color: gray;

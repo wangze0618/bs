@@ -32,7 +32,7 @@
           常见问答
         </DropdownItem>
         <DropdownItem @click="router.push('/service/play-guide')">
-          游玩攻略
+          行程推荐
         </DropdownItem>
       </template>
     </DropdownSlot>
@@ -118,6 +118,6 @@ span {
   height: 100%;
 }
 .router-link-exact-active {
-  background-color: goldenrod;
+  background-color: #2f110f;
 }
 </style>

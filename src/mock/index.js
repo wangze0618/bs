@@ -3,11 +3,15 @@ import { getInfo, getOtherHotel } from "./modules/hotel/index.js"
 import { getQa } from "./modules/qa/index.js"
 import { getPlayGuide, postPlayGuideLike } from "./modules/play-guide/index"
 import { getFood, getDetailFood } from "./modules/specail/food/index.js"
+import { getCarouselList } from "./modules/home/index.js"
 Mock.setup({
   timeout: "300-800",
 })
 
-// special模块 --获取美食列表
+// home模块--获取轮播图数据
+Mock.mock("/api/home/carousel", "get", getCarouselList)
+
+// special模块--获取美食列表
 Mock.mock("/api/specail/food", "get", getFood)
 
 // play-guide游玩攻略模块

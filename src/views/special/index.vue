@@ -7,7 +7,7 @@
         <WBreadItem class="bread-item">特色产品</WBreadItem>
       </WBread>
 
-      <!-- 主轮播 -->
+      <!-- 图片轮播 -->
       <BigCarousel
         class="mb-5 shadow-lg big"
         :modules="modules"

@@ -1,5 +1,5 @@
 <template>
-  <h3>热门景点</h3>
+  <h3 class="mb-3 mt-5">热门景点</h3>
   <div class="spot-carousel">
     <Swiper
       class="swiper"

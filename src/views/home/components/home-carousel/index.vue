@@ -10,13 +10,15 @@
     :speed="speed"
     :loop="loop"
   >
-    <template v-for="(item, index) in homeCarouselList" :key="index">
+    <template v-for="(item, index) in imgList" :key="index">
       <swiper-slide class="swiper-item">
         <div class="swiper-content">
           <h1 class="swiper-item-title animated animate__bounceInDown">
             {{ item.title }}
           </h1>
-          <h3 class="swiper-item-desc">{{ item.desc }}</h3>
+          <h3 class="swiper-item-desc animated animate__bounceInDown">
+            {{ item.desc }}
+          </h3>
         </div>
         <img class="swiper-item-img" :src="item.url" alt="" />
       </swiper-slide>
@@ -27,7 +29,7 @@
 <script setup>
 import { ref } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
-import { homeCarouselList } from "@/api/home-carousel"
+
 // import Swiper core and required modules
 import "swiper/scss"
 import "swiper/scss/pagination" // 轮播图底面的小圆点

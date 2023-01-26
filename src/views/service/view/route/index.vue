@@ -1,6 +1,5 @@
 <template>
   <div class="route" style="overflow: hidden">
-    <!-- <div class="img"></div> -->
     <div class="container">
       <WBread class="bread mt-3 mb-3" style="display: inline-block" sp=">">
         <WBreadItem class="bread-item" to="/">首页</WBreadItem>

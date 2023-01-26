@@ -185,7 +185,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media (width>768px) {
+  @media (width>769px) {
     display: none;
   }
 }
@@ -198,16 +198,18 @@ img {
   left: 0;
   right: 0;
   height: 88px;
-  background-color: rgba(54, 54, 54, 0.887);
+  // background-color: rgba(54, 54, 54, 0.887);
+  background-color: rgba(#daa520, 0.887);
   backdrop-filter: blur(5px);
   display: flex;
   justify-content: space-around;
   align-items: center;
   z-index: 999;
   transition: all 0.4s;
+  border-bottom: 1px solid rgba(#d19a0d, 0.4);
   &.scroll {
-    height: 70px;
-    background-color: #000000da;
+    height: 74px;
+    background-color: rgba(#daa520, 0.9);
   }
   details {
     width: 30px;
