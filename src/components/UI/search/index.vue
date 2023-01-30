@@ -36,12 +36,14 @@ const isValid = computed(() => {
 })
 const goToSearch = () => {
   let str = encodeURIComponent(q.value)
-  router.push({
-    path: "/search",
-    query: {
-      q: str,
-    },
-  })
+  // router.push({
+  //   path: "/search",
+  //   query: {
+  //     q: str,
+  //   },
+  // })
+  window.open(`https://www.baidu.com/s?wd=${q.value}`, "_blank")
+  //
 }
 </script>
 

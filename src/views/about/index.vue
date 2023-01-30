@@ -75,8 +75,9 @@
               <div class="main-item">
                 <div class="item-left">
                   <img
+                    class="rounded-2"
                     style="width: 80px; height: 80px"
-                    src="@/assets/avatar.jpg"
+                    src="https://picsum.photos/80/80"
                     alt=""
                   />
                 </div>
@@ -91,8 +92,9 @@
               <div class="main-item">
                 <div class="item-left">
                   <img
+                    class="rounded-2"
                     style="width: 80px; height: 80px"
-                    src="@/assets/avatar.jpg"
+                    src="https://picsum.photos/80/80"
                     alt=""
                     srcset=""
                   />
@@ -108,8 +110,9 @@
               <div class="main-item">
                 <div class="item-left">
                   <img
+                    class="rounded-2"
                     style="width: 80px; height: 80px"
-                    src="@/assets/avatar.jpg"
+                    src="https://picsum.photos/80/80"
                     alt=""
                     srcset=""
                   />
@@ -252,7 +255,7 @@ onMounted(() => {
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
 .about {
-  margin-top: 88px;
+  color: var(--color-text) !important;
   user-select: none;
   .img {
     @include img("@/assets/image/usercomment.jpeg");
@@ -264,18 +267,22 @@ onMounted(() => {
       font-size: 2rem;
       margin-bottom: 0;
       text-shadow: 1px 1px 6px #808080;
+      color: var(--color-text);
     }
   }
   .container {
     @include setBread;
   }
   .slide {
-    background-color: var(--c-gray);
+    color: var(--color-text);
+    background-color: var(--color-content-background);
     border-radius: 8px;
   }
   .card {
     height: 100%;
     @include card-shadow;
+    color: var(--color-text);
+    background-color: var(--color-content-background);
   }
   .card1 {
     padding: 30px 40px;

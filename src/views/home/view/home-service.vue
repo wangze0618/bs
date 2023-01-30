@@ -6,44 +6,64 @@
       </div>
       <div class="row">
         <div class="col-md-4 about1">
-          <div class="content1">
+          <div
+            class="content1"
+            style="cursor: pointer"
+            @click="router.push('/about')"
+          >
             <div class="text1">
               <div class="center1">了解</div>
-              <div class="bottom1">走进会理</div>
+              <div class="bottom1">走进尧坝</div>
             </div>
           </div>
         </div>
         <div class="col-md-8 about2">
           <div class="row">
             <div class="col-md-6 about3">
-              <div class="content3">
+              <div
+                class="content3"
+                style="cursor: pointer"
+                @click="router.push('/special')"
+              >
                 <div class="text2">
-                  <div class="center2">了解</div>
-                  <div class="bottom2">走进会理</div>
+                  <div class="center2">产品</div>
+                  <div class="bottom2">特色产品</div>
                 </div>
               </div>
             </div>
             <div class="col-md-6 about3">
-              <div class="content3">
+              <div
+                class="content3"
+                style="cursor: pointer"
+                @click="router.push('/comment')"
+              >
                 <div class="text2">
-                  <div class="center2">了解</div>
-                  <div class="bottom2">走进会理</div>
+                  <div class="center2">留言</div>
+                  <div class="bottom2">进行留言</div>
                 </div>
               </div>
             </div>
             <div class="col-md-6 about3">
-              <div class="content3">
+              <div
+                class="content3"
+                style="cursor: pointer"
+                @click="router.push('/service/hotel')"
+              >
                 <div class="text2">
-                  <div class="center2">了解</div>
-                  <div class="bottom2">走进会理</div>
+                  <div class="center2">服务</div>
+                  <div class="bottom2">酒店住宿</div>
                 </div>
               </div>
             </div>
             <div class="col-md-6 about3">
-              <div class="content3">
+              <div
+                class="content3"
+                style="cursor: pointer"
+                @click="router.push('/aboutus')"
+              >
                 <div class="text2">
-                  <div class="center2">了解</div>
-                  <div class="bottom2">走进会理</div>
+                  <div class="center2">关于</div>
+                  <div class="bottom2">关于我们</div>
                 </div>
               </div>
             </div>
@@ -55,7 +75,8 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { useRouter } from "vue-router"
+const router = useRouter()
 </script>
 
 <style scoped lang="scss">

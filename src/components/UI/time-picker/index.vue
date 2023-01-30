@@ -41,17 +41,21 @@ watch(
 .time-picker {
   display: flex;
   position: relative;
+  color: var(--color-text) !important;
   .icon {
     left: 0.5em;
+    color: var(--color-text) !important;
     top: 0.3em;
     position: absolute;
   }
   input {
     outline: none;
+    color: var(--color-text) !important;
     padding: 0.3em 0.3em 0.3em 1.8em;
     border-radius: 0.4em;
+    border: 1px solid var(--color-border-1);
+    background-color: var(--color-content-background);
     width: fit-content;
-    color: #414141;
   }
 }
 </style>

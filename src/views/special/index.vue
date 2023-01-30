@@ -20,13 +20,31 @@
       >
         <template #swiper>
           <SwiperSlide class="swiper-slide">
-            <img style="width: 100%" src="@/assets/home1.jpg" alt="" />
+            <h4>十里飘香酥脆苕丝糖</h4>
+            <img
+              style="width: 100%"
+              src="http://www.hejiang.gov.cn/Upload/main/image/2022/12/28/202212281149406731.jpg"
+              alt="尧坝十里飘香酥脆苕丝糖"
+              title="尧坝十里飘香酥脆苕丝糖"
+            />
           </SwiperSlide>
           <SwiperSlide class="swiper-slide">
-            <img style="width: 100%" src="@/assets/home1.jpg" alt="" />
+            <h4>十里飘香酥脆苕丝糖2</h4>
+            <img
+              style="width: 100%"
+              src="http://www.hejiang.gov.cn/Upload/main/image/2022/12/28/202212281149406731.jpg"
+              alt="尧坝十里飘香酥脆苕丝糖2"
+              title="尧坝十里飘香酥脆苕丝糖2"
+            />
           </SwiperSlide>
           <SwiperSlide class="swiper-slide">
-            <img style="width: 100%" src="@/assets/home1.jpg" alt="" />
+            <h4>十里飘香酥脆苕丝糖3</h4>
+            <img
+              style="width: 100%"
+              src="http://www.hejiang.gov.cn/Upload/main/image/2022/12/28/202212281149406731.jpg"
+              alt="尧坝十里飘香酥脆苕丝糖3"
+              title="尧坝十里飘香酥脆苕丝糖3"
+            />
           </SwiperSlide>
         </template>
       </BigCarousel>
@@ -131,18 +149,39 @@ const list = [
     .main {
       padding: 1em;
       border-radius: 0.8em;
+      color: var(--color-text);
+      border: 1px solid var(--color-border-1);
+      background-color: var(--color-content-background);
       .food-list {
         padding: 0 1em;
         .links {
           a {
-            color: #56b2e7;
+            color: var(--c-blue);
+            @media (prefers-color-scheme: dark) {
+              color: var(--c-goldenrot);
+            }
           }
         }
       }
     }
     .swiper-slide {
       overflow: hidden;
+      position: relative;
       border-radius: 0.8em;
+      max-height: 720px;
+      border: 1px solid var(--color-border-1);
+
+      h4 {
+        color: #fff;
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        transform: translateX(-50%);
+      }
+      img {
+        max-height: 720px;
+        object-fit: cover;
+      }
     }
   }
   .img {

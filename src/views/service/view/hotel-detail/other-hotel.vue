@@ -48,14 +48,15 @@ onMounted(async () => {
     .item {
       padding: 6px;
       .item-content {
-        border-radius: 10px;
+        border-radius: 0.6em;
         overflow: hidden;
-        border: 1px solid #e3e3e3;
-        box-shadow: 0px 2px 8px 1px #e3e3e3;
+        border: 1px solid var(--color-border-1);
+        box-shadow: 0px 2px 8px 1px var(--color-border-1);
         transition: all 0.5s;
         cursor: pointer;
+        background-color: var(--color-content-background);
         &:hover {
-          box-shadow: 0px 4px 10px 4px #c2c2c2;
+          box-shadow: 0px 4px 10px 4px var(--color-border-2);
         }
         .info {
           padding: 0.8em;

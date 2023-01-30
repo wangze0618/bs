@@ -15,13 +15,7 @@ import Btns from "@/components/UI/btns/index.vue"
 </script>
 
 <style lang="scss">
-::selection {
-  color: #fff;
-  background-color: #c59a4c !important;
-}
 .main-body {
   margin-top: 88px;
-  transition: all 0.4s;
-  background-color: var(--color-background) !important;
 }
 </style>

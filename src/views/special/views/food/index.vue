@@ -90,13 +90,14 @@ onMounted(async () => {
   let { data } = await getFoodList()
   listLength.value = data.data.length
   list.value = page1(data.data, 5)
-  console.log(list.value)
 })
 </script>
 
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
 .food {
+  transition: all 0.5s ease;
+  background-color: var(--color-background);
   .img {
     @include img("@/assets/image/usercomment.jpeg");
   }
@@ -112,14 +113,15 @@ onMounted(async () => {
     .left {
       padding-right: 16px;
       .left-container {
-        background-color: #f5f5f5;
+        color: var(--color-text);
         border-radius: 6px;
         padding: 16px;
         height: 100%;
-        border: 1px solid #999;
+        background-color: var(--color-content-background);
+        border: 1px solid var(--color-border-2);
         .food-item {
           display: flex;
-          border: 1px solid #999;
+          border: 1px solid var(--color-border-1);
           height: 160px;
           border-radius: 10px;
           overflow: hidden;
@@ -149,8 +151,9 @@ onMounted(async () => {
       }
     }
     .right {
-      background-color: #f5f5f5;
-      border: 1px solid #999;
+      background-color: var(--color-content-background);
+      border: 1px solid var(--color-border-2);
+
       height: fit-content;
       .right-container {
         padding: 8px 8px 0 8px;

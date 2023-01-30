@@ -6,7 +6,8 @@
       <WBread class="bread mt-3 mb-3" sp=">">
         <WBreadItem to="/" class="bread-item">首页</WBreadItem>
         <WBreadItem class="bread-item">旅游服务</WBreadItem>
-        <WBreadItem class="bread-item">酒店预订</WBreadItem>
+        <WBreadItem to="/service/hotel" class="bread-item">酒店预订</WBreadItem>
+        <WBreadItem class="bread-item">{{ info.title }}</WBreadItem>
       </WBread>
       <div class="context">
         <div class="row mb-3 rounded shadow">
@@ -15,7 +16,7 @@
           </div>
           <div class="right col-12 col-sm-12 col-lg-4">
             <div class="top-info">
-              <h3 class="mb-1 mt-3">尧坝古镇君澜度假酒店</h3>
+              <h3 class="mb-1 mt-3">{{ info.title }}</h3>
               <span class="price">￥{{ info.price }}</span>
               <p>营业时间：全天</p>
               <p>电话：{{ info.tel }}</p>
@@ -127,6 +128,7 @@ const router = useRouter()
 
 const store = useStore()
 const route = useRoute()
+
 let getToday1 = ref(dayjs(new Date()).format("YYYY-MM-DD"))
 let getToday2 = ref(dayjs(new Date()).format("YYYY-MM-DD"))
 // 比对两个时间点内相差多少天
@@ -163,7 +165,6 @@ onBeforeMount(() => {
   // 获取id 相同的项
   setTimeout(() => {
     info.value = listData.value.filter((item) => item.id == route.params.id)[0]
-    console.log(info.value)
   }, randomDelay(300, 600))
 })
 </script>
@@ -172,6 +173,7 @@ onBeforeMount(() => {
 @import "@/assets/style/mixin.scss";
 
 .hotel-detail {
+  color: var(--color-text);
   .img {
     @include img("@/assets/image/usercomment.jpeg");
   }
@@ -187,7 +189,6 @@ onBeforeMount(() => {
       }
       .row {
         overflow: hidden;
-        border: 1px solid rgba(172, 172, 172, 0.615);
       }
       .left {
         padding: 0;
@@ -200,6 +201,9 @@ onBeforeMount(() => {
       }
       .right {
         padding-bottom: 1em;
+        color: var(--color-text) !important;
+        background-color: var(--color-content-background);
+        border: 1px solid var(--color-border-1);
         .bottom-info {
           padding-left: 1.7em;
           padding-right: 1.7em;
@@ -210,7 +214,7 @@ onBeforeMount(() => {
               margin-bottom: 0;
             }
             p {
-              color: #5c5c5c;
+              color: var(--color-text) !important;
             }
           }
           .tp {
@@ -222,6 +226,7 @@ onBeforeMount(() => {
             text-align: center;
             font-size: 18px;
             color: #5c5c5c;
+            color: var(--color-text);
           }
         }
         .top-info {

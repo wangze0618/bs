@@ -121,6 +121,13 @@ onMounted(async () => {
 
 .service-hotel {
   @include setBread;
+  transition: all 0.5s ease;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  .btn {
+    background-color: var(--c-brown);
+    border: 1px solid var(--c-brown);
+  }
   .container {
     padding: 0;
   }
@@ -146,7 +153,10 @@ onMounted(async () => {
       .item {
         border-radius: 8px;
         overflow: hidden;
-        border: 1px solid #dddddd;
+        border: 1px solid var(--color-border-1);
+        background-color: var(--color-content-background);
+        transition: all 0.3s ease;
+
         > div {
           padding: 0;
         }
@@ -164,7 +174,7 @@ onMounted(async () => {
           }
         }
         .right {
-          padding: 0.4em;
+          padding: 1em;
           @media (max-width: 576px) {
             padding: 0.6em 0.6em;
           }

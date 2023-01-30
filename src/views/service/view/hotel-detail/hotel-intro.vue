@@ -64,7 +64,12 @@ let name = ref("introduce")
 
 <style scoped lang="scss">
 .hotel-intro {
+  border-radius: 0.6em;
+  border: 1px solid var(--color-border-1);
+  color: var(--color-text);
+  background-color: var(--color-content-background);
   .row {
+    padding: 2em;
     .left {
       padding-left: 0;
       display: flex;
@@ -77,7 +82,7 @@ let name = ref("introduce")
         font-size: 20px;
         padding-bottom: 0.4em;
         position: relative;
-        color: #222;
+        color: var(--color-text);
         transition: all 0.5s;
         @media (max-width: 576px) {
           font-size: 18px;

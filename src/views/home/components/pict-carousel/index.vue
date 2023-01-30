@@ -7,7 +7,7 @@
     :modules="modules"
   >
     <SwiperSlide v-for="i in data">
-      <img :src="i" alt="" />
+      <img class="img-thumbnail" :src="i" alt="" />
     </SwiperSlide>
   </Swiper>
 </template>
@@ -25,12 +25,13 @@ const props = defineProps({
   data: {
     type: Array,
     default: () => [
-      require("@/assets/upload/handmade2.jpeg"),
-      require("@/assets/upload/handmade2.jpeg"),
-      require("@/assets/upload/handmade2.jpeg"),
-      require("@/assets/upload/handmade2.jpeg"),
-      require("@/assets/upload/handmade2.jpeg"),
-      require("@/assets/upload/handmade2.jpeg"),
+      "https://picsum.photos/seed/picsum/200/300",
+      "https://picsum.photos/seed/picsum/200/300",
+      "https://picsum.photos/seed/picsum/200/300",
+      "https://picsum.photos/seed/picsum/200/300",
+      "https://picsum.photos/seed/picsum/200/300",
+      "https://picsum.photos/seed/picsum/200/300",
+      // require("@/assets/upload/handmade2.jpeg"),
     ],
   },
 })

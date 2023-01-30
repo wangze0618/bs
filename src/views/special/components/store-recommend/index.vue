@@ -22,8 +22,12 @@ import { ref } from "vue"
 
 <style scoped lang="scss">
 .store-recommend {
-  background-color: #f5f5f5;
+  background-color: var(--color-content-background);
+  color: var(--color-text);
+  transition: all 0.5s ease;
+
   .item {
+    border: 1px solid var(--color-border-1);
     img {
       height: 180px;
       width: 100%;

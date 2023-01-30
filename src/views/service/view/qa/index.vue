@@ -9,7 +9,8 @@
     <div class="container">
       <WBread class="bread mt-3 mb-3" sp=">">
         <WBreadItem class="bread-item" to="/">首页</WBreadItem>
-        <WBreadItem class="bread-item">首页</WBreadItem>
+        <WBreadItem class="bread-item">旅游服务</WBreadItem>
+        <WBreadItem class="bread-item">常见问答</WBreadItem>
       </WBread>
 
       <div class="row">

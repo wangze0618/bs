@@ -34,31 +34,29 @@ const props = defineProps({
 .swiper {
   user-select: none;
   :deep(.swiper-button-prev) {
-    // background-color: rgb(83, 83, 83, 0.6);
     backdrop-filter: blur(5px);
     padding: 0.4em;
     height: 46px;
     width: 46px;
     border-radius: 50%;
-    // border: 1px solid rgb(120, 120, 120);
+    border: 1px solid var(--color-border-1);
     &::after {
       font-size: 20px;
       font-weight: 700;
-      color: rgb(0, 0, 0);
+      color: var(--color-text);
     }
   }
   :deep(.swiper-button-next) {
-    // background-color: rgb(83, 83, 83, 0.6);
-    // border: 1px solid rgb(120, 120, 120);
     backdrop-filter: blur(5px);
     padding: 0.4em;
     height: 46px;
     width: 46px;
     border-radius: 50%;
+    border: 1px solid var(--color-border-1);
     &::after {
       font-size: 20px;
       font-weight: 700;
-      color: rgb(0, 0, 0);
+      color: var(--color-text);
     }
   }
   :deep(.swiper-pagination) {

@@ -3,7 +3,7 @@
     <div class="container">
       <WBread class="bread mt-3 mb-3" style="display: inline-block" sp=">">
         <WBreadItem class="bread-item" to="/">首页</WBreadItem>
-        <WBreadItem class="bread-item" to="/">旅游服务</WBreadItem>
+        <WBreadItem class="bread-item">旅游服务</WBreadItem>
         <WBreadItem class="bread-item">路线规划</WBreadItem>
       </WBread>
       <div class="context">
@@ -226,17 +226,38 @@ const modules = [Navigation]
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
 .route {
+  transition: all 0.5s ease;
+  a {
+    @media (prefers-color-scheme: dark) {
+      color: #ff7529 !important;
+    }
+  }
+  img {
+    @media (prefers-color-scheme: dark) {
+      filter: brightness(86%);
+    }
+  }
   .red {
     color: red;
   }
   background-color: #ff7529;
+  @media (prefers-color-scheme: dark) {
+    background-color: #aa4e1c;
+  }
   .container {
     @include setBread;
     .bread {
       color: #fff;
+      &:deep(span) {
+        color: #fff !important;
+      }
     }
     .bread-item {
+      color: #fff;
       :deep(a) {
+        color: #fff !important;
+      }
+      &:deep(span) {
         color: #fff !important;
       }
     }
@@ -245,10 +266,16 @@ const modules = [Navigation]
     @include img("@/assets/image/usercomment.jpeg");
   }
   .swiper-slide {
+    border: 1px solid var(--color-border-1);
+
     img {
       width: 100%;
       height: 100%;
       max-height: 650px;
+      transition: all 0.5s ease;
+      @media (prefers-color-scheme: dark) {
+        filter: brightness(86%);
+      }
     }
   }
   .carousel {
@@ -257,16 +284,23 @@ const modules = [Navigation]
     overflow: hidden;
   }
   .main {
-    color: #856453;
-    background: #fff;
+    color: #aa4e1c;
+    background: var(--color-content-background);
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-border-1);
     border-radius: 8px;
     padding: 1em 2em;
     font-size: 18px;
+    @media (prefers-color-scheme: dark) {
+      color: #fff;
+    }
     h3 {
       color: #566388;
       text-align: center;
       font-size: 30px;
+      @media (prefers-color-scheme: dark) {
+        color: #fff;
+      }
     }
     .buy-plane {
       display: block;
@@ -300,6 +334,9 @@ const modules = [Navigation]
           color: #56b2e7;
           text-align: center;
           font-size: 16px;
+          @media (prefers-color-scheme: dark) {
+            color: #ff7529;
+          }
         }
       }
     }

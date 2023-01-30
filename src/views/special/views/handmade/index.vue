@@ -122,8 +122,10 @@ onMounted(() => {
         margin: 0 auto;
         max-width: 300px;
       }
+      color: var(--color-text);
       height: 100%;
-      border: 1px solid rgba(162, 162, 162, 0.2);
+      border: 1px solid var(--color-border-1);
+      background-color: var(--color-content-background);
       box-shadow: 0px 9px 19px -9px rgba(0, 0, 0, 0.2);
       border-radius: 6px;
       overflow: hidden;

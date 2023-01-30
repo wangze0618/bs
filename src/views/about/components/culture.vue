@@ -71,6 +71,7 @@ h3 {
   display: flex;
   border: 1px solid #ae8352;
   border-radius: 8px;
+  background-color: var(--color-content-background);
   .btns {
     width: 180px;
     display: flex;

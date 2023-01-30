@@ -83,8 +83,11 @@ onMounted(async () => {
   .container {
     @include setBread;
     .context {
+      color: var(--color-text);
       .list-item {
         border-radius: 0.6em;
+        background-color: var(--color-content-background);
+        border: 1px solid var(--color-border-1);
         .bottom-box {
           .sub-info {
             display: flex;

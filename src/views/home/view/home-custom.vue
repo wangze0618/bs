@@ -18,5 +18,6 @@ import PictCarousel from "../components/pict-carousel/index.vue"
 @import "@/assets/style/mixin.scss";
 .title {
   @include home-title;
+  color: var(--color-text);
 }
 </style>

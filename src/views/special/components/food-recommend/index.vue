@@ -24,6 +24,9 @@ p {
   margin-bottom: 0;
 }
 .food-recommend {
+  color: var(--color-text);
+  transition: all 0.5s ease;
+
   h5 {
     text-align: center;
   }

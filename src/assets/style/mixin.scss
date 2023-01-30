@@ -2,8 +2,8 @@
   text-align: center;
   padding: 40px 0;
   font-weight: bold;
-  color: #666;
   margin-bottom: 0;
+  color: var(--color-text);
 }
 
 @mixin card-shadow {
