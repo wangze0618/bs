@@ -51,8 +51,9 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .card {
+  border: 2px solid var(--color-border-1);
   a {
-    color: #000;
+    color: #181818;
   }
 }
 .icon1 {
@@ -72,7 +73,7 @@ onMounted(() => {
       padding-top: 6px;
       padding-bottom: 6px;
       display: inline-block;
-      color: #000;
+      color: #181818;
     }
   }
 }

@@ -18,20 +18,10 @@
       </details>
     </div>
   </header>
-  <WDrawer class="drawer" v-model:show="show">
+  <WDrawer class="drawer" @touchmove.prevent v-model:show="show">
     <div class="wrap">
       <router-link class="home" to="/">首页</router-link>
-      <CollapseSlot>
-        <router-link to="/about">走进尧坝</router-link>
-        <template #menu>
-          <CollapseItem @click="router.push('/about/detail/')"
-            >详细介绍</CollapseItem
-          >
-          <CollapseItem @click="router.push('/about/main-spot')"
-            >主要景点</CollapseItem
-          >
-        </template>
-      </CollapseSlot>
+      <router-link class="intro" to="/about">走进尧坝</router-link>
       <CollapseSlot>
         <router-link to="/special">特色产品</router-link>
         <template #menu>
@@ -44,7 +34,7 @@
         </template>
       </CollapseSlot>
       <CollapseSlot>
-        <router-link to="/service">旅游服务</router-link>
+        <span>旅游服务</span>
         <template #menu>
           <CollapseItem @click="router.push('/service/hotel')"
             >酒店住宿</CollapseItem
@@ -52,8 +42,11 @@
           <CollapseItem @click="router.push('/service/route')"
             >路线规划</CollapseItem
           >
-          <CollapseItem @click="router.push('/service/ticket')"
-            >门票预订</CollapseItem
+          <CollapseItem @click="router.push('/service/qa')"
+            >常见问答</CollapseItem
+          >
+          <CollapseItem @click="router.push('/service/play-guide')"
+            >行程推荐</CollapseItem
           >
         </template>
       </CollapseSlot>
@@ -75,6 +68,7 @@
       >
 
       <RouterLink class="comment" to="/comment">用户留言</RouterLink>
+      <RouterLink class="cart" to="/cart">购物车</RouterLink>
       <RouterLink class="aboutus" to="/aboutus">关于我们</RouterLink>
     </div>
   </WDrawer>
@@ -84,7 +78,6 @@
 import { ref, watch, onMounted, computed } from "vue"
 import WDrawer from "./w-drawer.vue"
 import HeaderItem from "./header-item/index.vue"
-import Collapse from "./collapse/index.vue"
 import { useRouter } from "vue-router"
 import { useStore } from "vuex"
 import CollapseSlot from "./collapse-slot/index.vue"
@@ -136,7 +129,10 @@ onMounted(() => {
 <style scoped lang="scss">
 .wrap {
   padding: 16px;
+  display: flex;
+  flex-direction: column;
   .comment,
+  .cart,
   .aboutus {
     color: #000;
     // width: 100%;
@@ -147,6 +143,7 @@ onMounted(() => {
   }
   .home,
   .login-out,
+  .intro,
   .news {
     color: #000;
     width: fit-content;
@@ -189,9 +186,25 @@ img {
     display: none;
   }
 }
-.active {
-  background-color: transparent;
+
+.router-link-exact-active {
+  position: relative;
+  left: 0;
+  top: 0;
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    left: -15px;
+    top: 13px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #daa520;
+  }
+  color: #daa520 !important;
 }
+
 .header {
   position: fixed;
   top: 0;
@@ -257,6 +270,14 @@ img {
           bottom: 0;
         }
       }
+    }
+  }
+}
+.drawer {
+  :deep(.content) {
+    border-right: 1px solid var(--color-border-1);
+    @media (prefers-color-scheme: dark) {
+      filter: brightness(95%);
     }
   }
 }

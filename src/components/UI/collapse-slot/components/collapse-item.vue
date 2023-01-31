@@ -4,13 +4,11 @@
   </a>
 </template>
 
-<script setup>
-import { ref } from "vue"
-</script>
-
 <style scoped lang="scss">
 .collapse-link {
   display: inline-block;
-  color: #000;
+  color: #181818 !important;
+  height: 30px;
+  line-height: 30px;
 }
 </style>

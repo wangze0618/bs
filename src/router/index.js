@@ -185,6 +185,15 @@ const routes = [
     path: "/search",
     component: () => import("@/views/search/index.vue"),
   },
+  {
+    path: "/404",
+    name: "NotFound",
+    component: () => import("@/views/404/index.vue"),
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: "/404",
+  },
 ]
 
 const router = createRouter({
@@ -203,6 +212,7 @@ const checkPath = [
   "/checkout",
   "/pay",
 ]
+
 router.beforeEach(async (to, from, next) => {
   if (checkPath.includes(to.path) && store.state.user.token == null) {
     if (await confirmBox({ title: "提示", text: "请先登录!" })) {

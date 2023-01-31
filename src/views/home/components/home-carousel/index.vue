@@ -6,7 +6,6 @@
     :modules="modules"
     @swiper="onSwiper"
     @slideChange="onSlideChange"
-    :autoplay="autoplay"
     :speed="speed"
     :loop="loop"
   >
@@ -99,6 +98,7 @@ const props = defineProps({
 }
 .swiper-item {
   position: relative;
+  height: 100%;
   .swiper-content {
     text-align: center;
     position: absolute;

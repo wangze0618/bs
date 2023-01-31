@@ -34,7 +34,7 @@ const Close = (e) => {
 
 <style scoped lang="scss">
 .showcontainer {
-  // opacity: 1;
+  opacity: 1;
   visibility: visible;
 }
 .hide {
@@ -49,12 +49,12 @@ const Close = (e) => {
   transform: translateX(-100%) !important;
 }
 .drawer {
-  transition: all 0.5s;
+  transition: all 0.6s;
   position: fixed;
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.679);
+  background-color: rgba(0, 0, 0, 0.618);
   z-index: 999;
 }
 .content {
