@@ -45,12 +45,16 @@ const change = () => {
 <style scoped lang="scss">
 .check-box {
   user-select: none;
-  height: 100%;
-  max-height: 16px;
-  width: fit-content;
+  margin: 0.2em;
   .form-check-input {
+    transition: all 0.3s;
     display: inline-block;
     cursor: pointer;
+    border: 1px solid var(--color-border-1);
+    background-color: rgba(231, 231, 231, 0.217);
+    border-radius: 50%;
+    padding: 0.6em;
+    box-shadow: inset 0px 0px 3px 2px rgb(0 0 0 / 20%);
   }
 }
 </style>

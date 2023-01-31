@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-    <div class="pagenation-box m-5">
+    <div class="pagenation-box mt-5 mb-3">
       <Pagenation
         :total="getData().Totallength"
         :pageSize="10"
@@ -68,7 +68,6 @@ import AddComment from "./components/add-comment.vue"
 import { ThumbsUp, ThumbsDown } from "@icon-park/vue-next"
 import { useStore } from "vuex"
 import AlertBox from "../alert"
-import { commentListData } from "../../../api/user-comment/comment"
 import AddReplay from "./components/add-replay.vue"
 import Pagenation from "../pagenation/index.vue"
 import { getTime, page1 } from "@/tools/tools"
@@ -125,16 +124,6 @@ const getReplayText = (data) => {
   })
 }
 const currentPage = ref(1)
-// watch(
-//   () => currentPage.value,
-//   () => {
-//     // console.log(commentList.value)
-//     // console.log(currentPage.value)
-//   },
-//   {
-//     immediate: true,
-//   }
-// )
 
 const getPage = (page) => {
   currentPage.value = page
@@ -148,8 +137,11 @@ const getPage = (page) => {
   }
 }
 .replay {
-  background-color: rgb(167, 167, 167);
-  border-radius: 6px;
+  width: fit-content;
+  background-color: rgb(159, 159, 159);
+  border-radius: 0.4em;
+  border: 1px solid var(--color-border-1);
+  margin-bottom: 0.2em;
   p {
     margin-bottom: 2px;
     padding: 6px;
@@ -169,6 +161,7 @@ const getPage = (page) => {
       height: 50px;
     }
     .main-content {
+      color: var(--color-text);
       width: 100%;
       .name {
         color: #777;

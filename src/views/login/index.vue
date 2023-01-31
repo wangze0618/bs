@@ -16,13 +16,13 @@
     </div>
   </div>
   <div class="content">
-    <video
+    <!-- <video
       muted
       autoplay
       loop
       class="login-video"
       src="@/assets/login.mp4"
-    ></video>
+    ></video> -->
     <div class="wrap1">
       <div class="row">
         <div class="form-main col-sm-12">
@@ -60,7 +60,6 @@
 <script setup>
 import { ref, onMounted } from "vue"
 import { useRouter } from "vue-router"
-import { useStore } from "vuex"
 import { WOW } from "wowjs"
 import Form from "./components/form.vue"
 const router = useRouter()
@@ -76,8 +75,8 @@ onMounted(() => {
 @import "@/assets/style/mixin.scss";
 
 .active {
-  color: rgb(218, 255, 179);
-  border-bottom: 2px solid rgb(171, 255, 146);
+  color: var(--c-goldenrot);
+  border-bottom: 2px solid var(--c-goldenrot);
 }
 .form-box {
   padding: 20px;
@@ -102,19 +101,19 @@ onMounted(() => {
 .content {
   position: relative;
   height: 100vh;
+  background: url("@/assets/upload/home/home1.webp") no-repeat center center;
+  background-size: cover;
   .form-main {
-    transition: all 0.5s;
-    min-height: 410px;
-    overflow: hidden;
     backdrop-filter: blur(8px);
     padding: 0;
+    z-index: 999;
+    overflow: hidden;
     .tabs {
-      height: 50px;
+      height: 46px;
       background-color: rgba(240, 248, 255, 0.276);
       display: flex;
       align-items: center;
       color: rgb(255, 255, 255);
-      text-shadow: 0px 0px 5px rgb(135, 135, 135);
 
       > div {
         user-select: none;
@@ -136,11 +135,11 @@ onMounted(() => {
     @media (min-width: 541px) {
       width: 440px;
     }
-    // height: 460px;
-    // background-color: rgba(240, 248, 255, 0.236);
-    background-color: rgba(76, 76, 76, 0.324);
+
+    // background-color: rgba(76, 76, 76, 0.618);
+    background-color: rgba(34, 34, 34, 0.318);
     @include card-shadow;
-    border: 1px solid rgba(240, 248, 255, 0.311);
+    border: 1px solid var(--color-border-1);
   }
 }
 a {
@@ -151,13 +150,12 @@ a {
 }
 .login {
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 0;
   right: 0;
-  height: 88px;
+  height: 76px;
   z-index: 999;
   background-color: rgba(54, 54, 54, 0.294);
-  backdrop-filter: blur(5px);
 
   .header {
     height: 100%;

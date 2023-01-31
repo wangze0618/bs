@@ -12,10 +12,10 @@
         {{ item.label }}
       </button>
     </div>
+    <div class="tab-content">
+      <slot></slot>
+    </div>
   </nav>
-  <div class="tab-content">
-    <slot></slot>
-  </div>
 </template>
 
 <script setup>
@@ -53,13 +53,25 @@ provide("currActiveName", activeName)
 </script>
 
 <style scoped lang="scss">
+nav {
+  background-color: var(--color-content-background);
+  overflow: hidden;
+  border: 1px solid var(--color-border-1);
+  border-radius: 0.4em;
+  padding: 0.3em;
+}
+.nav-tabs {
+  border-bottom: 1px solid var(--color-border-1) !important;
+}
 .nav-link {
-  color: #000;
-  border: 1px solid #e4e7ed;
+  color: var(--color-text);
+  border-radius: 0.4em !important;
+  margin-right: 0.2em;
   &.active {
     border: 1px solid #931e1e !important;
-    color: #931e1e;
+    color: #cc2a2a;
     z-index: 99;
+    background-color: var(--color-content-background);
   }
   @media (max-width: 576px) {
     border-radius: 0;
@@ -74,7 +86,6 @@ provide("currActiveName", activeName)
   }
 }
 .tab-content {
-  border: 1px solid #e4e7ed;
   border-top: transparent;
   border-radius: 0 0 6px 6px;
 }

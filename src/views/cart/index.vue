@@ -2,7 +2,7 @@
   <div class="cart">
     <div class="container">
       <!-- 面包屑组件 -->
-      <WBread class="bread" sp=">">
+      <WBread class="bread mb-3 mt-3" sp=">">
         <WBreadItem class="bread-item" to="/">首页</WBreadItem>
         <WBreadItem class="bread-item">购物车</WBreadItem>
       </WBread>
@@ -14,7 +14,7 @@
       </div>
 
       <!-- table部分 -->
-      <table v-else class="table table-hover cart-body mt-3">
+      <table v-else class="table cart-body mb-5 mt-4">
         <thead class="thead">
           <tr>
             <th></th>
@@ -33,7 +33,7 @@
           >
             <td>
               <Checkbox
-                class="c1"
+                class="c1 ckb"
                 :check="item.selected"
                 @change="selectedGoods(item.id, $event)"
               ></Checkbox>
@@ -69,6 +69,7 @@
             <td>
               <label class="checkAll">
                 <Checkbox
+                  class="ckb"
                   :check="store.getters['cart/isCheckAll']()"
                   @change="setAllSelect($event)"
                 ></Checkbox>
@@ -95,7 +96,7 @@
             <td>
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-primary checkout-btn"
                 @click="goToCheckout"
               >
                 下单结算
@@ -183,10 +184,18 @@ onMounted(() => {
 }
 .table {
   border-radius: 6px !important;
+  overflow-x: scroll;
+  min-width: 600px;
+  color: var(--color-text) !important;
+  background-color: var(--color-content-background);
+  @include card-shadow;
+  border-radius: 0.4em;
 }
 .cart {
   @include setBread;
-  @media (max-width: 576px) {
+  overflow-x: scroll;
+
+  @media (width<= 576px) {
     font-size: 14px !important;
   }
 
@@ -211,13 +220,14 @@ onMounted(() => {
   }
   .cart-body {
     margin: 0 auto;
-    border: 1px solid #c0c0c0;
-    width: 100%;
+    border: 1px solid var(--color-border-1);
+
     .thead {
       tr {
         height: 40px;
         line-height: 40px;
         // border-bottom: 1px solid #c0c0c0;
+
         th {
           text-align: center;
           width: 100px;
@@ -231,16 +241,22 @@ onMounted(() => {
     }
     .tbody {
       overflow: auto;
+
       .selected {
-        background-color: #e794703f;
+        background-color: #ff9b703f;
       }
       tr {
         vertical-align: middle;
-        // border-bottom: 1px solid #c0c0c0;
+        transition: all 0.2s;
+        &:hover {
+          background-color: rgba(214, 214, 214, 0.075);
+        }
+        color: var(--color-text) !important;
         td {
           height: 100%;
           padding: 20px 0 !important;
           text-align: center;
+
           &:last-child {
             height: 100%;
             font-size: 14px;
@@ -248,7 +264,7 @@ onMounted(() => {
             a {
               width: 100%;
               height: 100%;
-              color: red;
+              color: rgb(255, 0, 0);
             }
           }
         }
@@ -312,4 +328,22 @@ onMounted(() => {
     }
   }
 }
+.checkout-btn {
+  background-color: var(--c-brown);
+  border: 1px solid var(--c-brown);
+}
+.ckb {
+  :deep(.form-check-input:checked) {
+    background-color: var(--c-brown) !important;
+    border: 1px solid var(--c-brown);
+  }
+  :deep(.form-check-input:focus) {
+    box-shadow: 0 0 0 0.25rem rgba(135, 56, 66, 0.25);
+    border-color: rgba(135, 56, 66, 0.25);
+  }
+}
+// .form-check-input {
+//   :checked {
+//   }
+// }
 </style>

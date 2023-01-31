@@ -6,8 +6,8 @@ export const getCarouselList = () => {
     data: [
       {
         url: require("@/assets/upload/home/home4.png"),
-        title: "尧坝景区欢迎您",
-        desc: "争创国家全域旅游示范区!",
+        title: "账号admin1",
+        desc: "密码000000",
       },
       {
         url: require("@/assets/upload/home/home1.webp"),

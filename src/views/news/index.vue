@@ -3,9 +3,9 @@
     <div class="img"></div>
     <!-- 内容区 -->
     <div class="container">
-      <WBread class="wt mt-3 mb-3" sp=">">
-        <WBreadItem class="wit">首页</WBreadItem>
-        <WBreadItem class="wit">新闻资讯</WBreadItem>
+      <WBread class="bread mt-3 mb-3" sp=">">
+        <WBreadItem class="bread-item" to="/">首页</WBreadItem>
+        <WBreadItem class="bread-item">新闻资讯</WBreadItem>
       </WBread>
 
       <div class="news-context">
@@ -15,43 +15,51 @@
             <NewsCarousel></NewsCarousel>
           </div>
           <div class="col-12 col-md-7 tabs-con">
-            <Tab v-model:activeName="activeName">
+            <Tab class="tabs" v-model:activeName="activeName">
               <TabPanel class="tabs-item" label="景区要闻" name="p1">
                 <ul>
                   <li>
                     <Announcement size="20" class="icon1"></Announcement>
                     <p>
-                      2022-12-17中国风景名胜区协会第六届理事会第二次工作会议在安徽黄山顺利召开
+                      四川合江县尧坝古镇迎客流高峰 正月初三接待游客25850人次
                     </p>
                   </li>
 
                   <li>
                     <Announcement size="20" class="icon1"></Announcement>
                     <p>
-                      2022-12-16风景名胜区设立40周年纪念大会暨创新与可持续发展论坛在黄山举办
+                      四川合江县尧坝古镇迎客流高峰 正月初三接待游客25850人次
                     </p>
-                  </li>
-                  <li>
-                    <Announcement size="20" class="icon1"></Announcement>
-                    <p>2022-12-14黄山风景区召开2023年工作务虚会</p>
-                  </li>
-                  <li>
-                    <Announcement size="20" class="icon1"></Announcement>
-                    <p>2022-12-09黄山风景区召开2023年度重点项目谋划工作会议</p>
                   </li>
                   <li>
                     <Announcement size="20" class="icon1"></Announcement>
                     <p>
-                      2022-12-07黄山风景区组织全体干部员工收听收看江泽民同志追悼大会
+                      四川合江县尧坝古镇迎客流高峰 正月初三接待游客25850人次
                     </p>
                   </li>
                   <li>
                     <Announcement size="20" class="icon1"></Announcement>
-                    <p>2022-11-30黄山风景区迎来今冬首场降雪</p>
+                    <p>
+                      四川合江县尧坝古镇迎客流高峰 正月初三接待游客25850人次
+                    </p>
                   </li>
                   <li>
                     <Announcement size="20" class="icon1"></Announcement>
-                    <p>2022-11-24“梦幻黄山光影世界”海峡两岸摄影人聚焦黄山</p>
+                    <p>
+                      四川合江县尧坝古镇迎客流高峰 正月初三接待游客25850人次
+                    </p>
+                  </li>
+                  <li>
+                    <Announcement size="20" class="icon1"></Announcement>
+                    <p>
+                      四川合江县尧坝古镇迎客流高峰 正月初三接待游客25850人次
+                    </p>
+                  </li>
+                  <li>
+                    <Announcement size="20" class="icon1"></Announcement>
+                    <p>
+                      四川合江县尧坝古镇迎客流高峰 正月初三接待游客25850人次
+                    </p>
                   </li>
                 </ul>
               </TabPanel>
@@ -75,15 +83,15 @@
         <div class="news1">
           <div class="row">
             <div class="col-12 col-sm-6">
-              <Tab v-model:activeName="news1Name">
+              <Tab class="tabs" v-model:activeName="news1Name">
                 <TabPanel class="tabs-item" label="景区公告" name="news1Tab1">
                   <ul>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
                   </ul>
                 </TabPanel>
                 <TabPanel class="tabs-item" label="企业快讯" name="news1Tab2">
@@ -99,15 +107,15 @@
               </Tab>
             </div>
             <div class="col-12 col-sm-6">
-              <Tab v-model:activeName="news2Name">
+              <Tab class="tabs" v-model:activeName="news2Name">
                 <TabPanel class="tabs-item" label="在线视频" name="news2Tab1">
                   <ul>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
                   </ul>
                 </TabPanel>
                 <TabPanel class="tabs-item" label="宣传推荐" name="news2Tab2">
@@ -123,15 +131,15 @@
               </Tab>
             </div>
             <div class="col-12 col-sm-6">
-              <Tab v-model:activeName="news3Name">
+              <Tab class="tabs" v-model:activeName="news3Name">
                 <TabPanel class="tabs-item" label="通知公告" name="news3Tab1">
                   <ul>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
                   </ul>
                 </TabPanel>
                 <TabPanel class="tabs-item" label="管理制度" name="news3Tab2">
@@ -146,16 +154,16 @@
                 </TabPanel>
               </Tab>
             </div>
-            <div class="col-12 col-sm-6">
-              <Tab v-model:activeName="news4Name">
+            <div class="col-12 col-sm-6 mb-3">
+              <Tab class="tabs" v-model:activeName="news4Name">
                 <TabPanel class="tabs-item" label="值班安排" name="news4Tab1">
                   <ul>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
-                    <li>12</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
+                    <li>“2023尧坝迎新春民俗表演”活动开启</li>
                   </ul>
                 </TabPanel>
                 <TabPanel class="tabs-item" label="资讯服务" name="news4Tab2">
@@ -198,17 +206,13 @@ let news4Name = ref("news4Tab1")
 
 .news {
   .row {
-    :deep(.tab-content) {
-    }
-    :deep(.nav-link) {
-      border-radius: 0;
-    }
     .tabs-con {
       padding-left: 0.4em !important;
-      @media (max-width: 768px) {
+      @media (width<=768px) {
         padding-left: 0 !important;
       }
     }
+    color: var(--color-text);
     .tabs-item {
       padding: 6px;
       ul > li {
@@ -240,13 +244,7 @@ let news4Name = ref("news4Tab1")
     @include img("@/assets/image/usercomment.jpeg");
   }
   .container {
-    :deep(.wt) {
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
-    :deep(.wit) {
-      font-size: 16px;
-    }
+    @include setBread;
   }
 }
 .imgs {

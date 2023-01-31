@@ -9,7 +9,7 @@
         <h3>用户留言</h3>
         <p>您的留言会在未来几个工作日内得到回复</p>
       </div>
-      <div class="comment">
+      <div class="comment-c mb-5">
         <Comment :list="commentListData" class="comment-main"></Comment>
       </div>
     </div>
@@ -24,6 +24,15 @@ import Comment from "@/components/UI/comment/index.vue"
 
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
+.comment-c {
+  padding: 2em;
+  border-radius: 0.6em;
+  border: 1px solid var(--color-border-1);
+  background-color: var(--color-content-background);
+}
+.title {
+  color: var(--color-text) !important;
+}
 :deep(.comment-main) {
   .title {
     display: none;

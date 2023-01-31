@@ -24,7 +24,7 @@
       </div>
 
       <!-- 登录密码 -->
-      <div class="mt-4">
+      <div class="mt-3">
         <label for="password" class="form-label">密码</label>
         <Field
           name="password"
@@ -176,6 +176,7 @@
       >重置</Button
     >
     <Button
+      class="login-btn"
       @click="loginSubmit()"
       v-if="hasAccount"
       type="primary"
@@ -187,7 +188,7 @@
     >
   </div>
 
-  <div class="change-way mt-4">
+  <div class="change-way mt-3">
     <a @click="hasAccount = fasle" v-if="hasAccount" href="javascript:;"
       >没有账号？去注册</a
     >
@@ -198,7 +199,7 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue"
+import { reactive, ref, onBeforeUnmount } from "vue"
 import { Attention } from "@icon-park/vue-next"
 import Button from "@/components/UI/button/index.vue"
 import Countdown from "./countdown.vue"
@@ -248,9 +249,15 @@ const loginSubmit = async () => {
       store.commit("user/setUserToken", token)
       AlertBox("success", "登录成功！三秒后自动返回")
       console.log(route.query)
-      setTimeout(() => {
-        router.replace(route.query.redirectUrl)
-      }, 3000)
+      if (route.query.redirectUrl) {
+        setTimeout(async () => {
+          await router.replace(route.query.redirectUrl)
+        }, 3000)
+      } else {
+        setTimeout(async () => {
+          await router.replace("/")
+        }, 3000)
+      }
     } else {
       AlertBox("warning", "登录失败！")
     }
@@ -276,6 +283,12 @@ const resetLogin = () => {
 const resetRegist = () => {
   formRegist.value.resetForm()
 }
+
+onBeforeUnmount(() => {
+  if (document.querySelector(".alertBox")) {
+    document.body.removeChild(document.querySelector(".alertBox"))
+  }
+})
 </script>
 
 <style scoped lang="scss">
@@ -299,6 +312,13 @@ input {
 .form-label {
   color: #fff;
   letter-spacing: 3px;
+}
+.login-btn {
+  :deep(button) {
+    background-color: var(--c-brown);
+    border-color: var(--c-brown);
+    box-shadow: 0 0 0 0.25rem rgba(var(--c-brown), 0.5) !important;
+  }
 }
 .form-text {
   display: flex;

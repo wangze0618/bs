@@ -18,8 +18,8 @@ const confirmBox = ({ title, text }) => {
       const content = document.querySelector(".confirm-content")
       // content.setAttribute("class", "animated fadeOutUp")
 
-      content.classList.remove("animated", "fadeInDown")
-      content.classList.add("animated", "fadeOutUp")
+      content.classList.remove("animated", "animate__bounceIn")
+      content.classList.add("animated", "animate__bounceOut")
       setTimeout(() => {
         render(null, div)
         document.body.removeChild(div)

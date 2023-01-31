@@ -84,6 +84,7 @@ const logout = async () => {
     await confirmBox({ title: "退出登录", text: "确定退出登录?" })
     store.commit("user/setUserToken", null)
     AlertBox("success", "退出成功!")
+    router.push("/")
   } catch (error) {}
 }
 </script>
@@ -114,7 +115,7 @@ span {
   display: flex;
   text-align: center;
   align-items: center;
-  width: 70px;
+  width: 80px;
   height: 100%;
 }
 .router-link-exact-active {

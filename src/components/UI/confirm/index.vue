@@ -1,8 +1,8 @@
 <template>
   <div class="confirm-box">
     <div
-      style="animation-duration: 400ms"
-      class="confirm-content animated fadeInDown"
+      style="animation-duration: 520ms"
+      class="confirm-content animated animate__bounceIn"
     >
       <div class="title-content">
         <h2 class="title">{{ title }}</h2>
@@ -13,7 +13,9 @@
       </div>
       <div class="bottons-content">
         <Button @click="cancel" type="primary" size="normal">取消</Button>
-        <Button @click="confirm" type="primary" size="normal">好</Button>
+        <Button class="ok-btn" @click="confirm" type="primary" size="normal"
+          >好</Button
+        >
       </div>
     </div>
   </div>
@@ -53,7 +55,12 @@ const confirm = () => {
 
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
-
+.ok-btn {
+  :deep(button) {
+    background-color: var(--c-brown);
+    border-color: var(--c-brown);
+  }
+}
 .confirm-box {
   user-select: none;
   position: fixed;
@@ -69,7 +76,9 @@ const confirm = () => {
   align-items: center;
   .confirm-content {
     border-radius: 10px;
-    background-color: #fff;
+    color: var(--color-text);
+    background-color: var(--color-content-background);
+    border: 1px solid var(--color-border-1) !important;
     @include card-shadow;
     height: 260px;
     width: 460px;

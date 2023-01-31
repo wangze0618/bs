@@ -195,10 +195,21 @@ const router = createRouter({
   },
 })
 
+const checkPath = [
+  "/comment",
+  "/cart",
+  "/service/hotel",
+  "/handmade",
+  "/checkout",
+  "/pay",
+]
 router.beforeEach(async (to, from, next) => {
-  if (to.path == "/comment" && store.state.user.token == null) {
-    await confirmBox({ title: "提示", text: "请先登录!" })
-    router.push(`/login?redirectUrl=${to.path}`)
+  if (checkPath.includes(to.path) && store.state.user.token == null) {
+    if (await confirmBox({ title: "提示", text: "请先登录!" })) {
+      router.push(`/login?redirectUrl=${to.path}`)
+    } else {
+      next(false)
+    }
   }
   next()
 })
