@@ -25,12 +25,9 @@ const props = defineProps({
   data: {
     type: Array,
     default: () => [
-      "https://picsum.photos/seed/picsum/200/300",
-      "https://picsum.photos/seed/picsum/200/300",
-      "https://picsum.photos/seed/picsum/200/300",
-      "https://picsum.photos/seed/picsum/200/300",
-      "https://picsum.photos/seed/picsum/200/300",
-      "https://picsum.photos/seed/picsum/200/300",
+      require("@/assets/upload/home/home1.jpg"),
+      require("@/assets/upload/home/home1.jpg"),
+      require("@/assets/upload/home/home1.jpg"),
       // require("@/assets/upload/handmade2.jpeg"),
     ],
   },

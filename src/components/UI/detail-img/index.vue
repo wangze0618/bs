@@ -2,16 +2,7 @@
   <div class="detail-img">
     <div class="showImg" v-viewer="{ navbar: false }">
       <template v-for="(img, index) in imgList">
-        <Transition
-          name="img"
-          class="img-transition"
-          :duration="{ enter: 400, leave: 400 }"
-          appear
-          appear-active-class="animated fadeIn"
-          enter-active-class="animated fadeIn"
-          leave-active-class="animated fadeOut"
-          mode="out-in"
-        >
+        <Transition name="img" mode="out-in">
           <img v-if="currImgIndex == index" class="big" :src="img" alt="" />
         </Transition>
       </template>
@@ -25,7 +16,7 @@
 </template>
 
 <script setup>
-import { onMounted, watch, reactive, ref } from "vue"
+import { ref } from "vue"
 let currImgIndex = ref(0)
 const props = defineProps({
   imgList: {
@@ -38,21 +29,33 @@ const changeImg = (i) => {
 </script>
 
 <style scoped lang="scss">
+.img-enter-active {
+  transition: opacity 0.5s;
+}
+.img-enter-from,
+.img-leave-to {
+  opacity: 0;
+}
+.img-enter-to,
+.img-leave-from {
+  opacity: 1;
+}
 .detail-img {
   position: relative;
   height: 100%;
-  // width: 370px;
 
   .showImg {
     position: relative;
     cursor: grab;
-    height: 370px;
     overflow: hidden;
-    // width: 370px;
-    // height: 370px;
+    height: 360px;
+    @media (max-width: 576px) {
+      height: 260px;
+    }
   }
   .big {
-    height: 370px;
+    overflow: hidden;
+    height: 100%;
     width: 100%;
   }
   .small-list {

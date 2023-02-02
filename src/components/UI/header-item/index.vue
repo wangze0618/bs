@@ -45,6 +45,7 @@
       class="routerLink1"
       v-if="store.state.user.token == null"
       @click="router.push('/login')"
+      href="javascript:;"
       >登录注册</a
     >
     <a

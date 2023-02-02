@@ -99,9 +99,9 @@ const goToDetail = (id) => {
   })
 }
 
-onMounted(() => {
+onMounted(async() => {
   // 利用vuex 获取手工数据
-  store.dispatch("handmade/getHandmade")
+ await store.dispatch("handmade/getHandmade")
 })
 </script>
 

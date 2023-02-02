@@ -51,7 +51,7 @@
                 @getSize="goodProps.size = $event"
               ></Size>
             </div>
-            <div class="count mb-3">
+            <div class="count mb-1">
               <span>数量：</span>
               <Count
                 :max="10"
@@ -145,6 +145,9 @@ const goToCart = async () => {
 .special-goods {
   display: flex;
   border-radius: 12px;
+  color: var(--color-text) !important;
+  background-color: var(--color-content-background);
+  border: 1px solid var(--color-border-1);
   @media (max-width: 992px) {
     flex-direction: column;
   }
@@ -241,10 +244,11 @@ const goToCart = async () => {
       .goods-sectitle-info {
         p {
           font-size: 19px;
-          color: #555;
+          color: var(--color-text);
         }
       }
       .func {
+        font-size: 14px;
         .btns {
           @media (max-width: 576px) {
             text-align: center;
@@ -252,8 +256,11 @@ const goToCart = async () => {
         }
         .func1 {
           width: 100%;
-          padding: 20px 10px;
-          background-color: #f2f2f2;
+          // background-color: var(--c-divider-light-1);
+          border: 1px solid var(--color-border-1);
+          border-radius: 0.8em;
+          padding: 1em;
+
           .delevery {
           }
           .service {
@@ -264,6 +271,7 @@ const goToCart = async () => {
           }
           .size {
             display: flex;
+            align-items: center;
             .size-span {
               @media (max-width: 420px) {
                 width: 60px !important;

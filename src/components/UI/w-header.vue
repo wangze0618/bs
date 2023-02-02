@@ -54,6 +54,7 @@
       <router-link class="news" to="/news">新闻资讯</router-link>
       <!-- 登录注册 -->
       <a
+        href="javascript:;"
         class="login-out"
         v-if="store.state.user.token == null"
         @click="router.push('/login')"

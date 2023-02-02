@@ -1,5 +1,5 @@
 <template>
-  <div class="recommend m-3">
+  <div class="recommend">
     <h4 style="text-align: center; margin-bottom: 0">热门推荐</h4>
     <div
       class="body-1 mt-4"
@@ -31,7 +31,7 @@ import { recommendList } from "@/api/special/recommend/index.js"
   width: 100%;
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #cacaca;
+  border: 1px solid var(--color-border-1);
   .body-1 {
     .info {
       .desc {

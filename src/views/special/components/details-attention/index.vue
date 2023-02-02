@@ -34,7 +34,7 @@ import { ref } from "vue"
 
 <style scoped lang="scss">
 ul {
-  color: #343434;
+  color: var(--color-text);
   padding-left: 2rem;
   list-style-type: disc;
   li {

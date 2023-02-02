@@ -73,8 +73,7 @@ onBeforeMount(async () => {
           width: 100%;
           height: 100%;
         }
-        .body-title {
-        }
+
         .body-desc {
           font-size: 1.2rem;
           text-indent: 2em;

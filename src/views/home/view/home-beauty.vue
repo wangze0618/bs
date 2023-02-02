@@ -39,6 +39,7 @@ import PictCarousel from "../components/pict-carousel/index.vue"
 
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
+
 .title {
   @include home-title;
   color: var(--color-text);
@@ -54,8 +55,10 @@ import PictCarousel from "../components/pict-carousel/index.vue"
   }
   .intro-text {
     padding: 1.2em;
+    background-color: var(--color-content-background);
     border-radius: 0.6em;
-    border: 1px solid #888;
+    border: 1px solid var(--color-border-1);
+    line-height: 1.8;
     p {
       text-indent: 2em;
       margin-bottom: 0;

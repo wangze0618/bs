@@ -101,7 +101,7 @@ onMounted(() => {
 .content {
   position: relative;
   height: 100vh;
-  background: url("@/assets/upload/home/home1.webp") no-repeat center center;
+  background: url("@/assets/upload/home/home1.jpg") no-repeat center center;
   background-size: cover;
   .form-main {
     backdrop-filter: blur(8px);

@@ -58,6 +58,7 @@ const dec = () => {
   user-select: none !important;
   height: 30px;
   justify-content: center;
+  color: var(--color-text);
   span {
     cursor: pointer;
     font-size: 24px;
@@ -66,13 +67,16 @@ const dec = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ced4da;
+    border: 1px solid var(--color-border-1);
     color: #666;
+    transition: all 0.5s;
     background-color: #f8f8f8;
     &:nth-child(1) {
+      border-radius: 6px 0 0 6px;
       border-right: transparent;
     }
     &:nth-child(3) {
+      border-radius: 0 6px 6px 0;
       border-left: transparent;
     }
   }

@@ -7,6 +7,7 @@
     @swiper="onSwiper"
     @slideChange="onSlideChange"
     :speed="speed"
+    :autoplay="autoplay"
     :loop="loop"
   >
     <template v-for="(item, index) in imgList" :key="index">
