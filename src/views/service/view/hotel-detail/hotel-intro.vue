@@ -15,7 +15,7 @@
           href="javascript:;"
           @click="name = 'feature'"
           class="link line"
-          >特色
+          >预览
           <span :class="{ active: name == 'feature' }" class="line"> </span>
         </a>
         <a
@@ -23,7 +23,7 @@
           href="javascript:;"
           @click="name = 'slogan'"
           class="link line"
-          >酒店设施
+          >酒店政策
           <span :class="{ active: name == 'slogan' }" class="line"> </span>
         </a>
         <a
@@ -31,7 +31,7 @@
           href="javascript:;"
           @click="name = 'traffic'"
           class="link line"
-          >交通信息
+          >酒店设施
           <span :class="{ active: name == 'traffic' }" class="line"> </span>
         </a>
       </div>

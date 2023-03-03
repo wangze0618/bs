@@ -99,7 +99,7 @@ const getNum = (str) => {
 
 <style scoped lang="scss">
 .weather-box {
-  color: #fff;
+  color: var(--color-text) !important;
   display: flex;
   flex-direction: column;
   align-items: center;

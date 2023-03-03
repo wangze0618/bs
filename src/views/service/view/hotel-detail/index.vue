@@ -1,6 +1,11 @@
 <template>
   <div v-if="info" class="hotel-detail">
-    <div class="img"></div>
+    <div class="img">
+      <TextDrop>
+        酒店预订
+        <template #bottom> 欢迎预订</template>
+      </TextDrop>
+    </div>
 
     <div class="container" style="padding: 0">
       <WBread class="bread mt-3 mb-3" sp=">">
@@ -17,11 +22,14 @@
           <div class="right col-12 col-sm-12 col-lg-4">
             <div class="top-info">
               <h3 class="mb-1 mt-3">{{ info.title }}</h3>
-              <span class="price">￥{{ info.price }}</span>
+              <div class="price-info">
+                <span class="price">￥{{ info.price }}起</span>
+                <span class="oldPrice">￥{{ info.oldPrice }}</span>
+              </div>
               <p>营业时间：全天</p>
               <p>电话：{{ info.tel }}</p>
-              <p>关键字：123</p>
-              <p>地址：123</p>
+              <p>关键字：{{ info.keyWords }}</p>
+              <p>地址：{{ info.locate }}</p>
             </div>
             <hr />
             <div class="bottom-info">
@@ -44,10 +52,10 @@
               <div class="time-diff mt-2">共{{ daydiff }}天</div>
 
               <div class="pay-info mt-3">
-                <h5>立即支付：{{ totalPrice }}元</h5>
+                <h5>预计：最低 {{ totalPrice }} 元起</h5>
                 <p class="mt-2 mb-2">（￥{{ info.price }}*{{ daydiff }}天）</p>
                 <button @click="goPay()" type="button" class="btn btn-danger">
-                  立即支付
+                  前往预订
                 </button>
               </div>
             </div>
@@ -59,44 +67,28 @@
             <div class="introduce">
               <h3>简介</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Delectus, facilis. Repellat beatae voluptatum quod, rerum id
-                optio illo cumque similique totam deleniti. Voluptatibus
-                perferendis ducimus repellat ut ipsam eum id.
+                {{ info.desc }}
               </p>
             </div>
           </template>
           <template #feature>
             <div class="feature">
-              <h3>特色</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Delectus, facilis. Repellat beatae voluptatum quod, rerum id
-                optio illo cumque similique totam deleniti. Voluptatibus
-                perferendis ducimus repellat ut ipsam eum id.
-              </p>
+              <h3>预览</h3>
+              <div class="di" v-viewer="{ title: false }">
+                <img v-for="i in info.imgs" :src="i" alt="" />
+              </div>
             </div>
           </template>
           <template #slogan>
             <div class="slogan">
-              <h3>酒店设施</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Delectus, facilis. Repellat beatae voluptatum quod, rerum id
-                optio illo cumque similique totam deleniti. Voluptatibus
-                perferendis ducimus repellat ut ipsam eum id.
-              </p>
+              <h3>酒店政策</h3>
+              <img v-viewer :src="info.zhengce" alt="" />
             </div>
           </template>
           <template #traffic>
             <div class="traffic">
-              <h3>交通信息</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Delectus, facilis. Repellat beatae voluptatum quod, rerum id
-                optio illo cumque similique totam deleniti. Voluptatibus
-                perferendis ducimus repellat ut ipsam eum id.
-              </p>
+              <h3>酒店设施</h3>
+              <img v-viewer :src="info.sheshi" alt="" />
             </div>
           </template>
         </HotelIntro>
@@ -123,6 +115,8 @@ import Loading from "@/components/UI/loading/index.vue"
 import { randomDelay } from "@/tools/tools.js"
 import HotelIntro from "./hotel-intro.vue"
 import OtherHotel from "./other-hotel.vue"
+import { WOW } from "wowjs"
+import TextDrop from "@/components/UI/text-drop/index.vue"
 
 const router = useRouter()
 
@@ -153,12 +147,15 @@ let totalPrice = computed(() => {
 
 // 去支付页
 const goPay = () => {
-  router.push({
-    name: "Pay",
-    query: {
-      price: totalPrice.value,
-    },
-  })
+  window.open(
+    `https://hotels.ctrip.com/hotels/detail/?hotelId=${info.value.hotelId}&checkIn=${getToday1.value}&checkOut=${getToday2.value}&cityId=21213&minprice=&mincurr=&adult=1&children=0&ages=&crn=1&curr=&fgt=&stand=&stdcode=&hpaopts=&mproom=&ouid=&shoppingid=&roomkey=&highprice=-1&lowprice=0`
+  )
+  // router.push({
+  //   name: "Pay",
+  //   query: {
+  //     price: totalPrice.value,
+  //   },
+  // })
 }
 onBeforeMount(() => {
   listData.value = store.getters["hotel/getList"]()
@@ -174,8 +171,16 @@ onBeforeMount(() => {
 
 .hotel-detail {
   color: var(--color-text);
+  .feature,
+  .slogan,
+  .traffic {
+    img {
+      width: 100%;
+      margin-bottom: 0.1em;
+    }
+  }
   .img {
-    @include img("@/assets/image/usercomment.jpeg");
+    @include img("http://www.zjshenxianju.com/r/cms/www/zx/img/header4.jpg");
   }
   .container {
     @include setBread;
@@ -236,8 +241,15 @@ onBeforeMount(() => {
             font-weight: bold;
             font-size: 16px;
           }
+          .price-info {
+            text-align: center;
+          }
+          .oldPrice {
+            text-decoration: line-through;
+            margin-left: 0.2em;
+          }
+
           .price {
-            display: inline-block;
             width: 100%;
             color: #e9bd1b;
             font-size: 24px;

@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="img">
-      <h3 class="wow animated fadeInDown" style="color: #fff">走进尧坝</h3>
+      <TextDrop>走进尧坝</TextDrop>
     </div>
     <div class="container">
       <!-- 面包屑组件 -->
@@ -242,6 +242,7 @@ import Culture from "./components/culture.vue"
 import History from "./components/history.vue"
 import SpotCarouselItem from "./components/spot-carousel-item.vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
+import TextDrop from "@/components/UI/text-drop/index.vue"
 let dataList = ref(null)
 const router = useRouter()
 
@@ -258,7 +259,7 @@ onMounted(() => {
   color: var(--color-text) !important;
   user-select: none;
   .img {
-    @include img("@/assets/image/usercomment.jpeg");
+    @include img("@/assets/image/bgImg/2.jpg");
     display: flex;
     align-items: center;
     justify-content: center;

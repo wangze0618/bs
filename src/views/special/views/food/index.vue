@@ -1,6 +1,8 @@
 <template>
   <div class="food" v-if="list.length && listLength">
-    <div class="img"></div>
+    <div class="img">
+      <TextDrop> 特色美食 </TextDrop>
+    </div>
     <!-- 图片 -->
     <div class="container">
       <!-- 面包屑组件 -->
@@ -18,17 +20,22 @@
               class="food-item mb-3"
               v-for="(item, index) in list[currentPage - 1]"
               :key="index"
-              @click="goDetail(item.id)"
             >
               <div class="food-left">
-                <img v-img-lazyload="item.img" alt="" />
+                <img :src="item.img" alt="" />
                 <!-- <img :src="item.img" alt="" /> -->
               </div>
               <div class="food-right">
-                <h5>{{ item.title }}</h5>
-                <p class="desc">
-                  {{ item.desc }}
-                </p>
+                <h3>{{ item.title }}</h3>
+                <Star :star="item.star"></Star>
+                <p class="desc mt-2" v-html="item.desc"></p>
+                <button
+                  @click="goDetail(item.id)"
+                  type="button"
+                  class="btn btn-danger"
+                >
+                  查看详情
+                </button>
               </div>
             </div>
           </div>
@@ -67,6 +74,8 @@ import { page1 } from "@/tools/tools"
 import { getFoodList } from "@/api/special/food/food.js"
 import Loading from "@/components/UI/loading/index.vue"
 import { useRouter } from "vue-router"
+import TextDrop from "@/components/UI/text-drop/index.vue"
+import Star from "@/components/UI/star/index.vue"
 const router = useRouter()
 const goDetail = (id) => {
   router.push({
@@ -99,7 +108,7 @@ onMounted(async () => {
   transition: all 0.5s ease;
   background-color: var(--color-background);
   .img {
-    @include img("@/assets/image/usercomment.jpeg");
+    @include img("http://www.zjshenxianju.com/r/cms/www/zx/img/header55.jpg");
   }
   .container {
     @include setBread;
@@ -122,22 +131,27 @@ onMounted(async () => {
         .food-item {
           display: flex;
           border: 1px solid var(--color-border-1);
-          height: 160px;
+          // height: 260px;
           border-radius: 10px;
           overflow: hidden;
-          @media (max-width: 576px) {
-            height: 140px;
+          @media (max-width: 768px) {
+            // height: 240px;
+            flex-direction: column;
           }
           &:last-child {
             margin-bottom: 0 !important;
           }
           .food-left {
             height: 100%;
+            min-width: 40%;
             img {
               height: 100%;
-              width: auto;
-              @media (max-width: 576px) {
-                width: 140px;
+              width: 100%;
+              @media (min-width: 1200px) {
+                max-width: 360px;
+              }
+              @media (min-width: 768px) {
+                max-width: 330px;
               }
             }
           }

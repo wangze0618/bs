@@ -92,13 +92,20 @@ const goPay = () => {
 <style scoped lang="scss">
 // #dee2e6
 .checkout-list {
-  border: 1px solid #c6c6c6;
+  color: var(--color-text);
+  border: 1px solid var(--color-border-1);
+  background: var(--color-content-background) !important;
   border-radius: 6px;
   overflow-x: scroll;
+  margin: 2rem 0 2rem 0;
+  &::-webkit-scrollbar {
+    background-color: transparent;
+  }
 }
 .table {
   // 表格滚动
   width: 100%;
+  color: var(--color-text);
   text-align: center;
   @media (max-width: 992px) {
     width: 940px;

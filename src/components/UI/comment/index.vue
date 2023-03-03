@@ -3,7 +3,7 @@
   <div v-else class="comment">
     <div class="container">
       <h4 class="title" style="text-align: center">
-        <slot name="title">发表</slot>
+        <slot name="title"></slot>
       </h4>
       <!-- 发表评论 -->
       <AddComment @getText="getContent($event)"></AddComment>

@@ -1,4 +1,5 @@
 <template>
+  <HeaderTop></HeaderTop>
   <header class="header" :class="{ scroll: top > 300 }">
     <!-- 大于576px pc端 -->
     <div class="container-lg pc-item">
@@ -22,17 +23,8 @@
     <div class="wrap">
       <router-link class="home" to="/">首页</router-link>
       <router-link class="intro" to="/about">走进尧坝</router-link>
-      <CollapseSlot>
-        <router-link to="/special">特色产品</router-link>
-        <template #menu>
-          <CollapseItem @click="router.push('/special/food')"
-            >特色美食</CollapseItem
-          >
-          <CollapseItem @click="router.push('/special/handmade')"
-            >特色手工</CollapseItem
-          >
-        </template>
-      </CollapseSlot>
+      <!-- 新闻资讯 -->
+      <router-link class="news" to="/news">新闻资讯</router-link>
       <CollapseSlot>
         <span>旅游服务</span>
         <template #menu>
@@ -50,10 +42,20 @@
           >
         </template>
       </CollapseSlot>
-      <!-- 新闻资讯 -->
-      <router-link class="news" to="/news">新闻资讯</router-link>
+      <CollapseSlot>
+        <router-link to="/special">特色产品</router-link>
+        <template #menu>
+          <CollapseItem @click="router.push('/special/food')"
+            >特色美食</CollapseItem
+          >
+          <CollapseItem @click="router.push('/special/handmade')"
+            >特色手工</CollapseItem
+          >
+        </template>
+      </CollapseSlot>
+
       <!-- 登录注册 -->
-      <a
+      <!-- <a
         href="javascript:;"
         class="login-out"
         v-if="store.state.user.token == null"
@@ -66,7 +68,7 @@
         @click="logout()"
         href="javascript:;"
         >退出登录</a
-      >
+      > -->
 
       <RouterLink class="comment" to="/comment">用户留言</RouterLink>
       <RouterLink class="cart" to="/cart">购物车</RouterLink>
@@ -85,6 +87,7 @@ import CollapseSlot from "./collapse-slot/index.vue"
 import CollapseItem from "./collapse-slot/components/collapse-item.vue"
 import AlertBox from "./alert"
 import ConfirmBox from "./confirm"
+import HeaderTop from "@/components/UI/header-top/index.vue"
 const store = useStore()
 let top = ref(0)
 const show = ref(false)
@@ -161,8 +164,8 @@ onMounted(() => {
   }
 }
 img {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border-radius: 10px;
 }
 .pc-item {
@@ -217,9 +220,13 @@ img {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  z-index: 999;
+  z-index: 998;
+  margin-top: 40px;
   transition: all 0.4s;
   border-bottom: 1px solid rgba(#d19a0d, 0.4);
+  // @media (width<=576px) {
+  //   margin-top: 0px;
+  // }
   &.scroll {
     height: 74px;
     background-color: rgba(#daa520, 0.9);

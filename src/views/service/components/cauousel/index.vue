@@ -6,8 +6,9 @@
       :navigation="true"
       :modules="modules"
     >
-      <SwiperSlide v-for="(item, index) in data" class="swiper-item">
-        <img v-lazyload="item" alt="" />
+      <SwiperSlide v-viewer v-for="(item, index) in data" class="swiper-item">
+        <!-- <img v-lazyload="item" alt="" /> -->
+        <img :src="item" alt="" />
       </SwiperSlide>
     </Swiper>
   </div>
@@ -38,6 +39,7 @@ const props = defineProps({
 .swiper {
   height: 100% !important;
   user-select: none;
+  max-height: 600px;
   :deep(.swiper-pagination-bullet) {
     background-color: #fff;
     height: 10px;

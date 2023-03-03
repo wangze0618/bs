@@ -152,6 +152,7 @@ const deleteOne = (item) => {
 
 <style scoped lang="scss">
 .address {
+  color: var(--color-text);
   width: 100%;
   .btns {
     display: flex;

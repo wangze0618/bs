@@ -9,7 +9,7 @@
         <WBreadItem class="bread-item">{{ item[0].title }}</WBreadItem>
       </WBread>
 
-      <div class="main overflow-hidden rounded-3 shadow-lg">
+      <div class="main overflow-hidden rounded-3 mb-5 shadow-lg">
         <!-- 轮播 -->
         <Carousel class="carousel" :data="item[0].carousel"></Carousel>
 
@@ -17,16 +17,22 @@
         <div class="body">
           <template v-for="(it, index) in item">
             <h3 class="body-title">{{ it.title }}</h3>
-            <p class="body-desc">
-              {{ it.desc }}
-            </p>
-            <div class="row">
+            <p class="body-desc" v-html="it.desc"></p>
+            <!-- <div class="row">
               <template v-for="i in it.imgs">
                 <div class="col-12 col-sm-6 col-md-4 mb-3">
                   <img class="imgs" style="" :src="i" />
                 </div>
               </template>
-            </div>
+            </div> -->
+            以上为简略介绍，如需更详细的介绍请点击这里：
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              @click="goDetail(it)"
+            >
+              查看
+            </button>
           </template>
         </div>
       </div>
@@ -45,6 +51,10 @@ import Loading from "@/components/UI/loading/index.vue"
 import Carousel from "@/views/service/components/cauousel/index.vue"
 const route = useRoute()
 let item = ref([])
+
+const goDetail = (it) => {
+  window.open(it.url)
+}
 onBeforeMount(async () => {
   let { data } = (await getFoodDetail(route.params.id)).data
   item.value = data
@@ -55,13 +65,17 @@ onBeforeMount(async () => {
 @import "@/assets/style/mixin.scss";
 .food-detail {
   overflow: hidden;
+  color: var(--color-text);
   .img {
-    @include img("@/assets/image/usercomment.jpeg");
+    @include img(
+      "http://www.zjshenxianju.com/r/cms/www/zx/img/Restaurants.jpg"
+    );
   }
   .container {
     @include setBread;
     .main {
-      border: 1px solid var(--bs-gray-400);
+      border: 1px solid var(--color-border-1);
+      background-color: var(--color-content-background);
       .body {
         padding: 0.8em;
         .row {

@@ -99,5 +99,20 @@ const changePage = (page) => {
 <style scoped lang="scss">
 .pagination {
   user-select: none;
+  .page-item {
+    &.disable {
+      .page-link {
+        color: #6c757d !important;
+      }
+    }
+  }
+
+  .active {
+    a {
+      color: #ffffff;
+      background-color: var(--c-brown) !important;
+      border: 1px solid var(--c-brown);
+    }
+  }
 }
 </style>

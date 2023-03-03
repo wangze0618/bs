@@ -4,7 +4,14 @@
     style="overflow: hidden"
     v-if="viewList.length && categoryList.length"
   >
-    <div class="img"></div>
+    <div class="img">
+      <TextDrop>
+        常见问答
+        <template #bottom>
+          我们选择了常见的问题来展示，如您有其他问题可以联系我们
+        </template>
+      </TextDrop>
+    </div>
 
     <div class="container">
       <WBread class="bread mt-3 mb-3" sp=">">
@@ -69,6 +76,7 @@ import Collapse from "../../components/collapse/index.vue"
 import Loading from "@/components/UI/loading/index.vue"
 import WBread from "@/components/UI/bread/w-bread.vue"
 import WBreadItem from "@/components/UI/bread/w-bread-item.vue"
+import TextDrop from "@/components/UI/text-drop/index.vue"
 
 let list = ref([])
 let categoryList = shallowRef([])
@@ -119,7 +127,9 @@ onMounted(async () => {
     @include setBread;
   }
   .img {
-    @include img("@/assets/image/usercomment.jpeg");
+    @include img(
+      "http://www.zjshenxianju.com/r/cms/www/zx/img/headerwenda.jpg"
+    );
   }
 }
 .left {

@@ -35,6 +35,8 @@ let active = ref(1)
 
 <style scoped lang="scss">
 .checkout {
+  color: var(--color-text);
+
   .steps {
     text-align: center;
 

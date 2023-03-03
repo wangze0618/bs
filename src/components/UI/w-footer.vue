@@ -1,12 +1,6 @@
 <template>
   <div class="footer">
     <div class="container">
-      <!-- 搜索框 -->
-      <Search class="search"></Search>
-      <!-- 天气 -->
-      <div class="weather">
-        <Weather></Weather>
-      </div>
       <div class="list d-none d-md-flex">
         <ul>
           <li>FAQ</li>

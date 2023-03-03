@@ -28,7 +28,6 @@
 
 <script setup>
 import { Close } from "@icon-park/vue-next"
-import { show } from "dom7"
 import { onMounted, onUnmounted, ref, watch } from "vue"
 import Button from "../button/index.vue"
 const emit = defineEmits(["cancel", "confirm"])
@@ -66,7 +65,7 @@ watch(
 .dialog {
   user-select: none;
   position: fixed;
-  z-index: 999;
+  z-index: 9999;
   top: 0;
   right: 0;
   width: 100vw;
@@ -75,11 +74,13 @@ watch(
   visibility: hidden;
   transition: all 0.4s;
   background: rgba(0, 0, 0, 0);
+
   &.show {
     opacity: 1;
     visibility: visible;
     transition: all 0.4s;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
   }
   &.hide {
     transition: all 0.4s;
@@ -99,6 +100,9 @@ watch(
   opacity: 0;
   transition: all 0.4s;
   visibility: hidden;
+  @media (width<=576px) {
+    max-width: 90%;
+  }
   &.show {
     transform: translate(-50%, -50%);
     opacity: 1;

@@ -34,7 +34,7 @@
           </div>
           <!-- 支付方式 -->
           <div class="pay-way" v-if="isPaySuccess == false">
-            <Card class="col-12 col-lg-10" header="请选择支付方式">
+            <Card class="card col-12 col-lg-10" header="请选择支付方式">
               <template #body>
                 <h6 class="way-title">支付平台</h6>
                 <div class="way row">
@@ -51,6 +51,7 @@
               </template>
             </Card>
             <Dialog
+              class="dialog"
               title="确认支付"
               :show="show"
               @cancel="cancel"
@@ -64,6 +65,7 @@
               <template #confirmBtn>去支付</template>
             </Dialog>
             <Dialog
+              class="dialog"
               title="支付二维码"
               :show="show2"
               @cancel="cancel2"
@@ -113,7 +115,6 @@ import StepItem from "@/components/UI/steps/components/step-item.vue"
 import { payTime } from "@/utils/tools"
 import Card from "@/components/UI/card/index.vue"
 import Dialog from "@/components/UI/dialog/index.vue"
-import About from "../about/index.vue"
 const router = useRouter()
 const route = useRoute()
 console.log(route.query)
@@ -182,7 +183,11 @@ const cancel2 = () => {
 </script>
 
 <style scoped lang="scss">
+.dialog {
+  color: black;
+}
 .pay {
+  color: var(--color-text);
   .step-box {
     text-align: center;
     .steps {
@@ -215,6 +220,10 @@ const cancel2 = () => {
 
 .pay-way {
   margin: 0 auto;
+  margin-bottom: 3rem;
+  .card {
+    background: var(--color-content-background);
+  }
   .way {
     margin: 0 auto;
     .box-1 {
@@ -231,9 +240,9 @@ const cancel2 = () => {
         cursor: pointer;
         user-select: none;
         border-radius: 6px;
-        border: 1px solid #bcbcbc;
+        border: 1px solid var(--color-border-1);
         transition: all 0.5s;
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+
         &.active {
           border: 1px solid #e75100 !important;
           color: #e75100;

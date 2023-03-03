@@ -1,17 +1,19 @@
 <template>
   <div class="aboutus">
     <!-- 图片 -->
-    <div class="img"></div>
+    <div class="img">
+      <TextDrop> 联系我们 </TextDrop>
+    </div>
     <div class="container">
       <!-- 面包屑组件 -->
       <WBread class="bread mt-4 mb-4" sp=">">
         <WBreadItem class="bread-item" to="/">首页</WBreadItem>
-        <WBreadItem class="bread-item">关于我们</WBreadItem>
+        <WBreadItem class="bread-item">联系我们</WBreadItem>
       </WBread>
       <!-- 内容区域 -->
 
       <!-- 关于我们 -->
-      <div class="about">
+      <!-- <div class="about">
         <div class="about-title">
           <h4>关于我们</h4>
           <p>ABOUT US</p>
@@ -23,7 +25,7 @@
             尧坝古镇先后获得国家AAAA级旅游景区、“国家历史文化名镇”、“全国重点文物保护单位”、“全国特色景观旅游示范名镇”和“省级文化先进乡镇”等荣誉称号。
           </p>
         </div>
-      </div>
+      </div> -->
 
       <!-- 联系我们 -->
       <div class="contact">
@@ -52,6 +54,19 @@
         </div>
       </div>
 
+      <!-- 天气 -->
+      <div class="weather mt-5">
+        <Weather></Weather>
+      </div>
+
+      <!-- 用户评论 -->
+      <div class="comment-box mt-5">
+        <div class="title m-4" style="text-align: center">
+          <h3>用户留言</h3>
+          <p>您的留言会在未来几个工作日内得到回复</p>
+        </div>
+        <Comment :list="commentListData"></Comment>
+      </div>
       <!-- 地理位置 -->
       <div class="location">
         <div class="location-title">
@@ -97,6 +112,10 @@ import { onMounted, ref } from "vue"
 import WBread from "@/components/UI/bread/w-bread.vue"
 import WBreadItem from "@/components/UI/bread/w-bread-item.vue"
 import Map from "@/components/UI/map/map.vue"
+import Weather from "@/components/UI/weather/index.vue"
+import Comment from "@/components/UI/comment/index.vue"
+import { commentListData } from "@/api/user-comment/comment.js"
+import TextDrop from "@/components/UI/text-drop/index.vue"
 </script>
 
 <style scoped lang="scss">
@@ -110,10 +129,18 @@ import Map from "@/components/UI/map/map.vue"
   }
 
   .img {
-    @include img("@/assets/image/usercomment.jpeg");
+    @include img(
+      "https://youimg1.c-ctrip.com/target/100n13000000v54cq6EE8.jpg"
+    );
   }
   .container {
     @include setBread;
+    .comment-box {
+      padding: 0.6em;
+      border-radius: 20px;
+      border: 2px solid var(--color-border-1);
+      background-color: var(--color-content-background);
+    }
     .about {
       .about-title {
         text-align: center;

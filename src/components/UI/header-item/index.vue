@@ -5,19 +5,8 @@
     <!-- 走进尧坝 -->
     <RouterLink class="routerLink1" to="/about">走进尧坝</RouterLink>
 
-    <!-- 特色产品 -->
-    <DropdownSlot>
-      <RouterLink class="routerLink1" to="/special">特色产品</RouterLink>
-      <template #dropdown>
-        <DropdownItem @click="router.push('/special/food')">
-          特色美食
-        </DropdownItem>
-        <DropdownItem @click="router.push('/special/handmade')">
-          特色手工
-        </DropdownItem>
-      </template>
-    </DropdownSlot>
-
+    <!-- 新闻资讯 -->
+    <RouterLink class="routerLink1" to="/news">新闻资讯</RouterLink>
     <!-- 旅游服务 -->
     <DropdownSlot>
       <a class="routerLink1" href="javascript:;">旅游服务</a>
@@ -36,12 +25,21 @@
         </DropdownItem>
       </template>
     </DropdownSlot>
-
-    <!-- 新闻资讯 -->
-    <RouterLink class="routerLink1" to="/news">新闻资讯</RouterLink>
+    <!-- 特色产品 -->
+    <DropdownSlot>
+      <RouterLink class="routerLink1" to="/special">特色产品</RouterLink>
+      <template #dropdown>
+        <DropdownItem @click="router.push('/special/food')">
+          特色美食
+        </DropdownItem>
+        <DropdownItem @click="router.push('/special/handmade')">
+          特色手工
+        </DropdownItem>
+      </template>
+    </DropdownSlot>
 
     <!-- 登录注册 -->
-    <a
+    <!-- <a
       class="routerLink1"
       v-if="store.state.user.token == null"
       @click="router.push('/login')"
@@ -54,18 +52,18 @@
       @click="logout()"
       href="javascript:;"
       >退出登录</a
-    >
+    > -->
 
     <!-- 用户留言 -->
-    <RouterLink class="routerLink1" to="/comment"
+    <!-- <RouterLink class="routerLink1" to="/comment"
       ><span>用户留言</span></RouterLink
-    >
+    > -->
 
     <!-- 购物车 -->
-    <RouterLink class="routerLink1" to="/cart">购物车</RouterLink>
+    <!-- <RouterLink class="routerLink1" to="/cart">购物车</RouterLink> -->
 
     <!-- 关于我们 -->
-    <RouterLink class="routerLink1" to="/aboutus">关于我们</RouterLink>
+    <RouterLink class="routerLink1" to="/aboutus">联系我们</RouterLink>
   </div>
 </template>
 

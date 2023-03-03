@@ -5,18 +5,24 @@
       <h1>404 Not Found</h1>
     </div>
     <div class="btn-g">
-      <button type="button" class="btn btn-outline-warning">
-        <RouterLink class="link" to="/">返回首页</RouterLink>
-      </button>
+      <button @click="goHome" class="btn btn-warning">返回首页</button>
     </div>
   </div>
 </template>
-
 <script setup>
-import { ref } from "vue"
-</script>
+import { useRouter } from "vue-router"
+const router = useRouter()
 
+const goHome = () => {
+  router.replace("/")
+}
+</script>
 <style scoped lang="scss">
+@keyframes shan {
+  to {
+    background-position-x: -20%;
+  }
+}
 .page-404 {
   user-select: none;
   position: absolute;
@@ -29,8 +35,24 @@ import { ref } from "vue"
     text-align: center;
     margin-top: 8em;
     .btn {
-      .link {
-        color: var(--color-text);
+      border-bottom: 6px solid #7f6517;
+      box-shadow: none;
+      transition: all 0.3s;
+      &:hover {
+        background: linear-gradient(
+            110deg,
+            rgba(255, 255, 255, 0) 40%,
+            rgba(255, 255, 255, 0.8) 50%,
+            rgba(255, 255, 255, 0) 60%
+          )
+          #ffc107;
+        background-size: 200% 100%;
+        background-position-x: 180%;
+        animation: shan 2.5s infinite ease-in-out;
+      }
+      &:active {
+        border-bottom: 3px solid #7f6517;
+        transform: translateY(3px);
       }
     }
   }

@@ -1,6 +1,8 @@
 <template>
   <div class="special">
-    <div class="img"></div>
+    <div class="img">
+      <TextDrop> 特色产品 </TextDrop>
+    </div>
     <div class="container">
       <WBread class="bread mt-3 mb-3" sp=">">
         <WBreadItem class="bread-item" to="/">首页</WBreadItem>
@@ -105,6 +107,7 @@ import Carousel from "./components/special/carousel/index.vue"
 import { SwiperSlide } from "swiper/vue"
 import WBread from "@/components/UI/bread/w-bread.vue"
 import WBreadItem from "@/components/UI/bread/w-bread-item.vue"
+import TextDrop from "@/components/UI/text-drop/index.vue"
 import BigCarousel from "@/views/service/components/route/carousel.vue"
 const modules = [Navigation, Pagination, Autoplay]
 const list = [
@@ -185,7 +188,10 @@ const list = [
     }
   }
   .img {
-    @include img("@/assets/image/usercomment.jpeg");
+    @include img(
+      "https://pic.rmb.bdstatic.com/bjh/news/6850daf3a78ed11a234debde8da4012c.jpeg"
+    );
+    background-position: center;
   }
   .carousel {
     :deep(img) {

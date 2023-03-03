@@ -155,7 +155,7 @@ const routes = [
       {
         path: "/aboutus",
         name: "Aboutus",
-        component: () => import("@/views/aboutus/index.vue"),
+        component: import("@/views/aboutus/index.vue"),
       },
       // 购物车
       {
@@ -208,9 +208,9 @@ const checkPath = [
   "/comment",
   "/cart",
   "/service/hotel",
-  "/handmade",
   "/checkout",
   "/pay",
+  "/special/handmade",
 ]
 
 router.beforeEach(async (to, from, next) => {

@@ -1,6 +1,8 @@
 <template>
   <div v-if="hotelList && Listlength" class="service-hotel">
-    <div class="img"></div>
+    <div class="img">
+      <TextDrop> 酒店住宿 </TextDrop>
+    </div>
     <div class="container">
       <div class="context">
         <!-- 面包屑组件 -->
@@ -90,6 +92,7 @@ import { page1 } from "@/tools/tools"
 import Pagenation from "@/components/UI/pagenation/index.vue"
 import Loading from "@/components/UI/loading/index.vue"
 import { useStore } from "vuex"
+import TextDrop from "@/components/UI/text-drop/index.vue"
 
 const store = useStore()
 const hotelList = ref([])
@@ -132,7 +135,7 @@ onMounted(async () => {
     padding: 0;
   }
   .img {
-    @include img("@/assets/image/usercomment.jpeg");
+    @include img("http://www.zjshenxianju.com/r/cms/www/zx/img/header56.jpg");
   }
   .context {
     .hotel-btn {
@@ -188,6 +191,7 @@ onMounted(async () => {
               p {
                 margin-top: 0.2em;
                 margin-bottom: 0;
+                @include ellipsis(3);
               }
             }
             .hotel-title {
