@@ -142,16 +142,21 @@ onMounted(async () => {
             margin-bottom: 0 !important;
           }
           .food-left {
-            height: 100%;
+            // height: 100%;
             min-width: 40%;
             img {
               height: 100%;
+              max-height: 220px;
               width: 100%;
               @media (min-width: 1200px) {
                 max-width: 360px;
               }
               @media (min-width: 768px) {
                 max-width: 330px;
+              }
+              @media (max-width: 768px) {
+                max-height: 300px;
+                object-fit: cover;
               }
             }
           }

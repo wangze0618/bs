@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router"
+import confirmBox from "@/components/UI/confirm"
 import nprogress from "nprogress"
 import store from "@/store"
-import confirmBox from "@/components/UI/confirm"
+
 nprogress.start()
 const routes = [
   {

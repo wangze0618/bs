@@ -4,6 +4,10 @@ import { getQa } from "./modules/qa/index.js"
 import { getPlayGuide, postPlayGuideLike } from "./modules/play-guide/index"
 import { getFood, getDetailFood } from "./modules/specail/food/index.js"
 import { getCarouselList } from "./modules/home/index.js"
+import {
+  getDetailHandmadeList,
+  getHandmadeList,
+} from "./modules/specail/handmade/index.js"
 Mock.setup({
   timeout: "300-800",
 })
@@ -36,3 +40,8 @@ Mock.mock("/api/service/play-guide", "get", getPlayGuide)
 Mock.mock(/\/api\/service\/play-guide\/like/, "post", (options) => {
   return postPlayGuideLike(options)
 })
+
+Mock.mock(/\/api\/special\/handmade-detail/, "post", (options) => {
+  return getDetailHandmadeList(options)
+})
+Mock.mock(/\/api\/special\/handmade/, "get", getHandmadeList)

@@ -56,7 +56,7 @@ onMounted(() => {
   left: 0;
   right: 0;
   justify-content: center;
-  z-index: 999;
+  z-index: 999999;
   .content {
     align-items: center;
   }

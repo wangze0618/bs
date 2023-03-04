@@ -1,6 +1,8 @@
 <template>
   <div class="food-detail" v-if="item.length">
-    <div class="img"></div>
+    <div class="img">
+      <TextDrop> 特色美食 </TextDrop>
+    </div>
     <div class="container">
       <WBread class="bread mt-3 mb-3" sp=">">
         <WBreadItem class="bread-item" to="/">首页</WBreadItem>
@@ -49,6 +51,7 @@ import { ref, onMounted, onBeforeMount } from "vue"
 import { useRoute } from "vue-router"
 import Loading from "@/components/UI/loading/index.vue"
 import Carousel from "@/views/service/components/cauousel/index.vue"
+import TextDrop from "@/components/UI/text-drop/index.vue"
 const route = useRoute()
 let item = ref([])
 

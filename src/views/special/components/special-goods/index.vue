@@ -10,24 +10,22 @@
         <!-- 标题区域 -->
         <div class="goods-title-info">
           <h3 class="goods-title">{{ goods.name }}</h3>
-          <div class="n">
+          <!-- <div class="n">
             <h5 class="goods-price">￥{{ goods.price }}</h5>
             <span class="goods-oldPrice">￥{{ goods.oldPrice }}</span>
-          </div>
+          </div> -->
         </div>
         <!-- 星级及库存 -->
         <div class="star-count">
           <Star :star="goods.star"></Star>
-          <span class="me-3">库存：{{ goods.count }}件</span>
+          <!-- <span class="me-3">库存：{{ goods.count }}件</span> -->
         </div>
         <!-- 副标题 -->
         <div class="goods-sectitle-info mt-2">
-          <p>
-            {{ goods.description }}
-          </p>
+          <div v-html="goods.description"></div>
         </div>
         <!-- 功能区 -->
-        <div class="func">
+        <!-- <div class="func">
           <div class="func1">
             <div class="delevery mb-3">
               <span>配送：</span>
@@ -77,7 +75,7 @@
               加入购物车
             </button>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -105,7 +103,7 @@ const goodProps = reactive({
 const goodsInfo = reactive({
   id: props.goods.id,
   name: props.goods.name,
-  img: props.goods.img_list[0],
+  // img: props.goods.img_list[0],
   prop: goodProps,
   oldPrice: props.goods.oldPrice,
   price: props.goods.price,

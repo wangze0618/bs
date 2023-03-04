@@ -1,68 +1,71 @@
 <template>
   <!-- 图片 -->
-  <div class="img"></div>
-  <div class="handmade container">
-    <!-- 面包屑组件 -->
-    <WBread class="bread" sp=">">
-      <WBreadItem to="/" class="bread-item">首页</WBreadItem>
-      <WBreadItem to="/special" class="bread-item">特色产品</WBreadItem>
-      <WBreadItem class="bread-item">特色手工</WBreadItem>
-    </WBread>
-    <!-- 标题 -->
-    <h2 class="title m-4">特色手工</h2>
-    <!-- 主体部分 -->
-    <div class="row">
-      <div
-        v-for="(item, index) in list[currentPage - 1]"
-        class="handmade-card pe-3 ps-3 mb-3 col-sm-6 col-lg-4"
-      >
-        <div class="ct1">
-          <!-- 手工略缩图 -->
-          <img
-            v-viewer="{
-              navbar: false,
-            }"
-            :src="item.img_preview"
-            alt=""
-          />
-          <!-- 标题部分 -->
-          <div class="ct1-body">
-            <div class="title-info">
-              <span>{{ item.name }}</span>
-              <span>￥{{ item.price }}</span>
-            </div>
-            <!-- 评分组件 -->
-            <div class="score">
-              <Star :star="item.star"></Star>
-            </div>
-            <div class="description">
-              <p>{{ item.description }}</p>
-              <p>地址：尧坝古镇旅游景区</p>
-            </div>
-            <div class="btn-info">
-              <button
-                @click="goToDetail(item.id)"
-                type="button"
-                class="btn btn-primary"
-              >
-                查看详情
-              </button>
+  <div class="handmade" v-if="list.length">
+    <div class="img"></div>
+    <div class="container">
+      <!-- 面包屑组件 -->
+      <WBread class="bread" sp=">">
+        <WBreadItem to="/" class="bread-item">首页</WBreadItem>
+        <WBreadItem to="/special" class="bread-item">特色产品</WBreadItem>
+        <WBreadItem class="bread-item">特色手工</WBreadItem>
+      </WBread>
+      <!-- 标题 -->
+      <h2 class="title m-4">特色手工</h2>
+      <!-- 主体部分 -->
+      <div class="row">
+        <div
+          v-for="(item, index) in list[currentPage - 1]"
+          class="handmade-card pe-3 ps-3 mb-3 col-sm-6 col-lg-4"
+        >
+          <div class="ct1">
+            <!-- 手工略缩图 -->
+            <img
+              v-viewer="{
+                navbar: false,
+              }"
+              :src="item.img_preview"
+              alt=""
+            />
+            <!-- 标题部分 -->
+            <div class="ct1-body">
+              <div class="title-info">
+                <span>{{ item.name }}</span>
+                <!-- <span>￥{{ item.price }}</span> -->
+              </div>
+              <!-- 评分组件 -->
+              <div class="score">
+                <Star :star="item.star"></Star>
+              </div>
+              <div class="description">
+                <p>{{ item.title }}</p>
+                <p>地址：尧坝古镇旅游景区</p>
+              </div>
+              <div class="btn-info">
+                <button
+                  @click="goToDetail(item.id)"
+                  type="button"
+                  class="btn btn-primary"
+                >
+                  查看详情
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div v-for="(item, index) in list[currentPage - 1]"></div>
+      <div v-for="(item, index) in list[currentPage - 1]"></div>
 
-    <!-- 分页组件 -->
-    <Pagenation
-      class="m-5 justify-content-center"
-      @getCurrentPage="changePage($event)"
-      :total="length"
-      :pageSize="pageSize"
-      :currentPage="currentPage"
-    ></Pagenation>
+      <!-- 分页组件 -->
+      <Pagenation
+        class="m-5 justify-content-center"
+        @getCurrentPage="changePage($event)"
+        :total="length"
+        :pageSize="pageSize"
+        :currentPage="currentPage"
+      ></Pagenation>
+    </div>
   </div>
+  <Loading v-else></Loading>
 </template>
 
 <script setup>
@@ -74,16 +77,19 @@ import WBreadItem from "@/components/UI/bread/w-bread-item.vue"
 import Pagenation from "@/components/UI/pagenation/index.vue"
 import Star from "@/components/UI/star/index.vue"
 import { useRouter } from "vue-router"
-
+import Loading from "@/components/UI/loading/index.vue"
+import {
+  getHandmade,
+  getHandmadeList,
+} from "@/api/special/handmade/handmade.js"
 const router = useRouter()
 const store = useStore()
-let list = store.getters["handmade/handmadeList"]()
-let length = list.length
+// let list = store.getters["handmade/handmadeList"]()
+let list = ref([])
+// let length = list.value.length
+let length = ref(0)
 const currentPage = ref(1)
 const pageSize = 6
-
-// 对数组进行分页处理
-list = page1(list, pageSize)
 
 // 获取当前分页
 const changePage = (data) => {
@@ -97,11 +103,16 @@ const goToDetail = (id) => {
       id,
     },
   })
+  // console.log(id)
 }
 
-onMounted(async() => {
+onMounted(async () => {
   // 利用vuex 获取手工数据
- await store.dispatch("handmade/getHandmade")
+  // await store.dispatch("handmade/getHandmade")
+  const { data } = await getHandmadeList()
+  // 对数组进行分页处理
+  list.value = page1(data, pageSize)
+  length.value = data.length
 })
 </script>
 

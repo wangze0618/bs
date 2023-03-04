@@ -1,16 +1,21 @@
 <template>
   <div class="detail-img">
-    <div class="showImg" v-viewer="{ navbar: false }">
+    <div class="showImg">
       <template v-for="(img, index) in imgList">
-        <Transition name="img" mode="out-in">
-          <img v-if="currImgIndex == index" class="big" :src="img" alt="" />
-        </Transition>
+        <div v-viewer>
+          <Transition name="img" mode="out-in">
+            <img v-if="currImgIndex == index" class="big" :src="img" alt="" />
+          </Transition>
+        </div>
       </template>
     </div>
-    <div class="small-list">
-      <template v-for="(item, index) in imgList">
-        <img @click="changeImg(index)" :src="item" alt="" />
-      </template>
+    <div class="small-list" v-viewer>
+      <img
+        v-for="(item, index) in imgList"
+        @mouseenter="changeImg(index)"
+        :src="item"
+        alt=""
+      />
     </div>
   </div>
 </template>
@@ -55,7 +60,7 @@ const changeImg = (i) => {
   }
   .big {
     overflow: hidden;
-    height: 100%;
+    height: 360px;
     width: 100%;
   }
   .small-list {
@@ -63,6 +68,7 @@ const changeImg = (i) => {
     justify-content: space-between;
     align-items: center;
     margin-top: 6px;
+
     img {
       width: 80px;
       height: 80px;
