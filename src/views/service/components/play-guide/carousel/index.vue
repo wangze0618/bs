@@ -10,7 +10,7 @@
       :speed="600"
     >
       <SwiperSlide class="item" v-for="i in list">
-        <img v-img-lazyload="i" class="img" alt="" />
+        <img v-viewer="{ navbar: false }" :src="i" class="img" alt="" />
       </SwiperSlide>
     </Swiper>
   </div>

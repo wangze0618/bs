@@ -122,7 +122,7 @@ onMounted(async () => {
           .title {
             font-size: 18px;
             margin-bottom: 0;
-            @include ellipsis(8);
+            @include ellipsis(7);
             @media (width<576px) {
               font-size: 16px;
             }

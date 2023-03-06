@@ -15,7 +15,7 @@
         <WBreadItem class="bread-item">{{ info.title }}</WBreadItem>
       </WBread>
       <div class="context">
-        <div class="row mb-3 rounded shadow">
+        <div class="row main-card mb-3 rounded shadow">
           <div class="left col-12 col-sm-12 col-lg-8">
             <Carousel class="hotel-carousel" :data="info.imgs"></Carousel>
           </div>
@@ -194,6 +194,9 @@ onBeforeMount(() => {
       }
       .row {
         overflow: hidden;
+        // @media (max-width: 576px) {
+        //   margin: 0 2%;
+        // }
       }
       .left {
         padding: 0;
