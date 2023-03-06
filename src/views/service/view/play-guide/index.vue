@@ -12,7 +12,7 @@
       <div class="context">
         <div class="row">
           <div
-            class="col-12 col-md-6 col-lg-4"
+            class="col-12 col-md-6 col-lg-6 col-xl-4"
             v-for="(item, index) in list"
             :key="item.id"
           >
@@ -21,9 +21,7 @@
               <ItemCarousel class="carousel" :list="item.imgs"></ItemCarousel>
               <!-- 下主体 -->
               <div class="bottom-box">
-                <h4 :title="item.title" class="title mt-3 mb-3">
-                  {{ item.title }}
-                </h4>
+                <div v-html="item.title" class="title mt-3 mb-3"></div>
 
                 <div class="sub-info mt-2">
                   <div class="left">
@@ -34,11 +32,18 @@
                     </div>
                   </div>
                   <!-- 红心 -->
-                  <Like
+                  <button
+                    type="button"
+                    @click="goTo(item.url)"
+                    class="btn btn-danger"
+                  >
+                    查看详情
+                  </button>
+                  <!-- <Like
                     v-model:like="item.isLike"
                     :count="item.like_count"
                     @onLike="getCount(item, $event)"
-                  ></Like>
+                  ></Like> -->
                 </div>
               </div>
             </div>
@@ -65,6 +70,9 @@ const getCount = async (i, d) => {
   } else {
     i.like_count = d
   }
+}
+const goTo = (i) => {
+  window.open(i)
 }
 let list = ref([])
 onMounted(async () => {
@@ -114,7 +122,7 @@ onMounted(async () => {
           .title {
             font-size: 18px;
             margin-bottom: 0;
-            @include ellipsis(1);
+            @include ellipsis(8);
             @media (width<576px) {
               font-size: 16px;
             }

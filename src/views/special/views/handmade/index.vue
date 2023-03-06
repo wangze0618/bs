@@ -1,7 +1,9 @@
 <template>
   <!-- 图片 -->
   <div class="handmade" v-if="list.length">
-    <div class="img"></div>
+    <div class="img">
+      <TextDrop> 特色手工 </TextDrop>
+    </div>
     <div class="container">
       <!-- 面包屑组件 -->
       <WBread class="bread" sp=">">
@@ -31,14 +33,13 @@
               <div class="title-info">
                 <span>{{ item.name }}</span>
                 <!-- <span>￥{{ item.price }}</span> -->
-              </div>
-              <!-- 评分组件 -->
-              <div class="score">
                 <Star :star="item.star"></Star>
               </div>
+              <!-- 评分组件 -->
+              <div class="score"></div>
               <div class="description">
                 <p>{{ item.title }}</p>
-                <p>地址：尧坝古镇旅游景区</p>
+                <!-- <p>地址：尧坝古镇旅游景区</p> -->
               </div>
               <div class="btn-info">
                 <button
@@ -82,6 +83,7 @@ import {
   getHandmade,
   getHandmadeList,
 } from "@/api/special/handmade/handmade.js"
+import TextDrop from "@/components/UI/text-drop/index.vue"
 const router = useRouter()
 const store = useStore()
 // let list = store.getters["handmade/handmadeList"]()
@@ -103,12 +105,10 @@ const goToDetail = (id) => {
       id,
     },
   })
-  // console.log(id)
 }
 
 onMounted(async () => {
   // 利用vuex 获取手工数据
-  // await store.dispatch("handmade/getHandmade")
   const { data } = await getHandmadeList()
   // 对数组进行分页处理
   list.value = page1(data, pageSize)
@@ -120,10 +120,13 @@ onMounted(async () => {
 @import "@/assets/style/mixin.scss";
 
 .img {
-  @include img("@/assets/image/usercomment.jpeg");
+  @include img(
+    "http://img.cd-pa.com/data/attachment/forum/201310/25/085408vvkkhkkwttfakvgf.jpg"
+  );
 }
 .container {
   padding-top: 10px;
+  color: var(--color-text);
   .handmade-card {
     padding: 6px;
     height: 100%;

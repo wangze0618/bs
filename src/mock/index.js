@@ -7,6 +7,7 @@ import { getCarouselList } from "./modules/home/index.js"
 import {
   getDetailHandmadeList,
   getHandmadeList,
+  getRecommend,
 } from "./modules/specail/handmade/index.js"
 Mock.setup({
   timeout: "300-800",
@@ -45,3 +46,4 @@ Mock.mock(/\/api\/special\/handmade-detail/, "post", (options) => {
   return getDetailHandmadeList(options)
 })
 Mock.mock(/\/api\/special\/handmade/, "get", getHandmadeList)
+Mock.mock(/\/api\/special\/recommend/, "get", getRecommend)

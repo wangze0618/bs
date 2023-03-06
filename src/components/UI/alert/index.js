@@ -6,6 +6,8 @@ alertBox.setAttribute("class", "alertBox")
 const AlertBox = (type, text) => {
   document.body.appendChild(alertBox)
   const closeFn = () => {
+    // alertBox.classList.remove("animated", "animate__fadeInDown")
+    // alertBox.classList.add("animated", "animate__fadeOutUp")
     render(null, alertBox)
     document.body.removeChild(alertBox)
   }

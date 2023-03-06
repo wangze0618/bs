@@ -1,19 +1,15 @@
 <template>
   <div class="recommend">
     <h4 style="text-align: center; margin-bottom: 0">热门推荐</h4>
-    <div
-      class="body-1 mt-4"
-      v-for="(item, index) in recommendList"
-      :key="index"
-    >
+    <div class="body-1 mt-4" v-for="(item, index) in list" :key="index">
       <img :src="item.img_list[0]" alt="" />
       <div class="info mt-2">
         <div class="title">
           <h4 class="name">{{ item.name }}</h4>
-          <span class="price">￥{{ item.price }}</span>
+          <!-- <span class="price">￥{{ item.price }}</span> -->
         </div>
         <p class="desc">
-          {{ item.description }}
+          {{ item.title }}
         </p>
         <p class="local">地址：尧坝古镇旅游景区</p>
       </div>
@@ -22,8 +18,13 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
-import { recommendList } from "@/api/special/recommend/index.js"
+import { ref, onMounted } from "vue"
+import { getRecommend } from "@/api/special/handmade/handmade"
+let list = ref([])
+onMounted(async () => {
+  const { data } = await getRecommend()
+  list.value = data
+})
 </script>
 
 <style scoped lang="scss">

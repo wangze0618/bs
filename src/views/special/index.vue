@@ -29,21 +29,21 @@
             />
           </SwiperSlide>
           <SwiperSlide class="swiper-slide">
-            <h4>十里飘香酥脆苕丝糖2</h4>
+            <h4>十里飘香酥脆苕丝糖</h4>
             <img
               style="width: 100%"
               src="http://www.hejiang.gov.cn/Upload/main/image/2022/12/28/202212281149406731.jpg"
-              alt="尧坝十里飘香酥脆苕丝糖2"
-              title="尧坝十里飘香酥脆苕丝糖2"
+              alt="尧坝十里飘香酥脆苕丝糖"
+              title="尧坝十里飘香酥脆苕丝糖"
             />
           </SwiperSlide>
           <SwiperSlide class="swiper-slide">
-            <h4>十里飘香酥脆苕丝糖3</h4>
+            <h4>尧坝油纸伞</h4>
             <img
               style="width: 100%"
               src="http://www.hejiang.gov.cn/Upload/main/image/2022/12/28/202212281149406731.jpg"
-              alt="尧坝十里飘香酥脆苕丝糖3"
-              title="尧坝十里飘香酥脆苕丝糖3"
+              alt="尧坝油纸伞"
+              title="尧坝手工油纸伞"
             />
           </SwiperSlide>
         </template>
@@ -64,14 +64,27 @@
               品尝尧坝古镇的羊肉汤锅要先喝汤，当你喝下第一口汤的时候，那鲜鲜的汤味可以让你的每一根神经都调动起来，迫不急待地想挟住一块羊肉。据说，尧坝古镇的羊肉汤锅吃了能滋阴补肾，强身健体，特别是对女性还有美容的作用。
             </p>
 
-            <h5>尧坝红汤羊肉</h5>
-            <p style="line-height: 1.6em; text-indent: 2em">阿斯达大多</p>
+            <h5>尧坝黄粑</h5>
+            <p style="line-height: 1.6em; text-indent: 2em">
+              尧坝是四川省泸州市合江县传统手工制作的特色食品。选择尧坝山区、天堂坝等地的糯米、粘米配用红糖、
+              冰糖和良姜叶、楠竹笋尖、棕丝等制作包裹而成。其制作历史悠久、工艺传统，是具有地方特色的天然绿色食品。其成品晶莹黄亮，
+              清香糍润、甜而不腻、柔韧瓷实，兼以糯米、红糖原香，竹叶、良姜叶的特殊气味，上蒸时香味弥漫，方圆数里可闻。在尧坝古镇临街叫卖的商家小铺里，
+              必不可少的东西就是黄粑了，造型古朴的黄粑整齐摆在摊前，或者把蒸熟的黄粑存放在木甑里，一打开，热气和清香就弥漫在古镇街道上，本地人爱黄粑，
+              因为这股香甜陪伴他们长大，外地人喜欢黄粑，因为这是属于尧坝古镇的舌尖味道。
+            </p>
 
-            <h5>尧坝红汤羊肉</h5>
-            <p style="line-height: 1.6em; text-indent: 2em">阿斯达大多</p>
+            <h5>豆花火锅</h5>
+            <p style="line-height: 1.6em; text-indent: 2em">
+              来到尧坝古镇，还有一种美食是必尝的，就是这里的豆花火锅。
+              味鲜香豆花,以其“滚、嫩、绵、白”适中,“辣、麻、香、鲜、甜”你俱备闻名全川。吃火锅时，可以放入鸡肉、猪肉、内脏等，因为豆花非常清香，所以使得这种汤底煮出来的食物也具有清香宜人的特点。
+            </p>
 
-            <h5>尧坝红汤羊肉</h5>
-            <p style="line-height: 1.6em; text-indent: 2em">阿斯达大多</p>
+            <h5>枉氏月母鸡汤</h5>
+            <p style="line-height: 1.6em; text-indent: 2em">
+              枉氏土鸡汤是合江最早的土鸡汤，比著名的白马鸡汤还要早10多年，
+              1986年枉氏土鸡汤创始人枉成良就在新店开了合江第一家土鸡汤馆。后来经过赤水-九支的多次搬迁，现今落户尧坝古镇。30多年的老字号土鸡汤，鸡汤熬制技术可谓是非常纯熟的了。枉氏土鸡汤的风味和做法
+              30 多年来都没有改变。
+            </p>
           </div>
 
           <div class="links" style="text-align: right">
@@ -86,14 +99,23 @@
         <Carousel :space-between="0" class="carousel" :data="list2"></Carousel>
 
         <div class="food-list mt-3">
-          <div class="list" v-for="i in 4">
-            <h5>手工{{ i }}</h5>
+          <div class="list">
+            <h5>尧坝油纸伞</h5>
             <p style="line-height: 1.6em; text-indent: 2em">
-              由图16显示，在景区网站页面设计上，调查对象认为重要的因素有：页面布局96%、
-              页面内容90%、页面色调86%、页面功能75%、页面字体45%，其他为3%,
-              对象认为重要的因素有：页面布局96%、页面内容90%、对象认为重要的因素有：页面布局96%、页面内容90%,由图16显示，在景区网站页面设计上，调查对象认为重要的因素有：页面布局96%、
-              页面内容90%、页面色调86%、页面功能75%、页面字体45%，其他为3%,
-              对象认为重要的因素有：页面布局96%、页面内容90%、对象认为重要的因素有：页面布局96%、页面内容90%、。
+              尧坝油纸伞都是纯手工制作的，从开料到制作完毕需要经历采竹子、搭骨架、做伞边、上桐油等等近百道工序，得耗上半个月的功夫才能做出一把油纸伞，每一把油纸伞上的图案都让人对这把伞爱不释手。
+              油纸伞的制作工艺在这里存在了四百多年，走进一家油纸伞铺，进门口就会闻到一股独特的油桐味。这里的油纸伞是我国的非物质文化遗产，当时申遗所用的伞就是一把手绘的龙凤呈祥图案，龙凤飞舞，尽显中国魅力。在现代科技高速发展的今天，传统手工艺却变得越发珍贵，尧坝古镇保持了古老技艺的油纸伞所带来的文化传承，难道不正是不忘初心的最佳体现么？
+            </p>
+          </div>
+          <div class="list">
+            <h5>尧坝草鞋</h5>
+            <p style="line-height: 1.6em; text-indent: 2em">
+              “竹杖芝鞋轻胜马，一蓑风雨任平生”。草鞋文化在中国起源很早，其历史可以追溯到商周时代，至今已有三千多年的历史。作为中国传统文化的重要组成部分，何有全决心不让这份手艺失传。“草鞋不仅经济又舒适，还有除湿的效果。”何有全说道，草鞋以太阳晾晒干后的稻草为原材料，在经过手搓、编织的过程以后，将草鞋的两头用麻绳绑好使之成型。同时，为了让草鞋做到舒适又美观，还需去掉多余的稻草，反复对比大小、调整比例，在经过一系列工序以后草鞋就制作完成了。
+            </p>
+          </div>
+          <div class="list">
+            <h5>香猴</h5>
+            <p style="line-height: 1.6em; text-indent: 2em">
+              香猴。香猴是用当地的一种草药来充当填充香料，散发着幽幽的香，是很有当地特色的手工艺品，价格却并不贵。
             </p>
           </div>
 
@@ -124,11 +146,11 @@ const list = [
   "http://image.qingk.cn/image/zhhj/659d147db9be4a2dbebe7f7bdbf56e83.png",
 ]
 const list2 = [
-  "https://pic.rmb.bdstatic.com/bjh/news/a587bb0d360253fedfd331cc8525afe4.png",
-  "https://pic.rmb.bdstatic.com/bjh/news/b284c5875d05978713451fc9c870ed05.png",
-  "https://picsum.photos/200/300",
-  "https://picsum.photos/200/300",
-  "https://picsum.photos/200/300",
+  require("@/assets/upload/handmade2.jpeg"),
+  "http://www.hejiang.gov.cn/Upload/main/image/2022/12/28/202212281126411686.jpeg",
+  require("@/assets/upload/handmade/cat.jpg"),
+  "http://www.hejiang.gov.cn/Upload/main/image/2022/12/28/202212281126417851.jpeg",
+  "http://www.hejiang.gov.cn/Upload/main/image/2022/12/28/202212281126410902.jpeg",
 ]
 </script>
 

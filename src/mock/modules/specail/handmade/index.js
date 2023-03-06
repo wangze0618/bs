@@ -56,42 +56,80 @@ const list = [
   {
     id: 2202,
     name: "尧坝草鞋",
+    title: "尧坝草鞋纯手工编制，历史悠久",
     star: 5,
     price: 121,
     oldPrice: 154,
-    description: "这是尧坝油纸伞这是尧坝油纸伞这是尧坝油纸伞",
+    description: `
+    <p>尧坝草鞋</p>
+    <p>尧坝草鞋纯手工编制，历史悠久</p>
+    <p>“竹杖芝鞋轻胜马，一蓑风雨任平生”。草鞋文化在中国起源很早，其历史可以追溯到商周时代，至今已有三千多年的历史。作为中国传统文化的重要组成部分，何有全决心不让这份手艺失传。“草鞋不仅经济又舒适，还有除湿的效果。”何有全说道，草鞋以太阳晾晒干后的稻草为原材料，在经过手搓、编织的过程以后，将草鞋的两头用麻绳绑好使之成型。同时，为了让草鞋做到舒适又美观，还需去掉多余的稻草，反复对比大小、调整比例，在经过一系列工序以后草鞋就制作完成了。</p>
+    `,
     count: 99,
     category: {
       size: ["35", "36", "37", "38", "39", "40", "41", "42", "43"],
     },
-    img_preview: require("@/assets/upload/handmade1.webp"),
+    img_preview: require("@/assets/upload/handmade2.jpeg"),
     img_list: [
-      require("@/assets/upload/handmade1.webp"),
       require("@/assets/upload/handmade2.jpeg"),
+      require("@/assets/upload/handmade1.webp"),
       require("@/assets/upload/handmade1.webp"),
       require("@/assets/upload/handmade2.jpeg"),
       require("@/assets/upload/handmade1.webp"),
     ],
+    detail: `
+    <p>“竹杖芝鞋轻胜马，一蓑风雨任平生”。</p>
+    <p>草鞋文化在中国起源很早，其历史可以追溯到商周时代，至今已有三千多年的历史。</p>
+    <p>作为中国传统文化的重要组成部分，何有全决心不让这份手艺失传。</p>
+    <p>但，如果说什么与古镇最搭</p>
+    <p>“草鞋不仅经济又舒适，还有除湿的效果。”何有全说道，</p>
+    <p>草鞋以太阳晾晒干后的稻草为原材料，在经过手搓、编织的过程以后，将草鞋的两头用麻绳绑好使之成型。</p>
+    <p>同时，为了让草鞋做到舒适又美观，还需去掉多余的稻草，反复对比大小、调整比例，在经过一系列工序以后草鞋就制作完成了。</p>
+    <img class='img-thumbnail mb-1' style='display:block;margin:0 auto;max-width:500px;width:100%' src='${require("@/assets/upload/handmade/xiezi.jpg")}'>
+    <p>摄/向波</p>
+     `,
   },
   {
     id: 2203,
-    name: "尧坝油纸伞3",
-    star: 2,
+    name: "香猴",
+    star: 4,
     price: 100,
     oldPrice: 120,
-    description: "这是尧坝油纸伞这是尧坝油纸伞这是尧坝油纸伞",
+    description: `
+    <p>
+    香猴—当地传统的小工艺品
+    </p>
+    <p>很有特色的手工艺品，价格却并不贵。</p>
+    <p>香猴散发着草药的幽香，这正是用当地的草药来充当香料，完全没有经过化学调配。</p>
+    <p>把它挂到身上，包上，真的是有着传统的优雅。</p>
+    `,
+    title:
+      "当地的一种草药来充当填充香料，散发着幽幽的香，是很有当地特色的手工艺品，价格却并不贵。",
+    title: "当地传统的很有特色的手工艺品",
     count: 99,
     category: {
       color: ["黑色", "红色"],
     },
-    img_preview: require("@/assets/upload/handmade1.webp"),
+    img_preview:
+      "https://photocdn.sohu.com/20150915/mp31874925_1442280147809_5.jpeg",
     img_list: [
-      require("@/assets/upload/handmade1.webp"),
-      require("@/assets/upload/handmade1.webp"),
-      require("@/assets/upload/handmade1.webp"),
-      require("@/assets/upload/handmade1.webp"),
-      require("@/assets/upload/handmade1.webp"),
+      "http://www.chuannan.net/uploads/ueditor/20210613/8-210613012P9295.png",
+      "http://www.chuannan.net/uploads/ueditor/20210613/8-210613012913392.png",
+      "http://www.chuannan.net/uploads/ueditor/20210613/8-21061301294I93.jpg",
+      "http://www.chuannan.net/uploads/ueditor/20210613/8-2106130130211J.png",
+      "https://photocdn.sohu.com/20150915/mp31874925_1442280147809_5.jpeg",
     ],
+    detail: `
+    <p>“竹杖芝鞋轻胜马，一蓑风雨任平生”。</p>
+    <p>草鞋文化在中国起源很早，其历史可以追溯到商周时代，至今已有三千多年的历史。</p>
+    <p>作为中国传统文化的重要组成部分，何有全决心不让这份手艺失传。</p>
+    <p>但，如果说什么与古镇最搭</p>
+    <p>“草鞋不仅经济又舒适，还有除湿的效果。”何有全说道，</p>
+    <p>草鞋以太阳晾晒干后的稻草为原材料，在经过手搓、编织的过程以后，将草鞋的两头用麻绳绑好使之成型。</p>
+    <p>同时，为了让草鞋做到舒适又美观，还需去掉多余的稻草，反复对比大小、调整比例，在经过一系列工序以后草鞋就制作完成了。</p>
+    <img class='img-thumbnail mb-1' style='display:block;margin:0 auto;max-width:500px;width:100%' src='${require("@/assets/upload/handmade/xiezi.jpg")}'>
+    <p>摄/向波</p>
+     `,
   },
   {
     id: 2204,
@@ -202,4 +240,7 @@ export const getDetailHandmadeList = (options) => {
 }
 export const getHandmadeList = () => {
   return Mock.mock(list)
+}
+export const getRecommend = () => {
+  return Mock.mock(list.slice(0, 3))
 }

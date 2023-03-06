@@ -7,3 +7,7 @@ export const getDetailHandmadeList = (id) => {
 export const getHandmadeList = () => {
   return request("/api/special/handmade", "get")
 }
+
+export const getRecommend = () => {
+  return request("/api/special/recommend", "get")
+}

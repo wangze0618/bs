@@ -1,5 +1,5 @@
 <template>
-  <div class="alert-box row wow bounceInDown">
+  <div class="alert-box row animated animate__bounceInDown">
     <div class="alert col-11 col-md-7" :class="`alert-${type}`" role="alert">
       <div class="content d-flex">
         <Attention size="22"></Attention>
