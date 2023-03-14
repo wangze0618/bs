@@ -21,6 +21,7 @@ const routes = [
         name: "About",
         component: () => import("@/views/about/index.vue"),
       },
+
       {
         path: "/about/spot",
         name: "spot",
@@ -30,7 +31,7 @@ const routes = [
           {
             path: "gujie",
             name: "gujie",
-            component: () => import("@/views/about/views/spot/gujie.vue"),
+            component: () => import("@/views/about/views/spot/spot-info.vue"),
           },
           {
             path: "buxingjie",
@@ -38,6 +39,11 @@ const routes = [
             component: () => import("@/views/about/views/spot/buxingjie.vue"),
           },
         ],
+      },
+      {
+        path: "/about/spot/:id",
+        name: "SpotInfo",
+        component: () => import("@/views/about/views/spot/spot-info.vue"),
       },
 
       // 走进尧坝--详细介绍
@@ -156,7 +162,7 @@ const routes = [
       {
         path: "/aboutus",
         name: "Aboutus",
-        component: import("@/views/aboutus/index.vue"),
+        component: () => import("@/views/aboutus/index.vue"),
       },
       // 购物车
       {

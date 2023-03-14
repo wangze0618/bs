@@ -14,7 +14,7 @@
 
           <!-- 图片展示 -->
           <div class="pict mt-4 mb-4">
-            <PictCarousel></PictCarousel>
+            <PictCarousel :data="data"></PictCarousel>
           </div>
 
           <!-- 宣传视频 -->
@@ -35,6 +35,15 @@
 <script setup>
 import { ref } from "vue"
 import PictCarousel from "../components/pict-carousel/index.vue"
+
+let data = [
+  require("@/assets/upload/play-guide/6.png"),
+  require("@/assets/upload/play-guide/2.png"),
+  require("@/assets/upload/play-guide/3.png"),
+  require("@/assets/upload/play-guide/7.png"),
+  require("@/assets/upload/play-guide/8.png"),
+  require("@/assets/upload/play-guide/9.png"),
+]
 </script>
 
 <style scoped lang="scss">

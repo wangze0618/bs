@@ -26,7 +26,7 @@
                 @click="router.push('/special')"
               >
                 <div class="text2">
-                  <div class="center2">产品</div>
+                  <div class="center2">手工/美食</div>
                   <div class="bottom2">特色产品</div>
                 </div>
               </div>
@@ -35,11 +35,11 @@
               <div
                 class="content3"
                 style="cursor: pointer"
-                @click="router.push('/comment')"
+                @click="router.push('/news')"
               >
                 <div class="text2">
-                  <div class="center2">留言</div>
-                  <div class="bottom2">进行留言</div>
+                  <div class="center2">新闻</div>
+                  <div class="bottom2">新闻资讯</div>
                 </div>
               </div>
             </div>
@@ -62,8 +62,8 @@
                 @click="router.push('/aboutus')"
               >
                 <div class="text2">
-                  <div class="center2">关于</div>
-                  <div class="bottom2">关于我们</div>
+                  <div class="center2">联系</div>
+                  <div class="bottom2">联系我们</div>
                 </div>
               </div>
             </div>
@@ -81,6 +81,7 @@ const router = useRouter()
 
 <style scoped lang="scss">
 @import "@/assets/style/mixin.scss";
+
 .service-title {
   @include home-title;
 }
@@ -94,12 +95,12 @@ const router = useRouter()
   @media (max-width: 768px) {
     padding-right: 0;
     padding-bottom: 4px;
-    height: 402px !important;
+    height: 330px !important;
   }
 
   .content1 {
     height: 100%;
-    background: url("@/assets/fj1.jpg") no-repeat;
+    background: url("@/assets/upload/play-guide/4.png") no-repeat center;
     background-size: cover;
     .text1 {
       width: 100%;
@@ -126,9 +127,12 @@ const router = useRouter()
     }
   }
 }
-.about3 {
+.about3,
+.about4,
+.about5 {
   box-sizing: border-box;
   padding: 0;
+
   &:nth-child(3),
   &:nth-child(4) {
     padding-top: 4px;
@@ -147,10 +151,11 @@ const router = useRouter()
   }
   .content3 {
     height: 300px;
-    background: url("@/assets/fj1.jpg") no-repeat;
-    background-size: 100% 100%;
+    background: url("@/assets/upload/handmade1.webp") no-repeat;
     object-fit: cover;
     position: relative;
+    background-size: 100% 100%;
+
     .text2 {
       width: 100%;
       height: 100%;
@@ -177,6 +182,22 @@ const router = useRouter()
     @media (max-width: 768px) {
       height: 200px;
     }
+  }
+}
+.about3 {
+  &:nth-child(2) .content3 {
+    background: url("http://www.zjshenxianju.com/r/cms/www/zx/img/header3.jpg")
+      no-repeat;
+    background-position: center center;
+  }
+  &:nth-child(3) .content3 {
+    background: url("http://www.zjshenxianju.com/r/cms/www/zx/img/header56.jpg")
+      no-repeat;
+    background-position: center center;
+  }
+  &:nth-child(4) .content3 {
+    background: url("@/assets/image/spot/wujinshi.png") center;
+    // background-position: center center;
   }
 }
 </style>

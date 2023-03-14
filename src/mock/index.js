@@ -9,6 +9,14 @@ import {
   getHandmadeList,
   getRecommend,
 } from "./modules/specail/handmade/index.js"
+import { getSpotInfo } from "./modules/spot/index.js"
+import {
+  getNews1,
+  getNews2,
+  getNews3,
+  getNews4,
+  getNews5,
+} from "./modules/news/index.js"
 Mock.setup({
   timeout: "300-800",
 })
@@ -47,3 +55,14 @@ Mock.mock(/\/api\/special\/handmade-detail/, "post", (options) => {
 })
 Mock.mock(/\/api\/special\/handmade/, "get", getHandmadeList)
 Mock.mock(/\/api\/special\/recommend/, "get", getRecommend)
+
+// 获取景点详情
+Mock.mock(/\/api\/spot\/detail/, "post", (options) => {
+  return getSpotInfo(options)
+})
+
+Mock.mock(/\api\/news1/, "get", getNews1)
+Mock.mock(/\api\/news2/, "get", getNews2)
+Mock.mock(/\api\/news3/, "get", getNews3)
+Mock.mock(/\api\/news4/, "get", getNews4)
+Mock.mock(/\api\/news5/, "get", getNews5)

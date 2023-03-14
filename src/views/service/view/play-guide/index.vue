@@ -1,6 +1,8 @@
 <template>
   <div v-if="list.length" class="route-recommend">
-    <div class="img"></div>
+    <div class="img">
+      <TextDrop>行程推荐</TextDrop>
+    </div>
     <div class="container">
       <wBread class="bread mt-3 mb-3" sp=">">
         <wBreadItem class="bread-item" to="/">首页</wBreadItem>
@@ -60,7 +62,8 @@ import { ref, onMounted } from "vue"
 import wBread from "@/components/UI/bread/w-bread.vue"
 import wBreadItem from "@/components/UI/bread/w-bread-item.vue"
 import ItemCarousel from "@/views/service/components/play-guide/carousel/index.vue"
-import Like from "@/components/UI/like/index.vue"
+// import Like from "@/components/UI/like/index.vue"
+import TextDrop from "@/components/UI/text-drop/index.vue"
 import { getPlayGuide, postPlayGuideLike } from "@/api/service"
 import Loading from "@/components/UI/loading/index.vue"
 

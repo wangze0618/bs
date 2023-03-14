@@ -18,11 +18,33 @@
             <div class="content-box">
               <div
                 class="table-box"
-                v-for="(item, index) in homeNewsItemLeft"
+                v-for="(item, index) in list1"
                 :key="item.id"
               >
-                <p class="table-list-item">{{ item.title }}</p>
-                <span class="table-time">{{ item.time }}</span>
+                <p
+                  class="table-list-item"
+                  style="cursor: pointer"
+                  @click="goNews(item.url)"
+                >
+                  {{ item.title }}
+                </p>
+                <span class="table-time">{{ item.date }}</span>
+              </div>
+            </div>
+            <div class="content-box">
+              <div
+                class="table-box"
+                v-for="(item, index) in list1"
+                :key="item.id"
+              >
+                <p
+                  class="table-list-item"
+                  style="cursor: pointer"
+                  @click="goNews(item.url)"
+                >
+                  {{ item.title }}
+                </p>
+                <span class="table-time">{{ item.date }}</span>
               </div>
             </div>
           </div>
@@ -33,23 +55,36 @@
             <div class="content-box">
               <div
                 class="table-box"
-                v-for="(item, index) in homeNewsItemTop"
+                v-for="(item, index) in list2"
                 :key="item.id"
               >
-                <p class="table-list-item">{{ item.title }}</p>
-                <span class="table-time">{{ item.time }}</span>
+                <p
+                  class="table-list-item"
+                  style="cursor: pointer"
+                  @click="goNews(item.url)"
+                >
+                  {{ item.title }}
+                </p>
+                <span class="table-time">{{ item.date }}</span>
               </div>
             </div>
           </div>
           <div class="news-3-bottom">
+            <a href="javascript:;"> 活动通知 </a>
             <div class="content-box">
               <div
                 class="table-box"
-                v-for="(item, index) in homeNewsItemTop"
+                v-for="(item, index) in list4"
                 :key="item.id"
               >
-                <p class="table-list-item">{{ item.title }}</p>
-                <span class="table-time">{{ item.time }}</span>
+                <p
+                  class="table-list-item"
+                  style="cursor: pointer"
+                  @click="goNews(item.url)"
+                >
+                  {{ item.title }}
+                </p>
+                <span class="table-time">{{ item.date }}</span>
               </div>
             </div>
           </div>
@@ -60,12 +95,21 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
-import {
-  homeNewsItemTop,
-  homeNewsItemLeft,
-  homeNewsItemBottom,
-} from "@/api/home-news"
+import { onMounted, ref } from "vue"
+import { getNews1, getNews4, getNews2 } from "@/api/news/index"
+let list1 = ref([])
+let list2 = ref([])
+let list4 = ref([])
+const goNews = (url) => {
+  window.open(url)
+}
+onMounted(async () => {
+  const data = await Promise.all([getNews1(), getNews2(), getNews4()])
+  console.log(data)
+  list1.value = data[0].data
+  list2.value = data[1].data.slice(0, 4)
+  list4.value = data[2].data.slice(0, 4)
+})
 </script>
 
 <style scoped lang="scss">
@@ -109,7 +153,7 @@ import {
 
 .news-2 {
   padding: 0 0;
-  padding-right: 20px;
+  padding-right: 8px;
   @media (max-width: 768px) {
     padding-right: 0;
   }

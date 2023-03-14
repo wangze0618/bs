@@ -9,7 +9,9 @@
           </slot>
         </div>
         <p class="col-12 col-md-8">
-          <slot name="content" />
+          <slot name="content">
+            <slot />
+          </slot>
         </p>
       </div>
     </div>
