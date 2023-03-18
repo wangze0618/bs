@@ -105,7 +105,6 @@ const goNews = (url) => {
 }
 onMounted(async () => {
   const data = await Promise.all([getNews1(), getNews2(), getNews4()])
-  console.log(data)
   list1.value = data[0].data
   list2.value = data[1].data.slice(0, 4)
   list4.value = data[2].data.slice(0, 4)

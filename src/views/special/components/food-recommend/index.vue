@@ -3,11 +3,31 @@
     <h5>其他美食推荐</h5>
     <!-- 主体区域 -->
     <div class="con">
-      <div class="item mb-4" v-for="i in 3">
-        <img src="@/assets/upload/handmade1.webp" alt="" />
+      <div class="item mb-4">
+        <img src="@/assets/upload/food/douhua.jpg" alt="" />
         <div class="info">
-          <p>美食美食1</p>
-          <Star class="star" :star="4"></Star>
+          <p>豆花火锅</p>
+          <Star class="star" :star="5"></Star>
+        </div>
+      </div>
+      <div class="item mb-4">
+        <img
+          src="https://pic.rmb.bdstatic.com/bjh/news/b284c5875d05978713451fc9c870ed05.png"
+          alt=""
+        />
+        <div class="info">
+          <p>尧坝红汤羊肉</p>
+          <Star class="star" :star="5"></Star>
+        </div>
+      </div>
+      <div class="item mb-4">
+        <img
+          src="http://image.qingk.cn/image/zhhj/2c37e567f78b4771b3561bc3e172410e.png"
+          alt=""
+        />
+        <div class="info">
+          <p>尧坝黄粑</p>
+          <Star class="star" :star="5"></Star>
         </div>
       </div>
     </div>

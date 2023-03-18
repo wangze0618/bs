@@ -23,7 +23,6 @@
             >
               <div class="food-left">
                 <img :src="item.img" alt="" />
-                <!-- <img :src="item.img" alt="" /> -->
               </div>
               <div class="food-right">
                 <h3>{{ item.title }}</h3>
@@ -107,9 +106,7 @@ onMounted(async () => {
 .food {
   transition: all 0.5s ease;
   background-color: var(--color-background);
-  .img {
-    @include img("http://www.zjshenxianju.com/r/cms/www/zx/img/header55.jpg");
-  }
+
   .container {
     @include setBread;
     .row {
@@ -178,6 +175,9 @@ onMounted(async () => {
         padding: 8px 8px 0 8px;
       }
     }
+  }
+  .img {
+    @include img("http://www.zjshenxianju.com/r/cms/www/zx/img/header55.jpg");
   }
 }
 </style>

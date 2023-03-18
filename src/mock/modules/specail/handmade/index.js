@@ -7,7 +7,7 @@ const list = [
     star: 4,
     price: 100,
     oldPrice: 120,
-    title: "尧坝的雨伞☂",
+    title: "匠心独具的尧坝油纸伞☂",
     description: `
     <p>做一把尧坝油纸伞</p>
     <p>从开料到制作完毕</p>

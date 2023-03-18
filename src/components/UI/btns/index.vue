@@ -1,8 +1,8 @@
 <template>
   <div class="btns" :class="{ show: top > 300 }">
-    <div class="cart" v-if="showCart" @click="goCart()">
+    <!-- <div class="cart" v-if="showCart" @click="goCart()">
       <Shopping size="1.8rem" theme="outline" fill="#555"></Shopping>
-    </div>
+    </div> -->
     <div class="up mt-2" @click="backTo">
       <DoubleUp size="2rem" theme="filled" fill="#555"></DoubleUp>
     </div>
@@ -51,7 +51,7 @@ onMounted(() => {
   &.show {
     opacity: 1;
     visibility: visible;
-    transform: translateY(50%);
+    transform: translateY(20%);
   }
   .up,
   .cart {

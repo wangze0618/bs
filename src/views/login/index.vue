@@ -16,13 +16,6 @@
     </div>
   </div>
   <div class="content">
-    <!-- <video
-      muted
-      autoplay
-      loop
-      class="login-video"
-      src="@/assets/login.mp4"
-    ></video> -->
     <div class="wrap1">
       <div class="row">
         <div class="form-main col-sm-12">

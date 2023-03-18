@@ -1,10 +1,8 @@
 <template>
   <div class="header-item">
     <RouterLink class="routerLink1" to="/">首页</RouterLink>
-
     <!-- 走进尧坝 -->
     <RouterLink class="routerLink1" to="/about">走进尧坝</RouterLink>
-
     <!-- 新闻资讯 -->
     <RouterLink class="routerLink1" to="/news">新闻资讯</RouterLink>
     <!-- 旅游服务 -->

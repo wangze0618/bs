@@ -6,8 +6,8 @@ export const getCarouselList = () => {
     data: [
       {
         url: require("@/assets/upload/home/home3.jpg"),
-        title: "账号admin1",
-        desc: "密码000000",
+        title: "尧坝摄影比赛活动即将开始",
+        desc: "活动将于6月18日开始，敬请关注",
       },
       {
         url: require("@/assets/upload/home/home2.jpg"),

@@ -37,17 +37,17 @@
         <div class="contact-context mt-4 row">
           <div class="box">
             <div class="tel">
-              <ul>
-                <li>电话：15994195797</li>
-                <li>开放时间：全天</li>
-                <li>游玩建议时间：2天</li>
-                <li>门票价格：30元</li>
+              <ul class="me-2">
+                <li>地理位置：泸州市合江县尧坝镇兴尧路尧坝古镇</li>
+                <li>开放时间：全年 全天开放</li>
+                <li>游玩建议时间：1-2天</li>
+                <li>门票价格：免费</li>
               </ul>
               <ul>
-                <li>电话：15994195797</li>
-                <li>开放时间：全天</li>
-                <li>开放时间：全天</li>
-                <li>开放时间：全天</li>
+                <li>官方电话：0830-5633001</li>
+                <li>适宜游玩季节：全年</li>
+                <li>景点级别：国家AAAA级旅游景区</li>
+                <li>官方邮箱：2867273828@qq.com</li>
               </ul>
             </div>
           </div>
@@ -166,7 +166,7 @@ import TextDrop from "@/components/UI/text-drop/index.vue"
         .box {
           margin: 0 auto;
           height: 180px;
-          max-width: 460px;
+          max-width: max-content;
           padding: 0 8px;
           .tel {
             display: flex;

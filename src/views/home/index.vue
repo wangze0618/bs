@@ -19,6 +19,9 @@
     <!-- 游客风采 -->
     <HomeCustom class="wow fadeInUp" data-wow-duration="2s"></HomeCustom>
 
+    <!-- 特色产品 -->
+    <HomeProduct class="wow fadeInUp" data-wow-duration="2s"></HomeProduct>
+
     <!-- 新闻资讯 -->
     <HomeNews class="wow fadeInUp" data-wow-duration="2s"></HomeNews>
 
@@ -39,6 +42,7 @@ import HomeNews from "./view/home-news.vue"
 import HomeService from "./view/home-service.vue"
 import HomeBeauty from "./view/home-beauty.vue"
 import HomeCustom from "./view/home-custom.vue"
+import HomeProduct from "./view/home-product.vue"
 import Loading from "@/components/UI/loading/index.vue"
 const store = useStore()
 // 轮播图所需模块

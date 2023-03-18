@@ -3,20 +3,20 @@
     <div class="container">
       <div class="list d-none d-md-flex">
         <ul>
-          <li>FAQ</li>
-          <li>景区概况</li>
-          <li>门票预订</li>
-          <li>紧急电话</li>
+          <li>走进尧坝</li>
+          <li>路线规划</li>
+          <li>常见问答</li>
+          <li>新闻资讯</li>
         </ul>
         <ul>
-          <li>生态之旅</li>
-          <li>发现之旅</li>
-          <li>生态之旅</li>
-          <li>发现之旅</li>
+          <li>酒店住宿</li>
+          <li>行程推荐</li>
+          <li>特色产品</li>
+          <li>特色美食</li>
         </ul>
         <ul>
-          <li>如何到达</li>
-          <li>住在哪里</li>
+          <li>特色手工</li>
+          <li>联系我们</li>
           <li>游玩信息</li>
           <li>机票预订</li>
         </ul>

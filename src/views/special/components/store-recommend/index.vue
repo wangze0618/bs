@@ -2,15 +2,32 @@
   <div class="store-recommend">
     <h5>名店推荐</h5>
     <!-- 推荐区域 -->
-    <div class="item mb-3" v-for="i in 2">
-      <img src="@/assets/upload/handmade1.webp" alt="" />
+    <div class="item mb-3">
+      <img
+        src="https://luzhou.scol.com.cn/items/201909/190912174610000000001D78.jpg"
+        alt=""
+      />
       <div class="info">
         <div class="title">
-          <h6>店铺1123</h6>
-          <span>人均：￥200</span>
+          <h6>合江尧坝驿网红店“任幺婆”麻辣萝卜干</h6>
+          <span>人均：￥30</span>
         </div>
         <p>位置：尧坝古镇景区</p>
         <p>电话：15994195797</p>
+      </div>
+    </div>
+    <div class="item mb-3">
+      <img
+        src="https://dimg04.c-ctrip.com/images/100v1d000001ek1ne27C7_R_10000_1200.jpg"
+        alt=""
+      />
+      <div class="info">
+        <div class="title">
+          <h6>古镇土菜</h6>
+          <span>人均：￥200</span>
+        </div>
+        <p>位置：尧坝古镇景区</p>
+        <p>电话：19980769274</p>
       </div>
     </div>
   </div>
