@@ -158,7 +158,7 @@ const routes = [
         name: "Comment",
         component: () => import("@/views/user-comment/index.vue"),
       },
-      // 关于我们
+      // 联系我们
       {
         path: "/aboutus",
         name: "Aboutus",
@@ -218,6 +218,7 @@ const checkPath = [
   "/checkout",
   "/pay",
   "/special/handmade",
+  "/special/food",
 ]
 
 router.beforeEach(async (to, from, next) => {

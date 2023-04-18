@@ -70,9 +70,9 @@
         >退出登录</a
       > -->
 
-      <RouterLink class="comment" to="/comment">用户留言</RouterLink>
-      <RouterLink class="cart" to="/cart">购物车</RouterLink>
-      <RouterLink class="aboutus" to="/aboutus">关于我们</RouterLink>
+      <!-- <RouterLink class="comment" to="/comment">用户留言</RouterLink> -->
+      <!-- <RouterLink class="cart" to="/cart">购物车</RouterLink> -->
+      <RouterLink class="aboutus" to="/aboutus">联系我们</RouterLink>
     </div>
   </WDrawer>
 </template>

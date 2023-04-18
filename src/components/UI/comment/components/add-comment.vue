@@ -19,22 +19,35 @@ import { ref } from "vue"
 import { useStore } from "vuex"
 import Button from "@/components/UI/button/index.vue"
 import AlertBox from "@/components/UI/alert/index.js"
+import confirmBox from "@/components/UI/confirm"
+import { useRouter } from "vue-router"
+
 const store = useStore()
 const tar = ref(null)
 const text = ref("")
+const router = useRouter()
 const emit = defineEmits(["getText"])
-
-const logText = () => {
-  try {
-    if (text.value.trim().length == 0) {
-      return AlertBox("warning", "内容不能为空！")
-    } else {
-      emit("getText", text.value)
-      text.value = null
-      AlertBox("success", "发送成功！")
+const logText = async () => {
+  if (!store.state.user.token || store.state.user.token.length == 0) {
+    let isLogin = await confirmBox({
+      title: "请先登录",
+      text: "您需要先登录才可以进行评论",
+    })
+    if (isLogin) {
+      router.push(`/login?redirectUrl=/aboutus`)
     }
-  } catch (error) {
-    console.log(error)
+  } else {
+    try {
+      if (text.value.trim().length == 0) {
+        return AlertBox("warning", "内容不能为空！")
+      } else {
+        emit("getText", text.value)
+        text.value = null
+        AlertBox("success", "发送成功！")
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 

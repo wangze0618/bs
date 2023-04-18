@@ -114,7 +114,6 @@ const getContent = (t) => {
 let commentList = ref("")
 
 const getReplayText = (data) => {
-  console.log(data[1].user_name)
   let it = commentList.value.filter((item) => item.id == data[1].id)
   it[0].replay.push({
     user_id: 0,
