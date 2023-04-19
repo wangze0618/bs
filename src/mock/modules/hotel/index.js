@@ -258,18 +258,47 @@ let data = [
   },
 ]
 
-let OtherHotelData = []
-for (let index = 0; index < 4; index++) {
-  OtherHotelData.push({
-    id: index,
-    title: `尧坝古镇景区酒店${index}`,
-    // title: "@csentence(6,10)",
-    "price|120-400": 120,
+let OtherHotelData = [
+  {
+    id: 0,
+    title: "尧坝古镇君耀主题酒店",
     location: "尧坝古镇旅游景区附近",
     tel: "1" + "@zip(10)",
-    img: Random.image("600x300", "#ff6600", `酒店${index}`),
-  })
-}
+    img: require("@/assets/upload/hotel/yaobakezhan.jpg"),
+  },
+  {
+    id: 1,
+    title: "安静宾馆",
+    location: "尧坝古镇旅游景区附近",
+    tel: "1" + "@zip(10)",
+    img: "https://dimg04.c-ctrip.com/images/0AD4u120009dwdm3s7387_R_600_400_R5_D.jpg",
+  },
+  {
+    id: 2,
+    title: "赤水金黔嘉华国际大酒店",
+    location: "尧坝古镇旅游景区附近",
+    tel: "1" + "@zip(10)",
+    img: "https://dimg04.c-ctrip.com/images/0206h1200092warxf1E25_R_600_400_R5_D.jpg",
+  },
+  {
+    id: 3,
+    title: "汉庭酒店(赤水贵福金街店)",
+    location: "尧坝古镇旅游景区附近",
+    tel: "1" + "@zip(10)",
+    img: "https://dimg04.c-ctrip.com/images/200b0n000000eesoq2929_R_600_400_R5_D.jpg",
+  },
+]
+// for (let index = 0; index < 4; index++) {
+//   OtherHotelData.push(OtherHotelData)
+//   // OtherHotelData.push({
+//   //   id: index,
+//   //   title: `尧坝古镇景区酒店${index}`,
+//   //   // title: "@csentence(6,10)",
+//   //   "price|120-400": 120,
+
+//   //   img: Random.image("600x300", "#ff6600", `酒店${index}`),
+//   // })
+// }
 
 // 获取酒店列表数据
 export const getInfo = () => {
